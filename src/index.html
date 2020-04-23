@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      html {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/wl-components.esm.js"></script>
+    <script nomodule src="/build/wl-components.js"></script>
+  </head>
+  <body>
+    <my-component
+      first="Stencil"
+      last="'Don't call me a framework' JS"
+    ></my-component>
+
+    <wl-modal name="Wilfred">
+      <h1 slot="title">My Custom Title</h1>
+      <div>
+        <p>My Modal Content</p>
+        <p>You know me.</p>
+      </div>
+      <div slot="actions">
+        <wl-button id="cancelBtn" color="secondary" size="small"
+          >Cancel</wl-button
+        >
+        <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
+      </div>
+    </wl-modal>
+    <wl-button color="primary" id="openBtn">Open Modal</wl-button>
+
+    <script>
+      const cancelBtn = document.getElementById("cancelBtn");
+      const daleBtn = document.getElementById("daleBtn");
+      const openButton = document.getElementById("openBtn");
+      const modal = document.querySelector("wl-modal");
+      openButton.addEventListener("click", () => {
+        modal.open();
+      });
+      if (cancelBtn) {
+        cancelBtn.addEventListener("click", () => {
+          modal.close();
+        });
+      }
+
+      if (daleBtn) {
+        daleBtn.addEventListener("click", () => {
+          modal.close();
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script>
+  </body>
+</html>

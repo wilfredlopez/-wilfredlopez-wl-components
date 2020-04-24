@@ -4,11 +4,12 @@ import { WlReactProps } from "./WlReactProps";
 
 import { createForwardRef } from "./utils";
 import { WlButtonInner } from "./wl-proxies";
+import { Components as WlComponents } from "@wilfredlopez/wl-components";
 
-interface WlButtonProps {
+interface WlButtonProps extends Partial<WlComponents.WlButton> {
   ariaLabel?: string;
   name?: string;
-  size?: "small" | "large";
+  // size?: "small" | "large";
 }
 
 type InternalProps = WlButtonProps & {

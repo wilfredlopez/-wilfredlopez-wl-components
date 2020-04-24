@@ -8,7 +8,7 @@ import {
   isCoveredByReact,
 } from "./utils";
 
-interface IonicReactInternalProps<ElementType>
+interface WlReactInternalProps<ElementType>
   extends React.HTMLAttributes<ElementType> {
   forwardedRef?: React.Ref<ElementType>;
   href?: string;
@@ -20,9 +20,9 @@ export const createReactComponent = <PropType, ElementType>(
 ) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<
-    IonicReactInternalProps<PropType>
+    WlReactInternalProps<PropType>
   > {
-    constructor(props: IonicReactInternalProps<PropType>) {
+    constructor(props: WlReactInternalProps<PropType>) {
       super(props);
     }
 
@@ -30,7 +30,7 @@ export const createReactComponent = <PropType, ElementType>(
       this.componentDidUpdate(this.props);
     }
 
-    componentDidUpdate(prevProps: IonicReactInternalProps<PropType>) {
+    componentDidUpdate(prevProps: WlReactInternalProps<PropType>) {
       const node = ReactDom.findDOMNode(this) as HTMLElement;
       attachProps(node, this.props, prevProps);
     }
@@ -55,7 +55,7 @@ export const createReactComponent = <PropType, ElementType>(
         return acc;
       }, {});
 
-      const newProps: IonicReactInternalProps<PropType> = {
+      const newProps: WlReactInternalProps<PropType> = {
         ...propsToPass,
         ref: forwardedRef,
         style,

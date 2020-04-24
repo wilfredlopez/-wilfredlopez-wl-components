@@ -1,16 +1,16 @@
-import { WlButton } from "@wilfredlopez/react";
+import { WlButton, WlContainer } from "@wilfredlopez/react";
 
 import React from "react";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <WlContainer translate>
       <h1>HELLO</h1>
 
       <WlButton translate color="primary">
         KLK
       </WlButton>
-    </div>
+    </WlContainer>
   );
 };
 

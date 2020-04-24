@@ -7,3 +7,23 @@ export const WlContainer = /*@__PURE__*/ createReactComponent<
   JSX.WlContainer,
   HTMLWlButtonElement
 >("wl-container");
+
+export const WlCol = /*@__PURE__*/ createReactComponent<
+  JSX.WlCol,
+  HTMLWlColElement
+>("wl-col");
+
+export const WlGrid = /*@__PURE__*/ createReactComponent<
+  JSX.WlGrid,
+  HTMLWlGridElement
+>("wl-grid");
+
+export const WlModal = /*@__PURE__*/ createReactComponent<
+  JSX.WlModal,
+  HTMLWlModalElement
+>("wl-grid");
+
+export const WlRow = /*@__PURE__*/ createReactComponent<
+  JSX.WlRow,
+  HTMLWlModalElement
+>("wl-row");

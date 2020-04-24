@@ -22,15 +22,121 @@ export namespace Components {
         "type": "submit" | "reset" | "button";
         "variant": "outline" | "filled" | "clear";
     }
+    interface WlCol {
+        /**
+          * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offset"?: string;
+        /**
+          * The amount to offset the column for lg screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetLg"?: string;
+        /**
+          * The amount to offset the column for md screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetMd"?: string;
+        /**
+          * The amount to offset the column for sm screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetSm"?: string;
+        /**
+          * The amount to offset the column for xl screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetXl"?: string;
+        /**
+          * The amount to offset the column for xs screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetXs"?: string;
+        /**
+          * The amount to pull the column, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pull"?: string;
+        /**
+          * The amount to pull the column for lg screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullLg"?: string;
+        /**
+          * The amount to pull the column for md screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullMd"?: string;
+        /**
+          * The amount to pull the column for sm screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullSm"?: string;
+        /**
+          * The amount to pull the column for xl screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullXl"?: string;
+        /**
+          * The amount to pull the column for xs screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullXs"?: string;
+        /**
+          * The amount to push the column, in terms of how many columns it should shift to the end of the total available.
+         */
+        "push"?: string;
+        /**
+          * The amount to push the column for lg screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushLg"?: string;
+        /**
+          * The amount to push the column for md screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushMd"?: string;
+        /**
+          * The amount to push the column for sm screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushSm"?: string;
+        /**
+          * The amount to push the column for xl screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushXl"?: string;
+        /**
+          * The amount to push the column for xs screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushXs"?: string;
+        /**
+          * The size of the column, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "size"?: string;
+        /**
+          * The size of the column for lg screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeLg"?: string;
+        /**
+          * The size of the column for md screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeMd"?: string;
+        /**
+          * The size of the column for sm screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeSm"?: string;
+        /**
+          * The size of the column for xl screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeXl"?: string;
+        /**
+          * The size of the column for xs screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeXs"?: string;
+    }
     interface WlContainer {
         "fluid": boolean;
         "maxWidth": Breakpoints;
         "size": Breakpoints;
     }
+    interface WlGrid {
+        /**
+          * If `true`, the grid will have a fixed width based on the screen size.
+         */
+        "fixed": boolean;
+    }
     interface WlModal {
         "close": () => Promise<boolean>;
         "open": () => Promise<unknown>;
         "show": boolean;
+    }
+    interface WlRow {
     }
 }
 declare global {
@@ -40,11 +146,23 @@ declare global {
         prototype: HTMLWlButtonElement;
         new (): HTMLWlButtonElement;
     };
+    interface HTMLWlColElement extends Components.WlCol, HTMLStencilElement {
+    }
+    var HTMLWlColElement: {
+        prototype: HTMLWlColElement;
+        new (): HTMLWlColElement;
+    };
     interface HTMLWlContainerElement extends Components.WlContainer, HTMLStencilElement {
     }
     var HTMLWlContainerElement: {
         prototype: HTMLWlContainerElement;
         new (): HTMLWlContainerElement;
+    };
+    interface HTMLWlGridElement extends Components.WlGrid, HTMLStencilElement {
+    }
+    var HTMLWlGridElement: {
+        prototype: HTMLWlGridElement;
+        new (): HTMLWlGridElement;
     };
     interface HTMLWlModalElement extends Components.WlModal, HTMLStencilElement {
     }
@@ -52,10 +170,19 @@ declare global {
         prototype: HTMLWlModalElement;
         new (): HTMLWlModalElement;
     };
+    interface HTMLWlRowElement extends Components.WlRow, HTMLStencilElement {
+    }
+    var HTMLWlRowElement: {
+        prototype: HTMLWlRowElement;
+        new (): HTMLWlRowElement;
+    };
     interface HTMLElementTagNameMap {
         "wl-button": HTMLWlButtonElement;
+        "wl-col": HTMLWlColElement;
         "wl-container": HTMLWlContainerElement;
+        "wl-grid": HTMLWlGridElement;
         "wl-modal": HTMLWlModalElement;
+        "wl-row": HTMLWlRowElement;
     }
 }
 declare namespace LocalJSX {
@@ -73,18 +200,127 @@ declare namespace LocalJSX {
         "type"?: "submit" | "reset" | "button";
         "variant"?: "outline" | "filled" | "clear";
     }
+    interface WlCol {
+        /**
+          * The amount to offset the column, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offset"?: string;
+        /**
+          * The amount to offset the column for lg screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetLg"?: string;
+        /**
+          * The amount to offset the column for md screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetMd"?: string;
+        /**
+          * The amount to offset the column for sm screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetSm"?: string;
+        /**
+          * The amount to offset the column for xl screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetXl"?: string;
+        /**
+          * The amount to offset the column for xs screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "offsetXs"?: string;
+        /**
+          * The amount to pull the column, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pull"?: string;
+        /**
+          * The amount to pull the column for lg screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullLg"?: string;
+        /**
+          * The amount to pull the column for md screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullMd"?: string;
+        /**
+          * The amount to pull the column for sm screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullSm"?: string;
+        /**
+          * The amount to pull the column for xl screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullXl"?: string;
+        /**
+          * The amount to pull the column for xs screens, in terms of how many columns it should shift to the start of the total available.
+         */
+        "pullXs"?: string;
+        /**
+          * The amount to push the column, in terms of how many columns it should shift to the end of the total available.
+         */
+        "push"?: string;
+        /**
+          * The amount to push the column for lg screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushLg"?: string;
+        /**
+          * The amount to push the column for md screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushMd"?: string;
+        /**
+          * The amount to push the column for sm screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushSm"?: string;
+        /**
+          * The amount to push the column for xl screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushXl"?: string;
+        /**
+          * The amount to push the column for xs screens, in terms of how many columns it should shift to the end of the total available.
+         */
+        "pushXs"?: string;
+        /**
+          * The size of the column, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "size"?: string;
+        /**
+          * The size of the column for lg screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeLg"?: string;
+        /**
+          * The size of the column for md screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeMd"?: string;
+        /**
+          * The size of the column for sm screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeSm"?: string;
+        /**
+          * The size of the column for xl screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeXl"?: string;
+        /**
+          * The size of the column for xs screens, in terms of how many columns it should take up out of the total available. If `"auto"` is passed, the column will be the size of its content.
+         */
+        "sizeXs"?: string;
+    }
     interface WlContainer {
         "fluid"?: boolean;
         "maxWidth"?: Breakpoints;
         "size"?: Breakpoints;
     }
+    interface WlGrid {
+        /**
+          * If `true`, the grid will have a fixed width based on the screen size.
+         */
+        "fixed"?: boolean;
+    }
     interface WlModal {
         "show"?: boolean;
     }
+    interface WlRow {
+    }
     interface IntrinsicElements {
         "wl-button": WlButton;
+        "wl-col": WlCol;
         "wl-container": WlContainer;
+        "wl-grid": WlGrid;
         "wl-modal": WlModal;
+        "wl-row": WlRow;
     }
 }
 export { LocalJSX as JSX };
@@ -92,8 +328,11 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "wl-button": LocalJSX.WlButton & JSXBase.HTMLAttributes<HTMLWlButtonElement>;
+            "wl-col": LocalJSX.WlCol & JSXBase.HTMLAttributes<HTMLWlColElement>;
             "wl-container": LocalJSX.WlContainer & JSXBase.HTMLAttributes<HTMLWlContainerElement>;
+            "wl-grid": LocalJSX.WlGrid & JSXBase.HTMLAttributes<HTMLWlGridElement>;
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
+            "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;
         }
     }
 }

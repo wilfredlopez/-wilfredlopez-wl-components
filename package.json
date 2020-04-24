@@ -1,6 +1,6 @@
 {
   "name": "@wilfredlopez/wl-components",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "description": "Reusable Stencil Component By Wilfred Lopez",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -17,12 +17,14 @@
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
+    "publish": "npm run build && npm publish",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.2"
+    "@stencil/core": "^1.12.2",
+    "workbox-build": "4.3.1"
   },
   "license": "MIT",
   "author": {

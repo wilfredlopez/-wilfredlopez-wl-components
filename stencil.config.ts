@@ -4,10 +4,10 @@ import { sass } from "@stencil/sass";
 export const config: Config = {
   namespace: "wl-components",
   taskQueue: "async",
-  devMode: true,
-  devServer: {
-    reloadStrategy: "hmr",
-  },
+  // devMode: true,
+  // devServer: {
+  //   reloadStrategy: "hmr",
+  // },
   outputTargets: [
     {
       type: "dist",
@@ -16,10 +16,10 @@ export const config: Config = {
     {
       type: "docs-readme",
     },
-    {
-      type: "www",
-      empty: true,
-    },
+    // {
+    //   type: "www",
+    //   empty: true,
+    // },
   ],
   plugins: [
     sass({

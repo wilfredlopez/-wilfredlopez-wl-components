@@ -24,9 +24,20 @@
   </head>
   <body>
     <wl-container size="md">
-      <div>
-        <h1>HELLO</h1>
-      </div>
+      <wl-grid>
+        <wl-row>
+          <wl-col size="6">
+            <div>
+              <h1>Row 1</h1>
+            </div>
+          </wl-col>
+          <wl-col size="6">
+            <div>
+              <h1>Row 2</h1>
+            </div>
+          </wl-col>
+        </wl-row>
+      </wl-grid>
       <wl-modal name="Wilfred">
         <h1 slot="title">My Custom Title</h1>
         <div>

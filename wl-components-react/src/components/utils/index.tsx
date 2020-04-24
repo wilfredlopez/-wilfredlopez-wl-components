@@ -1,4 +1,3 @@
-import {} from "@wilfredlopez/wl-components";
 import React from "react";
 
 import { WlReactProps } from "../WlReactProps";

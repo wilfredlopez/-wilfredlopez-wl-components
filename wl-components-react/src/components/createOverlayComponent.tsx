@@ -1,8 +1,8 @@
-import { OverlayEventDetail } from '@ionic/core';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { attachProps } from './utils';
+import { attachProps } from "./utils";
+import { OverlayEventDetail } from "./createControllerComponent";
 
 interface OverlayElement extends HTMLElement {
   present: () => Promise<void>;
@@ -18,18 +18,22 @@ export interface ReactOverlayProps {
   onWillPresent?: (event: CustomEvent<OverlayEventDetail>) => void;
 }
 
-export const createOverlayComponent = <OverlayComponent extends object, OverlayType extends OverlayElement>(
+export const createOverlayComponent = <
+  OverlayComponent extends object,
+  OverlayType extends OverlayElement
+>(
   displayName: string,
-  controller: { create: (options: any) => Promise<OverlayType>; }
+  controller: { create: (options: any) => Promise<OverlayType> }
 ) => {
   const didDismissEventName = `on${displayName}DidDismiss`;
   const didPresentEventName = `on${displayName}DidPresent`;
   const willDismissEventName = `on${displayName}WillDismiss`;
   const willPresentEventName = `on${displayName}WillPresent`;
 
-  type Props = OverlayComponent & ReactOverlayProps & {
-    forwardedRef?: React.RefObject<OverlayType>;
-  };
+  type Props = OverlayComponent &
+    ReactOverlayProps & {
+      forwardedRef?: React.RefObject<OverlayType>;
+    };
 
   class Overlay extends React.Component<Props> {
     overlay?: OverlayType;
@@ -37,7 +41,7 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
 
     constructor(props: Props) {
       super(props);
-      this.el = document.createElement('div');
+      this.el = document.createElement("div");
       this.handleDismiss = this.handleDismiss.bind(this);
     }
 
@@ -52,7 +56,9 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
     }
 
     componentWillUnmount() {
-      if (this.overlay) { this.overlay.dismiss(); }
+      if (this.overlay) {
+        this.overlay.dismiss();
+      }
     }
 
     handleDismiss(event: CustomEvent<OverlayEventDetail<any>>) {
@@ -69,29 +75,47 @@ export const createOverlayComponent = <OverlayComponent extends object, OverlayT
         attachProps(this.overlay, this.props, prevProps);
       }
 
-      if (prevProps.isOpen !== this.props.isOpen && this.props.isOpen === true) {
+      if (
+        prevProps.isOpen !== this.props.isOpen &&
+        this.props.isOpen === true
+      ) {
         this.present(prevProps);
       }
-      if (this.overlay && prevProps.isOpen !== this.props.isOpen && this.props.isOpen === false) {
+      if (
+        this.overlay &&
+        prevProps.isOpen !== this.props.isOpen &&
+        this.props.isOpen === false
+      ) {
         await this.overlay.dismiss();
       }
     }
 
     async present(prevProps?: Props) {
-      const { children, isOpen, onDidDismiss, onDidPresent, onWillDismiss, onWillPresent, ...cProps } = this.props;
+      const {
+        children,
+        isOpen,
+        onDidDismiss,
+        onDidPresent,
+        onWillDismiss,
+        onWillPresent,
+        ...cProps
+      } = this.props;
       const elementProps = {
         ...cProps,
         ref: this.props.forwardedRef,
         [didDismissEventName]: this.handleDismiss,
-        [didPresentEventName]: (e: CustomEvent) => this.props.onDidPresent && this.props.onDidPresent(e),
-        [willDismissEventName]: (e: CustomEvent) => this.props.onWillDismiss && this.props.onWillDismiss(e),
-        [willPresentEventName]: (e: CustomEvent) => this.props.onWillPresent && this.props.onWillPresent(e)
+        [didPresentEventName]: (e: CustomEvent) =>
+          this.props.onDidPresent && this.props.onDidPresent(e),
+        [willDismissEventName]: (e: CustomEvent) =>
+          this.props.onWillDismiss && this.props.onWillDismiss(e),
+        [willPresentEventName]: (e: CustomEvent) =>
+          this.props.onWillPresent && this.props.onWillPresent(e),
       };
 
       this.overlay = await controller.create({
         ...elementProps,
         component: this.el,
-        componentProps: {}
+        componentProps: {},
       });
 
       if (this.props.forwardedRef) {

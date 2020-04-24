@@ -20,4 +20,4 @@ const App: React.FC = () => {
 
 ## License
 
-- [MIT](https://raw.githubusercontent.com/ionic-team/ionic/master/LICENSE)
+- [MIT]

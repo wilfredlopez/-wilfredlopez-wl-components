@@ -1,0 +1,31 @@
+@import "../../themes/wl.global.scss";
+@import "./fns-grid.scss";
+
+:host {
+  @include make-breakpoint-padding($grid-paddings);
+  @include margin-horizontal(auto);
+
+  display: block;
+
+  flex: 1;
+}
+
+// Fixed Grid
+// --------------------------------------------------
+
+:host(.grid-fixed) {
+  @include make-grid-widths();
+}
+
+// Grid Padding
+// --------------------------------------------------
+
+// Remove the padding from grid and all immediate children columns
+:host(.wl-no-padding) {
+  --wl-grid-column-padding: 0;
+  --wl-grid-column-padding-xs: 0;
+  --wl-grid-column-padding-sm: 0;
+  --wl-grid-column-padding-md: 0;
+  --wl-grid-column-padding-lg: 0;
+  --wl-grid-column-padding-xl: 0;
+}

@@ -1,0 +1,7 @@
+@import "../../themes/wl.global.scss";
+@import "../wl-grid/wl-grid.scss";
+
+:host {
+  display: flex;
+  flex-wrap: wrap;
+}

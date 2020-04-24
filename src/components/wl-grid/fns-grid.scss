@@ -1,0 +1,131 @@
+// Grid
+// --------------------------------------------------
+/// @prop - The padding for the grid column
+$grid-column-padding: var(--wl-grid-column-padding, 5px) !default;
+
+$grid-column-paddings: (
+  xs: var(--wl-grid-column-padding-xs, $grid-column-padding),
+  sm: var(--wl-grid-column-padding-sm, $grid-column-padding),
+  md: var(--wl-grid-column-padding-md, $grid-column-padding),
+  lg: var(--wl-grid-column-padding-lg, $grid-column-padding),
+  xl: var(--wl-grid-column-padding-xl, $grid-column-padding),
+) !default;
+
+/// @prop - The padding for the grid
+$grid-padding: var(--wl-grid-padding, 5px) !default;
+
+/// @prop - The padding for the grid at different breakpoints
+$grid-paddings: (
+  xs: var(--wl-grid-padding-xs, $grid-padding),
+  sm: var(--wl-grid-padding-sm, $grid-padding),
+  md: var(--wl-grid-padding-md, $grid-padding),
+  lg: var(--wl-grid-padding-lg, $grid-padding),
+  xl: var(--wl-grid-padding-xl, $grid-padding),
+) !default;
+
+/// @prop - Width of the grid for different screen sizes when fixed is enabled
+$grid-widths: (
+  xs: var(--wl-grid-width-xs, var(--wl-grid-width, 100%)),
+  sm: var(--wl-grid-width-sm, var(--wl-grid-width, 540px)),
+  md: var(--wl-grid-width-md, var(--wl-grid-width, 720px)),
+  lg: var(--wl-grid-width-lg, var(--wl-grid-width, 960px)),
+  xl: var(--wl-grid-width-xl, var(--wl-grid-width, 1140px)),
+) !default;
+
+// Responsive Mixins
+// --------------------------------------------------
+
+// Creates a fixed width for the grid based on the screen size
+// ---------------------------------------------------------------------------------
+
+@mixin margin($top, $end: $top, $bottom: $top, $start: $end) {
+  @include property(margin, $top, $end, $bottom, $start);
+}
+@mixin make-grid-widths(
+  $widths: $grid-widths,
+  $breakpoints: $screen-breakpoints
+) {
+  @each $breakpoint, $width in $widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      width: $width;
+    }
+  }
+
+  max-width: 100%;
+}
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$screen-breakpoints: (xs, sm, md, lg, xl);
+// $screen-breakpoints: (
+//   xs: 0,
+//   sm: 576px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px,
+// ) !default;
+
+@mixin property-horizontal($prop, $start, $end: $start) {
+  @if $start == 0 and $end == 0 {
+    #{$prop}-left: $start;
+    #{$prop}-right: $end;
+  } @else {
+    #{$prop}-left: $start;
+    #{$prop}-right: $end;
+
+    @at-root {
+      @supports ((margin-inline-start: 0) or (-webkit-margin-start: 0)) {
+        & {
+          @if $start != null {
+            #{$prop}-left: unset;
+          }
+          @if $end != null {
+            #{$prop}-right: unset;
+          }
+
+          -webkit-#{$prop}-start: $start;
+          #{$prop}-inline-start: $start;
+          -webkit-#{$prop}-end: $end;
+          #{$prop}-inline-end: $end;
+        }
+      }
+    }
+  }
+}
+@mixin margin-horizontal($start, $end: $start) {
+  @include property-horizontal(margin, $start, $end);
+}
+@mixin property($prop, $top, $end: $top, $bottom: $top, $start: $end) {
+  @include property-horizontal($prop, $start, $end);
+  #{$prop}-top: $top;
+  #{$prop}-bottom: $bottom;
+}
+@mixin padding($top, $end: $top, $bottom: $top, $start: $end) {
+  @include property(padding, $top, $end, $bottom, $start);
+}
+// Adds padding to the element based on breakpoints
+// ---------------------------------------------------------------------------------
+@mixin media-breakpoint-up($name, $breakpoints: $screen-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin make-breakpoint-padding($paddings) {
+  @each $breakpoint in map-keys($paddings) {
+    @include media-breakpoint-up($breakpoint) {
+      $padding: map-get($paddings, $breakpoint);
+
+      @include padding($padding);
+    }
+  }
+}

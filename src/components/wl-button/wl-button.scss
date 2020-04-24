@@ -1,0 +1,64 @@
+@import "./wl-button.vars.scss";
+
+#wl-btn[size="small"] {
+  font-size: $font-size-small;
+  min-width: 34px;
+  line-height: 1.5;
+  padding: 6px 16px;
+}
+
+#wl-btn:hover {
+  border: 1px solid var(--wl-color-shade, rgba(88, 137, 236, 0.1));
+  background-color: var(--wl-color-tint, rgba(27, 86, 202, 0.5));
+}
+
+#wl-btn[variant="clear"] {
+  background-color: #f1f1f1;
+  color: var(--wl-color-base);
+  font-weight: bold;
+  border: none;
+}
+
+#wl-btn[variant="outline"] {
+  background-color: transparent;
+  color: inherit;
+}
+#wl-btn[squared] {
+  border-radius: 0px;
+}
+#wl-btn {
+  border-radius: 4px;
+  padding: 6px 16px;
+  border: 1px solid var(--wl-color-tint, rgba(88, 137, 236, 0.1));
+  font-size: $font-size-large;
+  min-width: 64px;
+  line-height: 1.75;
+  // font-weight: 500;
+  font-weight: 600;
+  box-sizing: border-box;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  color: var(--wl-color-contrast);
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  position: relative;
+  align-items: center;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  justify-content: center;
+  text-decoration: none;
+  // background-color: $button-color-default;
+  background-color: var(--wl-color-base);
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-style: inherit;
+  font-feature-settings: inherit;
+  font-variant: inherit;
+  -webkit-appearance: button;
+}

@@ -1,0 +1,89 @@
+:host(wl-container) {
+  div {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  div[size="xs"],
+  div[maxWidth="xs"] {
+    max-width: $sm !important;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+  div[size="sm"],
+  div[maxWidth="sm"] {
+    max-width: $md !important;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+  div[size="md"],
+  div[maxWidth="md"] {
+    max-width: $lg !important;
+  }
+  div[size="lg"],
+  div[maxWidth="lg"] {
+    max-width: $xl !important;
+  }
+
+  @media (min-width: $sm) {
+    div {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: $md) {
+    div {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: $lg) {
+    div {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: $xl) {
+    div {
+      max-width: 1140px;
+    }
+  }
+  div[fluid],
+  div[size="lg"],
+  div[size="md"],
+  div[size="sm"],
+  div[size="xl"] {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @media (min-width: $sm) {
+    div[size="sm"] {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: $md) {
+    div[size="md"],
+    div[size="sm"] {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: $lg) {
+    div[size="lg"],
+    div[size="md"],
+    div[size="sm"] {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: $xl) {
+    div[size="lg"],
+    div[size="md"],
+    div[size="sm"],
+    div[size="xl"] {
+      max-width: 1140px;
+    }
+  }
+}

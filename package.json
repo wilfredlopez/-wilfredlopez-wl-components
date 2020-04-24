@@ -29,5 +29,8 @@
     "name": "Wilfred Lopez",
     "email": "cubamc@gmail.com",
     "url": "https://wilfredlopez.net"
+  },
+  "dependencies": {
+    "@stencil/sass": "^1.3.1"
   }
 }

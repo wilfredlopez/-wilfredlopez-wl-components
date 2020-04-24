@@ -2,7 +2,7 @@ import { Component, h, Prop, Method } from "@stencil/core";
 
 @Component({
   tag: "wl-modal",
-  styleUrl: "./wl-modal.css",
+  styleUrl: "./wl-modal.scss",
   shadow: true,
 })
 export class WlModal {
@@ -11,7 +11,7 @@ export class WlModal {
     reflect: true,
     mutable: true,
   })
-  show: boolean;
+  show: boolean = false;
 
   @Method() async close() {
     return (this.show = false);

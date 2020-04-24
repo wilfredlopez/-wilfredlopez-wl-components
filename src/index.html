@@ -7,7 +7,8 @@
         box-sizing: border-box;
         font-family: sans-serif;
       }
-      html {
+      html,
+      body {
         margin: 0;
         padding: 0;
       }
@@ -22,26 +23,25 @@
     <script nomodule src="/build/wl-components.js"></script>
   </head>
   <body>
-    <my-component
-      first="Stencil"
-      last="'Don't call me a framework' JS"
-    ></my-component>
-
-    <wl-modal name="Wilfred">
-      <h1 slot="title">My Custom Title</h1>
+    <wl-container size="md">
       <div>
-        <p>My Modal Content</p>
-        <p>You know me.</p>
+        <h1>HELLO</h1>
       </div>
-      <div slot="actions">
-        <wl-button id="cancelBtn" color="secondary" size="small"
-          >Cancel</wl-button
-        >
-        <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
-      </div>
-    </wl-modal>
-    <wl-button color="primary" id="openBtn">Open Modal</wl-button>
-
+      <wl-modal name="Wilfred">
+        <h1 slot="title">My Custom Title</h1>
+        <div>
+          <p>My Modal Content</p>
+          <p>You know me.</p>
+        </div>
+        <div slot="actions">
+          <wl-button id="cancelBtn" color="secondary" size="small"
+            >Cancel</wl-button
+          >
+          <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
+        </div>
+      </wl-modal>
+      <wl-button id="openBtn" color="tertiary">Open Modal</wl-button>
+    </wl-container>
     <script>
       const cancelBtn = document.getElementById("cancelBtn");
       const daleBtn = document.getElementById("daleBtn");
@@ -62,6 +62,6 @@
         });
       }
     </script>
-    <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script>
+    <!-- <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script> -->
   </body>
 </html>

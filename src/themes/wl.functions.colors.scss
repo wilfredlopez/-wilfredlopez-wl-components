@@ -1,0 +1,78 @@
+// Default Foreground and Background Colors
+// -------------------------------------------------------------------------------------------
+// Used internally to calculate the default steps
+
+$background-color-value: #fff !default;
+$background-color-rgb-value: 255, 255, 255 !default;
+
+$text-color-value: #000 !default;
+$text-color-rgb-value: 0, 0, 0 !default;
+
+$background-color: var(--wl-background-color, $background-color-value) !default;
+$background-color-rgb: var(
+  --wl-background-color-rgb,
+  $background-color-rgb-value
+) !default;
+$text-color: var(--wl-text-color, $text-color-value) !default;
+$text-color-rgb: var(--wl-text-color-rgb, $text-color-rgb-value) !default;
+
+// Gets the active color's css variable from a variation. Alpha is optional.
+// --------------------------------------------------------------------------------------------
+// Example usage:
+// current-color(base) => var(--wl-color-base)
+// current-color(contrast, 0.1) => rgba(var(--wl-color-contrast-rgb), 0.1)
+// --------------------------------------------------------------------------------------------
+@function current-color($variation, $alpha: null) {
+  @if $alpha == null {
+    @return var(--wl-color-#{$variation});
+  } @else {
+    @return rgba(var(--wl-color-#{$variation}-rgb), #{$alpha});
+  }
+}
+
+// Gets the specific color's css variable from the name and variation. Alpha/rgb are optional.
+// --------------------------------------------------------------------------------------------
+// Example usage:
+// wl-color(primary, base) => var(--wl-color-primary, #3880ff)
+// wl-color(secondary, contrast) => var(--wl-color-secondary-contrast)
+// wl-color(primary, base, 0.5) => rgba(var(--wl-color-primary-rgb, 56, 128, 255), 0.5)
+// --------------------------------------------------------------------------------------------
+
+@function wl-color($name, $variation, $alpha: null, $rgb: null) {
+  $values: map-get($colors, $name);
+  $value: map-get($values, $variation);
+  $variable: --wl-color-#{$name}-#{$variation};
+
+  @if ($variation == base) {
+    $variable: --wl-color-#{$name};
+  }
+
+  @if ($alpha) {
+    $value: color-to-rgb-list($value);
+    @return rgba(var(#{$variable}-rgb, $value), $alpha);
+  }
+  @if ($rgb) {
+    $value: color-to-rgb-list($value);
+    $variable: #{$variable}-rgb;
+  }
+
+  @return var(#{$variable}, $value);
+}
+
+// Mixes a color with black to create its shade.
+// --------------------------------------------------------------------------------------------
+@function get-color-shade($color) {
+  @return mix(#000, $color, 12%);
+}
+
+// Mixes a color with white to create its tint.
+// --------------------------------------------------------------------------------------------
+@function get-color-tint($color) {
+  @return mix(#fff, $color, 10%);
+}
+
+// Converts a color to a comma separated rgb.
+// --------------------------------------------------------------------------------------------
+@function color-to-rgb-list($color) {
+  @return #{red($color)}, #{green($color)}, #{blue($color)};
+}

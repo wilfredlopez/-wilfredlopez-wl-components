@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                       | Default     |
-| -------- | --------- | ----------- | -------------------------- | ----------- |
-| `color`  | `color`   |             | `"primary" \| "secondary"` | `undefined` |
-| `size`   | `size`    |             | `"large" \| "small"`       | `undefined` |
+| Property | Attribute | Description | Type                                    | Default     |
+| -------- | --------- | ----------- | --------------------------------------- | ----------- |
+| `color`  | `color`   |             | `"default" \| "primary" \| "secondary"` | `"default"` |
+| `size`   | `size`    |             | `"default" \| "large" \| "small"`       | `"default"` |
 
 
 ----------------------------------------------

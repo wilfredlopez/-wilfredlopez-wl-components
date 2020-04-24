@@ -7,9 +7,9 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type      | Default     |
-| -------- | --------- | ----------- | --------- | ----------- |
-| `show`   | `show`    |             | `boolean` | `undefined` |
+| Property | Attribute | Description | Type      | Default |
+| -------- | --------- | ----------- | --------- | ------- |
+| `show`   | `show`    |             | `boolean` | `false` |
 
 
 ## Methods

@@ -1,0 +1,34 @@
+@import "../css/wl.bundle.scss";
+
+// Global Color Functions
+@import "./wl.functions.colors.scss";
+
+// Default Theme
+@import "./wl.theme.default.scss";
+
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$screen-breakpoints: (
+  xs: $xs,
+  sm: $sm,
+  md: $md,
+  lg: $lg,
+  xl: $xl,
+) !default;
+
+@each $size, $value in $screen-breakpoints {
+  .size-#{$size} {
+    max-width: $value;
+  }
+  // :root {
+  //   --wl-color-#{$size} {
+  //     @include generate-color($size);
+  //   }
+  // }
+}
+
+$font-family-base: var(--wl-font-family, inherit) !default;

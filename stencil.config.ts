@@ -4,12 +4,12 @@ import { sass } from "@stencil/sass";
 export const config: Config = {
   namespace: "wl-components",
   taskQueue: "async",
-  // enableCache: true,
+  enableCache: true,
   bundles: [{ components: ["wl-grid", "wl-row", "wl-col"] }],
-  devMode: true,
-  devServer: {
-    reloadStrategy: "hmr",
-  },
+  // devMode: true,
+  // devServer: {
+  //   reloadStrategy: "hmr",
+  // },
   outputTargets: [
     {
       type: "dist",

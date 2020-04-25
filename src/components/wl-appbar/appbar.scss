@@ -1,0 +1,68 @@
+@import "../../themes/wl.globals";
+
+$AppColors: (
+  primary,
+  secondary,
+  tertiary,
+  success,
+  warning,
+  danger,
+  light,
+  medium,
+  dark
+);
+
+$VARIANTS: (outline, solid, clear);
+
+$color: "";
+
+:host {
+  --color: rgba(0, 0, 0, 0.87);
+  --background-color: #fff;
+}
+
+@each $color-name in $AppColors {
+  [color="#{$color-name}"] {
+    --background-color: #{wl-color($color-name, base)};
+    --color: #{wl-color($color-name, contrast)};
+  }
+}
+
+:host {
+  flex-grow: 1;
+  header {
+    color: var(--color, rgba(0, 0, 0, 0.87));
+    background-color: var(--background-color, #fff);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    width: 100%;
+    display: flex;
+    z-index: 1100;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex-direction: column;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+  [static] {
+    position: static;
+    transform: translateZ(0);
+  }
+  [regular] {
+    min-height: 56px;
+    @media (min-width: 600px) {
+      min-height: 64px;
+    }
+  }
+
+  #toolbar {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    @media (min-width: 600px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+}

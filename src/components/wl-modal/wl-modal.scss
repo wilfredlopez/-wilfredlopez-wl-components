@@ -1,10 +1,11 @@
+@import "../../themes/wl.globals";
+
 #backdrop {
   transition: all 0.3s ease-out;
   width: 100%;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   background-color: rgba($color: #000000, $alpha: 0.77);
-  // rgba(0, 0, 0, 0.75);
   top: 0;
   left: 0;
   pointer-events: none;
@@ -20,9 +21,10 @@
   background-color: white;
   z-index: 100;
   opacity: 1;
-  position: absolute;
+  position: fixed;
   left: 10%;
   right: 10%;
+  top: 25%;
   box-shadow: 0px 0px 4px 2px rgba(91, 84, 84, 0.29);
   pointer-events: none;
   opacity: 0;
@@ -63,4 +65,5 @@ header {
 :host([show]) #modal {
   pointer-events: all;
   opacity: 1;
+  position: fixed;
 }

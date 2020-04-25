@@ -1,0 +1,71 @@
+/**
+ * Default
+ * -----------------------------------------------------
+ * The default theme uses a white background with
+
+**/
+
+/* :root {
+  --wl-color-primary: #3880ff;
+  --wl-color-primary-rgb: 56, 128, 255;
+  --wl-color-primary-contrast: #ffffff;
+  --wl-color-primary-contrast-rgb: 255, 255, 255;
+  --wl-color-primary-shade: #3171e0;
+  --wl-color-primary-tint: #4c8dff;
+
+  --wl-color-secondary: #3dc2ff;
+  --wl-color-secondary-rgb: 61, 194, 255;
+  --wl-color-secondary-contrast: #ffffff;
+  --wl-color-secondary-contrast-rgb: 255, 255, 255;
+  --wl-color-secondary-shade: #36abe0;
+  --wl-color-secondary-tint: #50c8ff;
+
+  --wl-color-tertiary: #5260ff;
+  --wl-color-tertiary-rgb: 82, 96, 255;
+  --wl-color-tertiary-contrast: #ffffff;
+  --wl-color-tertiary-contrast-rgb: 255, 255, 255;
+  --wl-color-tertiary-shade: #4854e0;
+  --wl-color-tertiary-tint: #6370ff;
+
+  --wl-color-success: #2dd36f;
+  --wl-color-success-rgb: 45, 211, 111;
+  --wl-color-success-contrast: #ffffff;
+  --wl-color-success-contrast-rgb: 255, 255, 255;
+  --wl-color-success-shade: #28ba62;
+  --wl-color-success-tint: #42d77d;
+
+  --wl-color-warning: #ffc409;
+  --wl-color-warning-rgb: 255, 196, 9;
+  --wl-color-warning-contrast: #000000;
+  --wl-color-warning-contrast-rgb: 0, 0, 0;
+  --wl-color-warning-shade: #e0ac08;
+  --wl-color-warning-tint: #ffca22;
+
+  --wl-color-danger: #eb445a;
+  --wl-color-danger-rgb: 235, 68, 90;
+  --wl-color-danger-contrast: #ffffff;
+  --wl-color-danger-contrast-rgb: 255, 255, 255;
+  --wl-color-danger-shade: #cf3c4f;
+  --wl-color-danger-tint: #ed576b;
+
+  --wl-color-dark: #222428;
+  --wl-color-dark-rgb: 34, 36, 40;
+  --wl-color-dark-contrast: #ffffff;
+  --wl-color-dark-contrast-rgb: 255, 255, 255;
+  --wl-color-dark-shade: #1e2023;
+  --wl-color-dark-tint: #383a3e;
+
+  --wl-color-medium: #92949c;
+  --wl-color-medium-rgb: 146, 148, 156;
+  --wl-color-medium-contrast: #ffffff;
+  --wl-color-medium-contrast-rgb: 255, 255, 255;
+  --wl-color-medium-shade: #808289;
+  --wl-color-medium-tint: #9d9fa6;
+
+  --wl-color-light: #f4f5f8;
+  --wl-color-light-rgb: 244, 245, 248;
+  --wl-color-light-contrast: #000000;
+  --wl-color-light-contrast-rgb: 0, 0, 0;
+  --wl-color-light-shade: #d7d8da;
+  --wl-color-light-tint: #f5f6f9;
+} */

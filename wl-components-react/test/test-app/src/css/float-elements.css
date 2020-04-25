@@ -1,0 +1,146 @@
+.wl-float-left {
+  float: left !important;
+}
+[dir] .wl-float-left {
+  float: left !important;
+}
+
+.wl-float-right {
+  float: right !important;
+}
+[dir] .wl-float-right {
+  float: right !important;
+}
+
+.wl-float-start {
+  float: left !important;
+}
+[dir=rtl] .wl-float-start, :host-context([dir=rtl]) .wl-float-start {
+  float: right !important;
+}
+
+.wl-float-end {
+  float: right !important;
+}
+[dir=rtl] .wl-float-end, :host-context([dir=rtl]) .wl-float-end {
+  float: left !important;
+}
+
+@media (min-width: 576px) {
+  .wl-float-sm-left {
+    float: left !important;
+  }
+  [dir] .wl-float-sm-left {
+    float: left !important;
+  }
+
+  .wl-float-sm-right {
+    float: right !important;
+  }
+  [dir] .wl-float-sm-right {
+    float: right !important;
+  }
+
+  .wl-float-sm-start {
+    float: left !important;
+  }
+  [dir=rtl] .wl-float-sm-start, :host-context([dir=rtl]) .wl-float-sm-start {
+    float: right !important;
+  }
+
+  .wl-float-sm-end {
+    float: right !important;
+  }
+  [dir=rtl] .wl-float-sm-end, :host-context([dir=rtl]) .wl-float-sm-end {
+    float: left !important;
+  }
+}
+@media (min-width: 768px) {
+  .wl-float-md-left {
+    float: left !important;
+  }
+  [dir] .wl-float-md-left {
+    float: left !important;
+  }
+
+  .wl-float-md-right {
+    float: right !important;
+  }
+  [dir] .wl-float-md-right {
+    float: right !important;
+  }
+
+  .wl-float-md-start {
+    float: left !important;
+  }
+  [dir=rtl] .wl-float-md-start, :host-context([dir=rtl]) .wl-float-md-start {
+    float: right !important;
+  }
+
+  .wl-float-md-end {
+    float: right !important;
+  }
+  [dir=rtl] .wl-float-md-end, :host-context([dir=rtl]) .wl-float-md-end {
+    float: left !important;
+  }
+}
+@media (min-width: 992px) {
+  .wl-float-lg-left {
+    float: left !important;
+  }
+  [dir] .wl-float-lg-left {
+    float: left !important;
+  }
+
+  .wl-float-lg-right {
+    float: right !important;
+  }
+  [dir] .wl-float-lg-right {
+    float: right !important;
+  }
+
+  .wl-float-lg-start {
+    float: left !important;
+  }
+  [dir=rtl] .wl-float-lg-start, :host-context([dir=rtl]) .wl-float-lg-start {
+    float: right !important;
+  }
+
+  .wl-float-lg-end {
+    float: right !important;
+  }
+  [dir=rtl] .wl-float-lg-end, :host-context([dir=rtl]) .wl-float-lg-end {
+    float: left !important;
+  }
+}
+@media (min-width: 1200px) {
+  .wl-float-xl-left {
+    float: left !important;
+  }
+  [dir] .wl-float-xl-left {
+    float: left !important;
+  }
+
+  .wl-float-xl-right {
+    float: right !important;
+  }
+  [dir] .wl-float-xl-right {
+    float: right !important;
+  }
+
+  .wl-float-xl-start {
+    float: left !important;
+  }
+  [dir=rtl] .wl-float-xl-start, :host-context([dir=rtl]) .wl-float-xl-start {
+    float: right !important;
+  }
+
+  .wl-float-xl-end {
+    float: right !important;
+  }
+  [dir=rtl] .wl-float-xl-end, :host-context([dir=rtl]) .wl-float-xl-end {
+    float: left !important;
+  }
+}
+
+/*# sourceMappingURL=float-elements.css.map */

@@ -199,6 +199,7 @@ export class WlCol implements ComponentInterface {
     // If size wasn't set for any breakpoint
     // or if the user set the size without a value
     // it means we need to stick with the default and return
+    // e.g. <ion-col size-md>
     if (!columns || columns === "") {
       return;
     }
@@ -209,7 +210,7 @@ export class WlCol implements ComponentInterface {
         ? "auto"
         : // If CSS supports variables we should use the grid columns var
         SUPPORTS_VARS
-        ? `calc(calc(${columns} / var(--wl  -grid-columns, 12)) * 100%)`
+        ? `calc(calc(${columns} / var(--wl-grid-columns, 12)) * 100%)`
         : // Convert the columns to a percentage by dividing by the total number
           // of columns (12) and then multiplying by 100
           (columns / 12) * 100 + "%";
@@ -233,7 +234,7 @@ export class WlCol implements ComponentInterface {
     // 12 we can position the column, else default to auto
     const amount = SUPPORTS_VARS
       ? // If CSS supports variables we should use the grid columns var
-        `calc(calc(${columns} / var(--wl  -grid-columns, 12)) * 100%)`
+        `calc(calc(${columns} / var(--wl-grid-columns, 12)) * 100%)`
       : // Convert the columns to a percentage by dividing by the total number
       // of columns (12) and then multiplying by 100
       columns > 0 && columns < 12
@@ -259,11 +260,13 @@ export class WlCol implements ComponentInterface {
   private calculatePush(isRTL: boolean) {
     return this.calculatePosition("push", isRTL ? "right" : "left");
   }
-
   render() {
     const isRTL = document.dir === "rtl";
     return (
       <Host
+        class={{
+          md: true,
+        }}
         style={{
           ...this.calculateOffset(isRTL),
           ...this.calculatePull(isRTL),

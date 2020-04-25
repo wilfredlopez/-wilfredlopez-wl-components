@@ -6,21 +6,37 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Color, } from "./components/interfaces/Color.model";
+import { Variants, } from "./components/interfaces/Variants.model";
 import { Breakpoints, } from "./components/interfaces/Breakpoints.model";
+import { SpinerVariant, } from "./components/interfaces/SpinerVariant.mode";
 export namespace Components {
+    interface WlAppbar {
+        "color"?: Color;
+    }
     interface WlButton {
-        "color": Color;
+        "circular": boolean;
+        "color"?: Color;
         /**
           * If `true`, the user cannot interact with the button.
          */
         "disabled": boolean;
-        "size": "small" | "large" | "default";
-        "squared": boolean;
+        "href": string | undefined;
+        /**
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+         */
+        "rel": string | undefined;
+        "size"?: "sm" | "lg" | "xl";
+        /**
+          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+         */
+        "target": string | undefined;
         /**
           * The type of the button.
          */
         "type": "submit" | "reset" | "button";
-        "variant": "outline" | "filled" | "clear";
+        "variant": Variants;
+    }
+    interface WlCard {
     }
     interface WlCol {
         /**
@@ -137,14 +153,31 @@ export namespace Components {
         "show": boolean;
     }
     interface WlRow {
+        "align": "center" | "end" | "start" | "baseline";
+    }
+    interface WlSpinner {
+        "color": Color;
+        "variant": SpinerVariant;
     }
 }
 declare global {
+    interface HTMLWlAppbarElement extends Components.WlAppbar, HTMLStencilElement {
+    }
+    var HTMLWlAppbarElement: {
+        prototype: HTMLWlAppbarElement;
+        new (): HTMLWlAppbarElement;
+    };
     interface HTMLWlButtonElement extends Components.WlButton, HTMLStencilElement {
     }
     var HTMLWlButtonElement: {
         prototype: HTMLWlButtonElement;
         new (): HTMLWlButtonElement;
+    };
+    interface HTMLWlCardElement extends Components.WlCard, HTMLStencilElement {
+    }
+    var HTMLWlCardElement: {
+        prototype: HTMLWlCardElement;
+        new (): HTMLWlCardElement;
     };
     interface HTMLWlColElement extends Components.WlCol, HTMLStencilElement {
     }
@@ -176,29 +209,52 @@ declare global {
         prototype: HTMLWlRowElement;
         new (): HTMLWlRowElement;
     };
+    interface HTMLWlSpinnerElement extends Components.WlSpinner, HTMLStencilElement {
+    }
+    var HTMLWlSpinnerElement: {
+        prototype: HTMLWlSpinnerElement;
+        new (): HTMLWlSpinnerElement;
+    };
     interface HTMLElementTagNameMap {
+        "wl-appbar": HTMLWlAppbarElement;
         "wl-button": HTMLWlButtonElement;
+        "wl-card": HTMLWlCardElement;
         "wl-col": HTMLWlColElement;
         "wl-container": HTMLWlContainerElement;
         "wl-grid": HTMLWlGridElement;
         "wl-modal": HTMLWlModalElement;
         "wl-row": HTMLWlRowElement;
+        "wl-spinner": HTMLWlSpinnerElement;
     }
 }
 declare namespace LocalJSX {
+    interface WlAppbar {
+        "color"?: Color;
+    }
     interface WlButton {
+        "circular"?: boolean;
         "color"?: Color;
         /**
           * If `true`, the user cannot interact with the button.
          */
         "disabled"?: boolean;
-        "size"?: "small" | "large" | "default";
-        "squared"?: boolean;
+        "href"?: string | undefined;
+        /**
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+         */
+        "rel"?: string | undefined;
+        "size"?: "sm" | "lg" | "xl";
+        /**
+          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+         */
+        "target"?: string | undefined;
         /**
           * The type of the button.
          */
         "type"?: "submit" | "reset" | "button";
-        "variant"?: "outline" | "filled" | "clear";
+        "variant"?: Variants;
+    }
+    interface WlCard {
     }
     interface WlCol {
         /**
@@ -313,26 +369,37 @@ declare namespace LocalJSX {
         "show"?: boolean;
     }
     interface WlRow {
+        "align"?: "center" | "end" | "start" | "baseline";
+    }
+    interface WlSpinner {
+        "color"?: Color;
+        "variant"?: SpinerVariant;
     }
     interface IntrinsicElements {
+        "wl-appbar": WlAppbar;
         "wl-button": WlButton;
+        "wl-card": WlCard;
         "wl-col": WlCol;
         "wl-container": WlContainer;
         "wl-grid": WlGrid;
         "wl-modal": WlModal;
         "wl-row": WlRow;
+        "wl-spinner": WlSpinner;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "wl-appbar": LocalJSX.WlAppbar & JSXBase.HTMLAttributes<HTMLWlAppbarElement>;
             "wl-button": LocalJSX.WlButton & JSXBase.HTMLAttributes<HTMLWlButtonElement>;
+            "wl-card": LocalJSX.WlCard & JSXBase.HTMLAttributes<HTMLWlCardElement>;
             "wl-col": LocalJSX.WlCol & JSXBase.HTMLAttributes<HTMLWlColElement>;
             "wl-container": LocalJSX.WlContainer & JSXBase.HTMLAttributes<HTMLWlContainerElement>;
             "wl-grid": LocalJSX.WlGrid & JSXBase.HTMLAttributes<HTMLWlGridElement>;
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
             "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;
+            "wl-spinner": LocalJSX.WlSpinner & JSXBase.HTMLAttributes<HTMLWlSpinnerElement>;
         }
     }
 }

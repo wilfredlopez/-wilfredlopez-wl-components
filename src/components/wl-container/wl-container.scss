@@ -1,4 +1,6 @@
-:host(wl-container) {
+@import "../../themes/wl.globals";
+
+:host {
   div {
     width: 100%;
     padding-right: 15px;

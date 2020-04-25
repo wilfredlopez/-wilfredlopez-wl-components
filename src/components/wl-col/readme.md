@@ -37,15 +37,27 @@
 
 ## CSS Custom Properties
 
-| Name                           | Description                                 |
-| ------------------------------ | ------------------------------------------- |
-| `--ion-grid-column-padding`    | Padding for the Column                      |
-| `--ion-grid-column-padding-lg` | Padding for the Column on lg screens and up |
-| `--ion-grid-column-padding-md` | Padding for the Column on md screens and up |
-| `--ion-grid-column-padding-sm` | Padding for the Column on sm screens and up |
-| `--ion-grid-column-padding-xl` | Padding for the Column on xl screens and up |
-| `--ion-grid-column-padding-xs` | Padding for the Column on xs screens and up |
-| `--ion-grid-columns`           | The number of total Columns in the Grid     |
+| Name                          | Description                                 |
+| ----------------------------- | ------------------------------------------- |
+| `--wl-grid-column-padding`    | Padding for the Column                      |
+| `--wl-grid-column-padding-lg` | Padding for the Column on lg screens and up |
+| `--wl-grid-column-padding-md` | Padding for the Column on md screens and up |
+| `--wl-grid-column-padding-sm` | Padding for the Column on sm screens and up |
+| `--wl-grid-column-padding-xl` | Padding for the Column on xl screens and up |
+| `--wl-grid-column-padding-xs` | Padding for the Column on xs screens and up |
+| `--wl-grid-columns`           | The number of total Columns in the Grid     |
+| `--wl-grid-padding`           | Padding for the Grid                        |
+| `--wl-grid-padding-lg`        | Padding for the Grid on lg screens          |
+| `--wl-grid-padding-md`        | Padding for the Grid on md screens          |
+| `--wl-grid-padding-sm`        | Padding for the Grid on sm screens          |
+| `--wl-grid-padding-xl`        | Padding for the Grid on xl screens          |
+| `--wl-grid-padding-xs`        | Padding for the Grid on xs screens          |
+| `--wl-grid-width`             | Width of the fixed Grid                     |
+| `--wl-grid-width-lg`          | Width of the fixed Grid on lg screens       |
+| `--wl-grid-width-md`          | Width of the fixed Grid on md screens       |
+| `--wl-grid-width-sm`          | Width of the fixed Grid on sm screens       |
+| `--wl-grid-width-xl`          | Width of the fixed Grid on xl screens       |
+| `--wl-grid-width-xs`          | Width of the fixed Grid on xs screens       |
 
 
 ----------------------------------------------

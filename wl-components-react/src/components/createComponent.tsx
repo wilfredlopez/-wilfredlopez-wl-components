@@ -9,10 +9,11 @@ import {
 } from "./utils";
 
 interface WlReactInternalProps<ElementType>
-  extends React.HTMLAttributes<ElementType> {
+  extends Omit<React.HTMLAttributes<ElementType>, "translate"> {
   forwardedRef?: React.Ref<ElementType>;
   href?: string;
   ref?: React.Ref<any>;
+  translate?: any;
 }
 
 export const createReactComponent = <PropType, ElementType>(

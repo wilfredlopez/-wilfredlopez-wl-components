@@ -1,0 +1,129 @@
+@import "../themes/wl.skip-warns.scss";
+@import "../themes/wl.globals";
+@import "../themes/wl.mixins";
+
+// Element Space
+// --------------------------------------------------
+// Creates padding and margin attributes to be used on
+// any element
+
+$padding: var(--wl-padding, 16px);
+$margin: var(--wl-margin, 16px);
+
+// Padding
+// --------------------------------------------------
+
+.wl-no-padding {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+
+  @include padding(0);
+}
+
+.wl-padding {
+  --padding-start: #{$padding};
+  --padding-end: #{$padding};
+  --padding-top: #{$padding};
+  --padding-bottom: #{$padding};
+
+  @include padding($padding);
+}
+
+.wl-padding-top {
+  --padding-top: #{$padding};
+
+  @include padding($padding, null, null, null);
+}
+
+.wl-padding-start {
+  --padding-start: #{$padding};
+
+  @include padding-horizontal($padding, null);
+}
+
+.wl-padding-end {
+  --padding-end: #{$padding};
+
+  @include padding-horizontal(null, $padding);
+}
+
+.wl-padding-bottom {
+  --padding-bottom: #{$padding};
+
+  @include padding(null, null, $padding, null);
+}
+
+.wl-padding-vertical {
+  --padding-top: #{$padding};
+  --padding-bottom: #{$padding};
+
+  @include padding($padding, null, $padding, null);
+}
+
+.wl-padding-horizontal {
+  --padding-start: #{$padding};
+  --padding-end: #{$padding};
+
+  @include padding-horizontal($padding);
+}
+
+// Margin
+// --------------------------------------------------
+
+.wl-no-margin {
+  --margin-start: 0;
+  --margin-end: 0;
+  --margin-top: 0;
+  --margin-bottom: 0;
+
+  @include margin(0);
+}
+
+.wl-margin {
+  --margin-start: #{$margin};
+  --margin-end: #{$margin};
+  --margin-top: #{$margin};
+  --margin-bottom: #{$margin};
+
+  @include margin($margin);
+}
+
+.wl-margin-top {
+  --margin-top: #{$margin};
+
+  @include margin($margin, null, null, null);
+}
+
+.wl-margin-start {
+  --margin-start: #{$margin};
+
+  @include margin-horizontal($margin, null);
+}
+
+.wl-margin-end {
+  --margin-end: #{$margin};
+
+  @include margin-horizontal(null, $margin);
+}
+
+.wl-margin-bottom {
+  --margin-bottom: #{$margin};
+
+  @include margin(null, null, $margin, null);
+}
+
+.wl-margin-vertical {
+  --margin-top: #{$margin};
+  --margin-bottom: #{$margin};
+
+  @include margin($margin, null, $margin, null);
+}
+
+.wl-margin-horizontal {
+  --margin-start: #{$margin};
+  --margin-end: #{$margin};
+
+  @include margin-horizontal($margin);
+}

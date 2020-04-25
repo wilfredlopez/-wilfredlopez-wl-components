@@ -1,0 +1,31 @@
+@import "../themes/wl.skip-warns.scss";
+@import "../themes/wl.globals";
+@import "../themes/wl.mixins";
+
+// Float Elements
+// --------------------------------------------------
+// Creates float classes based on screen size
+
+@each $breakpoint in map-keys($screen-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $screen-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $screen-breakpoints) {
+    // Provide `.wl-float-{bp}-{side}` classes for floating the element based
+    // on the breakpoint and side
+    .wl-float#{$infix}-left {
+      @include float(left, !important);
+    }
+
+    .wl-float#{$infix}-right {
+      @include float(right, !important);
+    }
+
+    .wl-float#{$infix}-start {
+      @include float(start, !important);
+    }
+
+    .wl-float#{$infix}-end {
+      @include float(end, !important);
+    }
+  }
+}

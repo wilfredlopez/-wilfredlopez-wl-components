@@ -2,9 +2,7 @@
 
 // HTML5 display definitions
 // ==========================================================================
-body {
-  margin: 0;
-}
+
 // 1. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
 audio,
 canvas,
@@ -135,26 +133,26 @@ input[type="submit"] {
 a,
 a div,
 a span,
-a ion-icon,
-a ion-label,
+a wl-icon,
+a wl-label,
 button,
 button div,
 button span,
-button ion-icon,
-button ion-label,
-.ion-tappable,
+button wl-icon,
+button wl-label,
+.wl-tappable,
 [tappable],
 [tappable] div,
 [tappable] span,
-[tappable] ion-icon,
-[tappable] ion-label,
+[tappable] wl-icon,
+[tappable] wl-label,
 input,
 textarea {
   touch-action: manipulation;
 }
 
-a ion-label,
-button ion-label {
+a wl-label,
+button wl-label {
   pointer-events: none;
 }
 

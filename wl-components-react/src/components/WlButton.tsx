@@ -3,7 +3,7 @@ import React from "react";
 import { WlReactProps } from "./WlReactProps";
 
 import { createForwardRef } from "./utils";
-import { WlButtonInner } from "./wl-proxies";
+import { WlButtonInner } from "./inner-proxies";
 import { Components as WlComponents } from "@wilfredlopez/wl-components";
 
 interface WlButtonProps extends Partial<WlComponents.WlButton> {

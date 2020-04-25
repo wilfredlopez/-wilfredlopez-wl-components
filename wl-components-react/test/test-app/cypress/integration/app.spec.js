@@ -8,7 +8,7 @@ describe("Connectors", () => {
 
   it(".each() - iterate over an array of elements", () => {
     // https://on.cypress.io/each
-    cy.get("wl-item").each(($el, index, $list) => {
+    cy.get("wl-button").each(($el, index, $list) => {
       console.log($el, index, $list);
     });
   });

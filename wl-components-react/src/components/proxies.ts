@@ -5,7 +5,7 @@ import { /*@__PURE__*/ createReactComponent } from "./createComponent";
 //wl-button
 export const WlContainer = /*@__PURE__*/ createReactComponent<
   JSX.WlContainer,
-  HTMLWlButtonElement
+  HTMLWlContainerElement
 >("wl-container");
 
 export const WlCol = /*@__PURE__*/ createReactComponent<
@@ -25,5 +25,5 @@ export const WlModal = /*@__PURE__*/ createReactComponent<
 
 export const WlRow = /*@__PURE__*/ createReactComponent<
   JSX.WlRow,
-  HTMLWlModalElement
+  HTMLWlRowElement
 >("wl-row");

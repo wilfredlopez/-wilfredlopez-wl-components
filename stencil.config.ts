@@ -4,10 +4,12 @@ import { sass } from "@stencil/sass";
 export const config: Config = {
   namespace: "wl-components",
   taskQueue: "async",
-  // devMode: true,
-  // devServer: {
-  //   reloadStrategy: "hmr",
-  // },
+  // enableCache: true,
+  bundles: [{ components: ["wl-grid", "wl-row", "wl-col"] }],
+  devMode: true,
+  devServer: {
+    reloadStrategy: "hmr",
+  },
   outputTargets: [
     {
       type: "dist",
@@ -16,14 +18,16 @@ export const config: Config = {
     {
       type: "docs-readme",
     },
-    // {
-    //   type: "www",
-    //   empty: true,
-    // },
+    {
+      type: "dist-hydrate-script",
+    },
+    {
+      type: "www",
+    },
   ],
   plugins: [
     sass({
-      injectGlobalPaths: ["src/themes/wl.global.scss"],
+      injectGlobalPaths: ["src/themes/wl.skip-warns.scss"],
     }),
   ],
 };

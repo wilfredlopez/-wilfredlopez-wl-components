@@ -1,0 +1,59 @@
+//  iOS Theme
+// -------------------------------------------------------------------------------------------
+// This file contains the theme variables shared
+// between modes. This should only include variables
+// used to theme the application colors for iOS.
+
+// iOS General Colors
+// --------------------------------------------------
+$backdrop-ios-color: var(--wl-backdrop-color, #000) !default;
+$border-ios-color: var(
+  --wl-border-color,
+  var(--wl-color-step-150, #dedede)
+) !default;
+$box-shadow-ios-color: var(--wl-box-shadow-color, #000) !default;
+$overlay-ios-background-color: var(
+  --wl-overlay-background-color,
+  var(--wl-color-step-100, #f9f9f9)
+) !default;
+
+// iOS Tabs & Tab bar
+// --------------------------------------------------
+$tabbar-ios-background: var(
+  --wl-tab-bar-background,
+  $background-color
+) !default;
+$tabbar-ios-background-focused: var(
+  --wl-tab-bar-background-focused,
+  get-color-shade(#fff)
+) !default;
+$tabbar-ios-border-color: var(
+  --wl-tab-bar-border-color,
+  var(--wl-border-color, var(--wl-color-step-150, rgba(0, 0, 0, 0.2)))
+) !default;
+$tabbar-ios-color: var(--wl-tab-bar-color, $text-color-step-600) !default;
+$tabbar-ios-color-selected: var(
+  --wl-tab-bar-color-selected,
+  wl-color(primary, base)
+) !default;
+
+// iOS Toolbar
+// --------------------------------------------------
+$toolbar-ios-background: var(
+  --wl-toolbar-background,
+  var(--wl-color-step-50, #fff)
+) !default;
+$toolbar-ios-border-color: var(
+  --wl-toolbar-border-color,
+  var(--wl-border-color, var(--wl-color-step-150, rgba(0, 0, 0, 0.2)))
+) !default;
+$toolbar-ios-color: var(--wl-toolbar-color, $text-color) !default;
+
+// iOS List & List Items
+// --------------------------------------------------
+$item-ios-background: var(--wl-item-background, $background-color) !default;
+$item-ios-border-color: var(
+  --wl-item-border-color,
+  var(--wl-border-color, var(--wl-color-step-250, #c8c7cc))
+) !default;
+$item-ios-color: var(--wl-item-color, $text-color) !default;

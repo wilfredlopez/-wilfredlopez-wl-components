@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h } from "@stencil/core";
+import { Component, ComponentInterface, Host, h, Prop } from "@stencil/core";
 
 @Component({
   tag: "wl-row",
@@ -6,9 +6,13 @@ import { Component, ComponentInterface, Host, h } from "@stencil/core";
   shadow: true,
 })
 export class WlRow implements ComponentInterface {
+  @Prop({
+    reflectToAttr: true,
+  })
+  align: "center" | "end" | "start" | "baseline" = "center";
   render() {
     return (
-      <Host>
+      <Host align={this.align}>
         <slot></slot>
       </Host>
     );

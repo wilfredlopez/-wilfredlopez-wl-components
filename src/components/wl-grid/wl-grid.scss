@@ -1,7 +1,25 @@
-@import "../../themes/wl.global.scss";
-@import "./fns-grid.scss";
+@import "./grid.vars";
+
+// Grid
+// --------------------------------------------------
 
 :host {
+  /**
+   * @prop --wl-grid-padding: Padding for the Grid
+   * @prop --wl-grid-padding-xs: Padding for the Grid on xs screens
+   * @prop --wl-grid-padding-sm: Padding for the Grid on sm screens
+   * @prop --wl-grid-padding-md: Padding for the Grid on md screens
+   * @prop --wl-grid-padding-lg: Padding for the Grid on lg screens
+   * @prop --wl-grid-padding-xl: Padding for the Grid on xl screens
+   *
+   * @prop --wl-grid-width: Width of the fixed Grid
+   * @prop --wl-grid-width-xs: Width of the fixed Grid on xs screens
+   * @prop --wl-grid-width-sm: Width of the fixed Grid on sm screens
+   * @prop --wl-grid-width-md: Width of the fixed Grid on md screens
+   * @prop --wl-grid-width-lg: Width of the fixed Grid on lg screens
+   * @prop --wl-grid-width-xl: Width of the fixed Grid on xl screens
+   */
+
   @include make-breakpoint-padding($grid-paddings);
   @include margin-horizontal(auto);
 

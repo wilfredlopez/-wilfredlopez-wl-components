@@ -1,21 +1,3 @@
-// Default Foreground and Background Colors
-// -------------------------------------------------------------------------------------------
-// Used internally to calculate the default steps
-
-$background-color-value: #fff !default;
-$background-color-rgb-value: 255, 255, 255 !default;
-
-$text-color-value: #000 !default;
-$text-color-rgb-value: 0, 0, 0 !default;
-
-$background-color: var(--wl-background-color, $background-color-value) !default;
-$background-color-rgb: var(
-  --wl-background-color-rgb,
-  $background-color-rgb-value
-) !default;
-$text-color: var(--wl-text-color, $text-color-value) !default;
-$text-color-rgb: var(--wl-text-color-rgb, $text-color-rgb-value) !default;
-
 // Gets the active color's css variable from a variation. Alpha is optional.
 // --------------------------------------------------------------------------------------------
 // Example usage:
@@ -37,7 +19,6 @@ $text-color-rgb: var(--wl-text-color-rgb, $text-color-rgb-value) !default;
 // wl-color(secondary, contrast) => var(--wl-color-secondary-contrast)
 // wl-color(primary, base, 0.5) => rgba(var(--wl-color-primary-rgb, 56, 128, 255), 0.5)
 // --------------------------------------------------------------------------------------------
-
 @function wl-color($name, $variation, $alpha: null, $rgb: null) {
   $values: map-get($colors, $name);
   $value: map-get($values, $variation);

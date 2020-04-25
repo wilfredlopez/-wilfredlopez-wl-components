@@ -2,18 +2,18 @@ import {
   Component,
   h,
   Prop,
-  // Host,
   ComponentInterface,
   Element,
+  Host,
 } from "@stencil/core";
-// import { createColorClasses } from "../../utils/utils";
+import { createColorClasses } from "../../utils/utils";
 import { Color } from "../interfaces/Color.model";
 import { ButtonInterface } from "../interfaces/ButtonType";
+import { Variants } from "../interfaces/Variants.model";
 
 @Component({
   tag: "wl-button",
-  styleUrl: "./wl-button.scss",
-  // scoped: true,
+  styleUrl: "wl-button.scss",
   shadow: true,
 })
 export class WlButton implements ComponentInterface, ButtonInterface {
@@ -25,20 +25,32 @@ export class WlButton implements ComponentInterface, ButtonInterface {
    * If `true`, the user cannot interact with the button.
    */
   @Prop({ reflectToAttr: true }) disabled = false;
-  @Prop({ reflectToAttr: true }) squared = false;
-  @Prop({ reflectToAttr: true }) variant: "outline" | "filled" | "clear" =
-    "filled";
+  @Prop({ reflectToAttr: true }) circular = false;
+  @Prop({ reflectToAttr: true }) variant: Variants = "block";
   @Prop({
     attribute: "color",
     reflect: true,
   })
-  color: Color = "light";
+  color?: Color;
+  @Prop() href: string | undefined;
+  /**
+   * Specifies where to display the linked URL.
+   * Only applies when an `href` is provided.
+   * Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+   */
+  @Prop() target: string | undefined;
+
+  /**
+   * Specifies the relationship of the target object to the link object.
+   * The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+   */
+  @Prop() rel: string | undefined;
 
   @Prop({
     attribute: "size",
     reflect: true,
   })
-  size: "small" | "large" | "default" = "default";
+  size?: "sm" | "lg" | "xl";
   @Element() el!: HTMLElement;
 
   private handleClick = (ev: Event) => {
@@ -64,25 +76,54 @@ export class WlButton implements ComponentInterface, ButtonInterface {
   };
 
   render() {
-    const { type, disabled } = this;
-    return [
-      <button
-        type={type}
+    const { type, disabled, rel, target, size, href, color } = this;
+
+    const attrs =
+      type === "button"
+        ? { type }
+        : {
+            href,
+            rel,
+            target,
+          };
+    // const finalSize = size === undefined && this.size ? "small" : size;
+    const TagType = href === undefined ? "button" : ("a" as any);
+    const sharedProps: { [key: string]: any } = {
+      color: color,
+      size: size,
+      circular: this.circular,
+
+      variant: this.variant,
+    };
+    if (TagType === "a") {
+      sharedProps.href = href;
+    } else {
+      sharedProps.type = type;
+      sharedProps.disabled = disabled;
+      sharedProps["aria-disabled"] = disabled ? "true" : null;
+    }
+    return (
+      <Host
+        {...sharedProps}
         onClick={this.handleClick}
         aria-disabled={disabled ? "true" : null}
-        // class={{
-        //   ...createColorClasses(this.color),
-        // }}
-        class={`wl-color-${this.color}`}
-        color={this.color}
-        //@ts-ignore
-        size={this.size}
-        squared={this.squared}
-        variant={this.variant}
-        id="wl-btn"
+        class={{
+          ...createColorClasses(color),
+          "button-disabled": disabled,
+        }}
+        // class={`wl-color-${this.color}`}
+        {...attrs}
       >
-        <slot></slot>
-      </button>,
-    ];
+        <TagType
+          {...sharedProps}
+          {...attrs}
+          class={{ "button-native": true, "button-disabled": disabled }}
+        >
+          <slot name="start"></slot>
+          <slot></slot>
+          <slot name="end"></slot>
+        </TagType>
+      </Host>
+    );
   }
 }

@@ -2,6 +2,7 @@ dist/
 www/
 loader/
 wl-components-react/node_modules/
+css/
 
 *~
 *.sw[mnpcod]

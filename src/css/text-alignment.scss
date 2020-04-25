@@ -1,0 +1,47 @@
+@import "../themes/wl.skip-warns.scss";
+@import "../themes/wl.globals";
+@import "../themes/wl.mixins";
+
+// Text Alignment
+// --------------------------------------------------
+// Creates text alignment attributes based on screen size
+
+@each $breakpoint in map-keys($screen-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $screen-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $screen-breakpoints) {
+    // Provide `.wl-text-{bp}` classes for aligning the text based
+    // on the breakpoint
+    .wl-text#{$infix}-center {
+      text-align: center !important;
+    }
+
+    .wl-text#{$infix}-justify {
+      text-align: justify !important;
+    }
+
+    .wl-text#{$infix}-start {
+      text-align: start !important;
+    }
+
+    .wl-text#{$infix}-end {
+      text-align: end !important;
+    }
+
+    .wl-text#{$infix}-left {
+      text-align: left !important;
+    }
+
+    .wl-text#{$infix}-right {
+      text-align: right !important;
+    }
+
+    .wl-text#{$infix}-nowrap {
+      white-space: nowrap !important;
+    }
+
+    .wl-text#{$infix}-wrap {
+      white-space: normal !important;
+    }
+  }
+}

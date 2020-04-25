@@ -1,3 +1,8 @@
-@import "./colors.scss";
+// Core CSS, always required
+@import "./core";
 
-@import "./normalize.scss";
+// Global CSS: blocks scrolling, sets box-sizing
+@import "./global.bundle";
+
+// CSS Utils
+@import "./utils.bundle";

@@ -1,6 +1,6 @@
 {
   "name": "@wilfredlopez/wl-components",
-  "version": "0.0.6",
+  "version": "0.1.1",
   "description": "Reusable Stencil Component By Wilfred Lopez",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -15,15 +15,23 @@
     "loader/"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
-    "publish": "npm run build && npm publish",
+    "build": "npm run clean && npm run build.css && stencil build --docs",
+    "clean": "node scripts/clean.js",
+    "build.css": "npm run css.sass && npm run css.minify",
+    "css.sass": "sass src/css:./css",
+    "css.minify": "cleancss -O2 -o ./css/wl.bundle.css ./css/wl.bundle.css",
+    "build:default": "stencil build --docs",
+    "start:stencil": "stencil build --dev --watch --serve",
+    "start": "npm run build.css && npm run start:stencil",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
   "devDependencies": {
     "@stencil/core": "^1.12.2",
+    "@stencil/sass": "^1.3.1",
+    "clean-css-cli": "^4.3.0",
+    "sass": "^1.26.5",
     "workbox-build": "4.3.1"
   },
   "license": "MIT",
@@ -33,6 +41,6 @@
     "url": "https://wilfredlopez.net"
   },
   "dependencies": {
-    "@stencil/sass": "^1.3.1"
+    "tslib": "^1.11.1"
   }
 }

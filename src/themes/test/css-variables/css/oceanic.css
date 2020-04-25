@@ -1,0 +1,117 @@
+/**
+ * Oceanic
+ * -----------------------------------------------------
+ * The Oceanic theme uses dark backgrounds with hues
+ * of gray and blue and changes the  colors to
+ * less vibrant shades.
+ *
+**/
+
+:root {
+  /*  Colors */
+  --wl-color-primary: #549ee7;
+  --wl-color-primary-contrast: #fff;
+  --wl-color-primary-contrast-rgb: 255, 255, 255;
+  --wl-color-primary-rgb: 84, 158, 231;
+  --wl-color-primary-shade: #498bce;
+  --wl-color-primary-tint: #59aafc;
+
+  --wl-color-secondary: #5fb3b3;
+  --wl-color-secondary-contrast: #fff;
+  --wl-color-secondary-contrast-rgb: 255, 255, 255;
+  --wl-color-secondary-rgb: 95, 179, 179;
+  --wl-color-secondary-shade: #34a29d;
+  --wl-color-secondary-tint: #6ececf;
+
+  --wl-color-tertiary: #fac863;
+  --wl-color-tertiary-contrast: #fff;
+  --wl-color-tertiary-contrast-rgb: 255, 255, 255;
+  --wl-color-tertiary-rgb: 250, 200, 99;
+  --wl-color-tertiary-shade: #eab30f;
+  --wl-color-tertiary-tint: #ffd36a;
+
+  --wl-color-success: #90d089;
+  --wl-color-success-contrast: #fff;
+  --wl-color-success-contrast-rgb: 255, 255, 255;
+  --wl-color-success-rgb: 144, 208, 137;
+  --wl-color-success-shade: #81bc7b;
+  --wl-color-success-tint: #a1eb9a;
+
+  --wl-color-warning: #f99157;
+  --wl-color-warning-contrast: #fff;
+  --wl-color-warning-contrast-rgb: 255, 255, 255;
+  --wl-color-warning-rgb: 249, 145, 87;
+  --wl-color-warning-shade: #ec8a54;
+  --wl-color-warning-tint: #ff9e60;
+
+  --wl-color-danger: #ec5f67;
+  --wl-color-danger-contrast: #fff;
+  --wl-color-danger-contrast-rgb: 255, 255, 255;
+  --wl-color-danger-rgb: 236, 95, 103;
+  --wl-color-danger-shade: #cb535b;
+  --wl-color-danger-tint: #ff707b;
+
+  --wl-color-light: #d8dee9;
+  --wl-color-light-contrast: #1b2b34;
+  --wl-color-light-contrast-rgb: 27, 43, 52;
+  --wl-color-light-rgb: 216, 222, 233;
+  --wl-color-light-shade: #bcc1cd;
+  --wl-color-light-tint: #ecf2ff;
+
+  --wl-color-medium: #65737e;
+  --wl-color-medium-contrast: #fff;
+  --wl-color-medium-contrast-rgb: 255, 255, 255;
+  --wl-color-medium-rgb: 101, 115, 126;
+  --wl-color-medium-shade: #4f5b66;
+  --wl-color-medium-tint: #a7adba;
+
+  --wl-color-dark: #1b2b34;
+  --wl-color-dark-contrast: #d8dee9;
+  --wl-color-dark-contrast-rgb: 216, 222, 233;
+  --wl-color-dark-rgb: 27, 43, 52;
+  --wl-color-dark-shade: #070b0d;
+  --wl-color-dark-tint: #343d46;
+
+  /* Component Colors */
+  --wl-backdrop-color: #1b2b34;
+  --wl-overlay-background-color: #142129;
+
+  --wl-border-color: #1b2b34;
+  --wl-box-shadow-color: #000;
+
+  --wl-tab-bar-background: #343d46;
+  --wl-tab-bar-background-focused: #293039;
+  --wl-tab-bar-color: #a7adba;
+  --wl-tab-bar-color-selected: #549ee7;
+
+  --wl-toolbar-background: #343d46;
+  --wl-toolbar-color: #a7adba;
+
+  /* Background, Text, Step Colors */
+  --wl-background-color: #1b2b34;
+  --wl-background-color-rgb: 27, 43, 52;
+
+  --wl-text-color: #fff;
+  --wl-text-color-rgb: 255, 255, 255;
+
+  --wl-color-step-50: #26363e;
+  --wl-color-step-100: #324048;
+  --wl-color-step-150: #3d4b52;
+  --wl-color-step-200: #49555d;
+  --wl-color-step-250: #546067;
+  --wl-color-step-300: #5f6b71;
+  --wl-color-step-350: #6b757b;
+  --wl-color-step-400: #768085;
+  --wl-color-step-450: #828a8f;
+  --wl-color-step-500: #8d959a;
+  --wl-color-step-550: #98a0a4;
+  --wl-color-step-600: #a4aaae;
+  --wl-color-step-650: #afb5b8;
+  --wl-color-step-700: #bbbfc2;
+  --wl-color-step-750: #c6cacc;
+  --wl-color-step-800: #d1d5d6;
+  --wl-color-step-850: #dddfe1;
+  --wl-color-step-900: #e8eaeb;
+  --wl-color-step-950: #f4f4f5;
+  --wl-color-step-1000: #fff;
+}

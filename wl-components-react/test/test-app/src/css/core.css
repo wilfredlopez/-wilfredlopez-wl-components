@@ -1,0 +1,263 @@
+html {
+  --wl-font-family: var(--wl-default-font);
+}
+
+body {
+  background: var(--wl-background-color);
+}
+
+body.backdrop-no-scroll {
+  overflow: hidden;
+}
+
+html.ios wl-modal.modal-card .wl-page > wl-header > wl-toolbar:first-of-type {
+  padding-top: 0px;
+}
+
+html.ios wl-modal .wl-page {
+  border-radius: inherit;
+}
+
+.wl-color-primary {
+  --wl-color-base: var(--wl-color-primary, #3880ff) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-primary-rgb,
+    56, 128, 255
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-primary-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-primary-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-primary-shade, #3171e0) !important;
+  --wl-color-tint: var(--wl-color-primary-tint, #4c8dff) !important;
+}
+
+.wl-color-secondary {
+  --wl-color-base: var(--wl-color-secondary, #3dc2ff) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-secondary-rgb,
+    61, 194, 255
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-secondary-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-secondary-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-secondary-shade, #36abe0) !important;
+  --wl-color-tint: var(--wl-color-secondary-tint, #50c8ff) !important;
+}
+
+.wl-color-tertiary {
+  --wl-color-base: var(--wl-color-tertiary, #5260ff) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-tertiary-rgb,
+    82, 96, 255
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-tertiary-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-tertiary-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-tertiary-shade, #4854e0) !important;
+  --wl-color-tint: var(--wl-color-tertiary-tint, #6370ff) !important;
+}
+
+.wl-color-success {
+  --wl-color-base: var(--wl-color-success, #2dd36f) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-success-rgb,
+    45, 211, 111
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-success-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-success-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-success-shade, #28ba62) !important;
+  --wl-color-tint: var(--wl-color-success-tint, #42d77d) !important;
+}
+
+.wl-color-warning {
+  --wl-color-base: var(--wl-color-warning, #ffc409) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-warning-rgb,
+    255, 196, 9
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-warning-contrast,
+    #000
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-warning-contrast-rgb,
+    0, 0, 0
+  ) !important;
+  --wl-color-shade: var(--wl-color-warning-shade, #e0ac08) !important;
+  --wl-color-tint: var(--wl-color-warning-tint, #ffca22) !important;
+}
+
+.wl-color-danger {
+  --wl-color-base: var(--wl-color-danger, #eb445a) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-danger-rgb,
+    235, 68, 90
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-danger-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-danger-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-danger-shade, #cf3c4f) !important;
+  --wl-color-tint: var(--wl-color-danger-tint, #ed576b) !important;
+}
+
+.wl-color-light {
+  --wl-color-base: var(--wl-color-light, #f4f5f8) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-light-rgb,
+    244, 245, 248
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-light-contrast,
+    #000
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-light-contrast-rgb,
+    0, 0, 0
+  ) !important;
+  --wl-color-shade: var(--wl-color-light-shade, #d7d8da) !important;
+  --wl-color-tint: var(--wl-color-light-tint, #f5f6f9) !important;
+}
+
+.wl-color-medium {
+  --wl-color-base: var(--wl-color-medium, #92949c) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-medium-rgb,
+    146, 148, 156
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-medium-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-medium-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-medium-shade, #808289) !important;
+  --wl-color-tint: var(--wl-color-medium-tint, #9d9fa6) !important;
+}
+
+.wl-color-dark {
+  --wl-color-base: var(--wl-color-dark, #222428) !important;
+  --wl-color-base-rgb: var(
+    --wl-color-dark-rgb,
+    34, 36, 40
+  ) !important;
+  --wl-color-contrast: var(
+    --wl-color-dark-contrast,
+    #fff
+  ) !important;
+  --wl-color-contrast-rgb: var(
+    --wl-color-dark-contrast-rgb,
+    255, 255, 255
+  ) !important;
+  --wl-color-shade: var(--wl-color-dark-shade, #1e2023) !important;
+  --wl-color-tint: var(--wl-color-dark-tint, #383a3e) !important;
+}
+
+.wl-page {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-between;
+  contain: layout size style;
+  overflow: hidden;
+  z-index: 0;
+}
+[dir] .wl-page {
+  left: 0;
+  right: 0;
+}
+
+.split-pane-visible > .wl-page.split-pane-main {
+  position: relative;
+}
+
+.wl-page-hidden,
+[hidden] {
+  /* stylelint-disable-next-line declaratwl-no-important */
+  display: none !important;
+}
+
+.wl-page-invisible {
+  opacity: 0;
+}
+
+.can-go-back > wl-header wl-back-button {
+  display: block;
+}
+
+html.plt-ios.plt-hybrid,
+html.plt-ios.plt-pwa {
+  --wl-statusbar-padding: 20px;
+}
+
+@supports (padding-top: 20px) {
+  html {
+    --wl-safe-area-top: var(--wl-statusbar-padding);
+  }
+}
+@supports (padding-top: constant(safe-area-inset-top)) {
+  html {
+    --wl-safe-area-top: constant(safe-area-inset-top);
+    --wl-safe-area-bottom: constant(safe-area-inset-bottom);
+    --wl-safe-area-left: constant(safe-area-inset-left);
+    --wl-safe-area-right: constant(safe-area-inset-right);
+  }
+}
+@supports (padding-top: env(safe-area-inset-top)) {
+  html {
+    --wl-safe-area-top: env(safe-area-inset-top);
+    --wl-safe-area-bottom: env(safe-area-inset-bottom);
+    --wl-safe-area-left: env(safe-area-inset-left);
+    --wl-safe-area-right: env(safe-area-inset-right);
+  }
+}
+wl-card.wl-color .wl-inherit-color,
+wl-card-header.wl-color .wl-inherit-color {
+  color: inherit;
+}
+
+.menu-content {
+  transform: translate3d(0,  0,  0);
+}
+[dir] .menu-content {
+  transform: translate3d(0,  0,  0);
+}
+
+.menu-content-open {
+  cursor: pointer;
+  touch-action: manipulation;
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=core.css.map */

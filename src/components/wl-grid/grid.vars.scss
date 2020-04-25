@@ -1,0 +1,26 @@
+@import "../../themes/wl.globals";
+@import "./grid.mixins";
+
+// Grid
+// --------------------------------------------------
+
+/// @prop - The padding for the grid
+$grid-padding: var(--wl-grid-padding, 5px) !default;
+
+/// @prop - The padding for the grid at different breakpoints
+$grid-paddings: (
+  xs: var(--wl-grid-padding-xs, $grid-padding),
+  sm: var(--wl-grid-padding-sm, $grid-padding),
+  md: var(--wl-grid-padding-md, $grid-padding),
+  lg: var(--wl-grid-padding-lg, $grid-padding),
+  xl: var(--wl-grid-padding-xl, $grid-padding),
+) !default;
+
+/// @prop - Width of the grid for different screen sizes when fixed is enabled
+$grid-widths: (
+  xs: var(--wl-grid-width-xs, var(--wl-grid-width, 100%)),
+  sm: var(--wl-grid-width-sm, var(--wl-grid-width, 540px)),
+  md: var(--wl-grid-width-md, var(--wl-grid-width, 720px)),
+  lg: var(--wl-grid-width-lg, var(--wl-grid-width, 960px)),
+  xl: var(--wl-grid-width-xl, var(--wl-grid-width, 1140px)),
+) !default;

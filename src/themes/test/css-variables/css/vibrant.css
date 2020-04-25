@@ -1,0 +1,78 @@
+/**
+ * Vibrant
+ * -----------------------------------------------------
+ * The vibrant theme uses a white background with
+ * varying shades of black as contrast and the Ionic
+ * colors are all changed to more vibrant shades.
+ *
+**/
+
+:root {
+  --wl-color-primary: #ff7f50;
+  --wl-color-primary-rgb: 255, 127, 80;
+  --wl-color-primary-contrast: #000000;
+  --wl-color-primary-contrast-rgb: 0, 0, 0;
+  --wl-color-primary-shade: #e07046;
+  --wl-color-primary-tint: #ff8c62;
+
+  --wl-color-secondary: #17deee;
+  --wl-color-secondary-rgb: 23, 222, 238;
+  --wl-color-secondary-contrast: #000000;
+  --wl-color-secondary-contrast-rgb: 0, 0, 0;
+  --wl-color-secondary-shade: #14c3d1;
+  --wl-color-secondary-tint: #2ee1f0;
+
+  --wl-color-tertiary: #ff4162;
+  --wl-color-tertiary-rgb: 255, 65, 98;
+  --wl-color-tertiary-contrast: #ffffff;
+  --wl-color-tertiary-contrast-rgb: 255, 255, 255;
+  --wl-color-tertiary-shade: #e03956;
+  --wl-color-tertiary-tint: #ff5472;
+
+  --wl-color-success: #39ff14;
+  --wl-color-success-rgb: 57, 255, 20;
+  --wl-color-success-contrast: #000000;
+  --wl-color-success-contrast-rgb: 0, 0, 0;
+  --wl-color-success-shade: #32e012;
+  --wl-color-success-tint: #4dff2c;
+
+  --wl-color-warning: #ffce00;
+  --wl-color-warning-rgb: 255, 206, 0;
+  --wl-color-warning-contrast: #ffffff;
+  --wl-color-warning-contrast-rgb: 255, 255, 255;
+  --wl-color-warning-shade: #e0b500;
+  --wl-color-warning-tint: #ffd31a;
+
+  --wl-color-danger: #f04141;
+  --wl-color-danger-rgb: 245, 61, 61;
+  --wl-color-danger-contrast: #ffffff;
+  --wl-color-danger-contrast-rgb: 255, 255, 255;
+  --wl-color-danger-shade: #d33939;
+  --wl-color-danger-tint: #f25454;
+
+  --wl-color-dark: #222428;
+  --wl-color-dark-rgb: 34, 34, 34;
+  --wl-color-dark-contrast: #ffffff;
+  --wl-color-dark-contrast-rgb: 255, 255, 255;
+  --wl-color-dark-shade: #1e2023;
+  --wl-color-dark-tint: #383a3e;
+
+  --wl-color-medium: #989aa2;
+  --wl-color-medium-rgb: 152, 154, 162;
+  --wl-color-medium-contrast: #ffffff;
+  --wl-color-medium-contrast-rgb: 255, 255, 255;
+  --wl-color-medium-shade: #86888f;
+  --wl-color-medium-tint: #a2a4ab;
+
+  --wl-color-light: #f4f5f8;
+  --wl-color-light-rgb: 244, 244, 244;
+  --wl-color-light-contrast: #000000;
+  --wl-color-light-contrast-rgb: 0, 0, 0;
+  --wl-color-light-shade: #d7d8da;
+  --wl-color-light-tint: #f5f6f9;
+
+  /* Item Backgrounds */
+  --wl-background-color: #778899;
+  --wl-item-background: #fff;
+  --wl-item-border-color: #5bff76;
+}

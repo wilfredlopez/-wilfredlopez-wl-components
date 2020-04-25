@@ -10,7 +10,7 @@ import { Breakpoints } from "../interfaces/Breakpoints.model";
 
 @Component({
   tag: "wl-container",
-  styleUrl: "./wl-container.scss",
+  styleUrl: "wl-container.scss",
   scoped: true,
   // shadow: true,
 })

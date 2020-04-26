@@ -7,12 +7,13 @@
         margin: 0;
       }
       :root {
-        --wl-color-primary: #428cff;
-        --wl-color-primary-rgb: 66, 140, 255;
+        --wl-item-border-color: black;
+        --wl-color-primary: #ff8742;
+        --wl-color-primary-rgb: 255, 135, 66;
         --wl-color-primary-contrast: #ffffff;
-        --wl-color-primary-contrast-rgb: 255, 255, 255;
-        --wl-color-primary-shade: #3a7be0;
-        --wl-color-primary-tint: #5598ff;
+        --wl-color-primary-contrast-rgb: 0, 0, 0;
+        --wl-color-primary-shade: #e0773a;
+        --wl-color-primary-tint: #ff9355;
 
         --wl-color-secondary: #50c8ff;
         --wl-color-secondary-rgb: 80, 200, 255;
@@ -141,34 +142,28 @@
       content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
     />
     <title>Stencil Component Starter</title>
-
+    <link rel="stylesheet" href="/css/wl.bundle.css" />
     <script type="module" src="/build/wl-components.esm.js"></script>
     <script nomodule src="/build/wl-components.js"></script>
   </head>
   <body>
     <wl-appbar color="primary">
-      <wl-grid>
-        <wl-row>
-          <wl-col size="6">
-            <h1>WL COMPONENTS</h1>
-          </wl-col>
-          <wl-col size="3" offset="3">
-            <wl-button color="danger">@Wilfredlopez/wl-components</wl-button>
-          </wl-col>
-        </wl-row>
-      </wl-grid>
-    </wl-appbar>
-    <wl-spinner></wl-spinner>
+      <h1 class="wl-no-padding wl-no-margin">WL COMPONENTS</h1>
 
-    <wl-container size="md">
+      <wl-button color="danger">@Wilfredlopez/wl-components</wl-button>
+    </wl-appbar>
+
+    <wl-container size="sm">
+      <br />
+
       <wl-card>
-        <h1 slot="header">HEAD</h1>
-        <div slot="content">I DONT KNOW WHERE IM I</div>
-        <img
-          src="https://static-cdn.jtvnw.net/jtv_user_pictures/habathcx-profile_image-d75385dbe4f42a66-300x300.jpeg"
-        />
+        <div slot="header">
+          <h1 class="wl-no-padding wl-no-margin">Card Header</h1>
+        </div>
+        <div slot="content">Card Content</div>
+
         <div>
-          IM OUT
+          Slotted Content
         </div>
       </wl-card>
       <wl-grid>
@@ -198,7 +193,71 @@
           <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
         </div>
       </wl-modal>
-      <wl-button id="openBtn" color="primary">Open Modal</wl-button>
+      <div class="wl-text-center">
+        <wl-button id="openBtn" color="secondary">Open Modal</wl-button>
+      </div>
+    </wl-container>
+
+    <wl-container>
+      <wl-label position="floating"> Email</wl-label>
+      <wl-input type="email"></wl-input>
+    </wl-container>
+
+    <wl-container>
+      <h1 class="wl-text-center">Spinners</h1>
+      <wl-grid>
+        <wl-row>
+          <wl-col>
+            <p>
+              Variants
+
+              <span>
+                "loader" | "ripple" | "ring" | "facebook" | "ios" | "ellipsis"
+              </span>
+            </p>
+            <wl-spinner color="primary"></wl-spinner>
+            <wl-spinner variant="loader"></wl-spinner>
+            <wl-spinner variant="ripple" color="secondary"></wl-spinner>
+            <wl-spinner variant="ring" color="danger"></wl-spinner>
+          </wl-col>
+        </wl-row>
+        <wl-row>
+          <wl-col> </wl-col>
+          <wl-col>
+            <wl-spinner variant="facebook" color="tertiary"></wl-spinner>
+          </wl-col>
+          <wl-col>
+            <wl-spinner variant="ios" color="light"></wl-spinner>
+          </wl-col>
+          <wl-col>
+            <wl-spinner variant="ellipsis" color="warning"></wl-spinner>
+          </wl-col>
+          <wl-col> </wl-col>
+        </wl-row>
+      </wl-grid>
+    </wl-container>
+    <wl-container>
+      <h1 class="wl-text-center">Buttons</h1>
+      <wl-grid>
+        <wl-row>
+          <wl-col>
+            <wl-button>Primary</wl-button>
+            <wl-button color="secondary">Secondary</wl-button>
+            <wl-button color="tertiary">Tertiary</wl-button>
+          </wl-col>
+        </wl-row>
+        <wl-row>
+          <wl-col>
+            <wl-button variant="outline">Primary Outline</wl-button>
+            <wl-button variant="outline" color="secondary"
+              >Secondary Outline</wl-button
+            >
+            <wl-button variant="outline" color="tertiary"
+              >Tertiary Outline</wl-button
+            >
+          </wl-col>
+        </wl-row>
+      </wl-grid>
     </wl-container>
     <script>
       const cancelBtn = document.getElementById("cancelBtn");

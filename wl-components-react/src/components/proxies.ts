@@ -27,3 +27,19 @@ export const WlRow = /*@__PURE__*/ createReactComponent<
   JSX.WlRow,
   HTMLWlRowElement
 >("wl-row");
+
+//wl-appbar
+export const WlAppbar = /*@__PURE__*/ createReactComponent<
+  JSX.WlAppbar,
+  HTMLWlAppbarElement
+>("wl-appbar");
+
+export const WlCard = /*@__PURE__*/ createReactComponent<
+  JSX.WlCard,
+  HTMLWlCardElement
+>("wl-card");
+
+export const WlSpinner = /*@__PURE__*/ createReactComponent<
+  JSX.WlSpinner,
+  HTMLWlSpinnerElement
+>("wl-spinner");

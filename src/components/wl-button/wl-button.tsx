@@ -7,9 +7,9 @@ import {
   Host,
 } from "@stencil/core";
 import { createColorClasses } from "../../utils/utils";
-import { Color } from "../interfaces/Color.model";
-import { ButtonInterface } from "../interfaces/ButtonType";
-import { Variants } from "../interfaces/Variants.model";
+import { Color } from "../../interfaces/Color.model";
+import { ButtonInterface } from "../../interfaces/ButtonType";
+import { Variants } from "../../interfaces/Variants.model";
 
 @Component({
   tag: "wl-button",
@@ -31,7 +31,7 @@ export class WlButton implements ComponentInterface, ButtonInterface {
     attribute: "color",
     reflect: true,
   })
-  color?: Color;
+  color?: Color = "primary";
   @Prop() href: string | undefined;
   /**
    * Specifies where to display the linked URL.

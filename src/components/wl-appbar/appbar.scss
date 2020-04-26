@@ -28,9 +28,39 @@ $color: "";
   }
 }
 
+$TextMofifiers: (
+  left,
+  right,
+  start,
+  end,
+  center,
+  justify,
+  wrap,
+  nowrap,
+  uppercase,
+  lowercase,
+  capitalize
+);
+
+@each $type in $TextMofifiers {
+  :host([textAlign="#{$type}"]) ::slotted(:first-child) {
+    text-align: #{$type};
+
+    flex-grow: 1;
+  }
+}
+
+:host([noPadding]) {
+  #toolbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 :host {
-  flex-grow: 1;
   header {
+    padding-top: 16px;
+    padding-bottom: 16px;
     color: var(--color, rgba(0, 0, 0, 0.87));
     background-color: var(--background-color, #fff);
     transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;

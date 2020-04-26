@@ -13,7 +13,8 @@
 
 ::slotted([slot="header"]) {
   display: flex;
-  margin: 0;
+  margin-top: 0;
+  padding-top: 15px;
   margin-bottom: 1rem;
   align-items: center;
 }
@@ -24,8 +25,9 @@
 }
 * {
   padding-top: 0;
-  padding-bottom: 0;
-  padding: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 /*

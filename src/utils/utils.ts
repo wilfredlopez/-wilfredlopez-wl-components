@@ -1,4 +1,4 @@
-import { Color } from "../components/interfaces/Color.model";
+import { Color } from "../interfaces/Color.model";
 
 export function format(first: string, middle: string, last: string): string {
   return (

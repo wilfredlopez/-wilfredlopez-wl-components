@@ -136,11 +136,6 @@ $VARIANTS: (outline, solid, clear);
     --background-hover: #{wl-color($color-name, contrast, 0.3)};
     --background-hover-opacity: 0.5;
   }
-  [variant="outline"][color="#{$color-name}"] {
-    --border-width: 20px !important;
-    outline: 1px solid #{wl-color($color-name, base)} !important;
-    --box-shadow: 0px 0px 0px 1px #{wl-color($color-name, base)} !important;
-  }
 
   @each $variant-name in $VARIANTS {
     [variant="#{$variant-name}"][color="#{$color-name}"] {
@@ -148,6 +143,12 @@ $VARIANTS: (outline, solid, clear);
       --color: #{wl-color($color-name, base)} !important;
       border-color: #{wl-color($color-name, base)} !important;
     }
+  }
+  [variant="outline"][color="#{$color-name}"] {
+    --border-width: 20px !important;
+    --background-hover: #{wl-color($color-name, base, 0.5)};
+    outline: 1px solid #{wl-color($color-name, base)} !important;
+    --box-shadow: 0px 0px 0px 1px #{wl-color($color-name, base)} !important;
   }
 
   [color="#{$color-name}"] {

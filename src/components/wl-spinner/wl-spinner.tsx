@@ -1,7 +1,7 @@
 import { Component, ComponentInterface, h, Prop } from "@stencil/core";
 import { createColorClasses } from "../../utils/utils";
-import { Color } from "../interfaces/Color.model";
-import { SpinerVariant } from "../interfaces/SpinerVariant.mode";
+import { Color } from "../../interfaces/Color.model";
+import { SpinerVariant } from "../../interfaces/SpinerVariant.mode";
 
 @Component({
   tag: "wl-spinner",
@@ -17,7 +17,7 @@ export class WlSpinner implements ComponentInterface {
   @Prop({
     reflectToAttr: true,
   })
-  color: Color = "primary";
+  color?: Color = "light";
 
   private matchDivCountToVariant(): Element[] {
     let loader = 8;

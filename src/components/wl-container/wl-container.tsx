@@ -6,7 +6,7 @@ import {
   ComponentInterface,
   Element,
 } from "@stencil/core";
-import { Breakpoints } from "../interfaces/Breakpoints.model";
+import { Breakpoints } from "../../interfaces/Breakpoints.model";
 
 @Component({
   tag: "wl-container",

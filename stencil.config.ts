@@ -6,10 +6,10 @@ export const config: Config = {
   taskQueue: "async",
   enableCache: true,
   bundles: [{ components: ["wl-grid", "wl-row", "wl-col"] }],
-  // devMode: true,
-  // devServer: {
-  //   reloadStrategy: "hmr",
-  // },
+  devMode: true,
+  devServer: {
+    reloadStrategy: "hmr",
+  },
   outputTargets: [
     {
       type: "dist",
@@ -23,6 +23,12 @@ export const config: Config = {
     },
     {
       type: "www",
+      copy: [
+        {
+          src: "../css",
+          dest: "./css",
+        },
+      ],
     },
   ],
   plugins: [

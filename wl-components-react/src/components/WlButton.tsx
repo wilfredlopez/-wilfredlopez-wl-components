@@ -16,7 +16,7 @@ type InternalProps = WlButtonProps & {
   forwardedRef?: React.RefObject<HTMLWlButtonElement>;
 };
 
-class WLIconContainer extends React.PureComponent<InternalProps> {
+class WlButtonContainer extends React.PureComponent<InternalProps> {
   constructor(props: InternalProps) {
     super(props);
   }
@@ -35,4 +35,4 @@ class WLIconContainer extends React.PureComponent<InternalProps> {
 export const WlButton = createForwardRef<
   WlButtonProps & WlReactProps,
   HTMLWlButtonElement
->(WLIconContainer, "WlButton");
+>(WlButtonContainer, "WlButton");

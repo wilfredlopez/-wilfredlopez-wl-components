@@ -199,7 +199,7 @@ export class WlCol implements ComponentInterface {
     // If size wasn't set for any breakpoint
     // or if the user set the size without a value
     // it means we need to stick with the default and return
-    // e.g. <ion-col size-md>
+
     if (!columns || columns === "") {
       return;
     }

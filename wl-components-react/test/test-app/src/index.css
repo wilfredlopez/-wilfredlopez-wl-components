@@ -1,5 +1,9 @@
 @import "~@wilfredlopez/react/css/wl.bundle.css";
 
+body {
+  overflow: auto;
+  position: relative;
+}
 :root {
   --wl-color-primary: #428cff;
   --wl-color-primary-rgb: 66, 140, 255;

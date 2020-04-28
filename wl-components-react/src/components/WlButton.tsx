@@ -5,11 +5,14 @@ import { WlReactProps } from "./WlReactProps";
 import { createForwardRef } from "./utils";
 import { WlButtonInner } from "./inner-proxies";
 import { Components as WlComponents } from "@wilfredlopez/wl-components";
+import { RouterDirection } from "./hrefprops";
 
 interface WlButtonProps extends Partial<WlComponents.WlButton> {
   ariaLabel?: string;
   name?: string;
-  // size?: "small" | "large";
+  ref?: React.Ref<any>;
+  routerLink?: string;
+  routerDirection?: RouterDirection;
 }
 
 type InternalProps = WlButtonProps & {

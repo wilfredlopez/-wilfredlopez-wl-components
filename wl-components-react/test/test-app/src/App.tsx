@@ -11,7 +11,7 @@ const App: React.FC = () => {
         className="wl-justify-content-center wl-align-items-center"
       >
         <div className="wl-justify-content-center wl-align-items-center">
-          <h1>@wilfredlopez/react</h1>
+          <h1 className="wl-no-margin">@wilfredlopez/react</h1>
         </div>
       </WlAppbar>
       <ShowCase />

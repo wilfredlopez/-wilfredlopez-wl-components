@@ -18,14 +18,16 @@ export class WlContainer implements ComponentInterface {
   @Prop({ reflectToAttr: true }) size: Breakpoints = "lg";
   @Prop({ reflectToAttr: true }) maxWidth: Breakpoints = "xl";
   @Prop({ reflectToAttr: true }) fluid = false;
+  @Prop({ reflectToAttr: true }) class = "";
 
   @Element() el!: HTMLElement;
 
   render() {
     const { maxWidth, fluid, size } = this;
     return (
-      <Host fluid={fluid} size={size}>
+      <Host fluid={fluid} size={size} class={this.class}>
         <div
+          class={this.class}
           id="wl-container"
           //@ts-ignore
           size={size}

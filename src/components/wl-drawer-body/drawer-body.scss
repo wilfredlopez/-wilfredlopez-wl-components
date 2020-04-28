@@ -1,0 +1,16 @@
+@import "../../css/wl.bundle";
+
+:host {
+  height: 100%;
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  color: current-color(base);
+}

@@ -1,0 +1,19 @@
+@import "../../css/wl.bundle.scss";
+
+:host {
+  header {
+    color: current-color(base);
+    // color: red;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    font-size: 1.25rem;
+    font-weight: 600;
+    h1,
+    p {
+      margin: 0;
+    }
+  }
+}

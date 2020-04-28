@@ -1,0 +1,43 @@
+@import "../../css/wl.bundle.scss";
+
+wl-button.close,
+button.close {
+  outline: none;
+  width: 32px;
+  height: 32px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  position: fixed;
+  top: 8px;
+  right: 12px;
+  z-index: 1;
+}
+svg {
+  width: 12px;
+  height: 12px;
+  // color: current-color(base);
+  color: inherit;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

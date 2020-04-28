@@ -6,4 +6,4 @@ import { /*@__PURE__*/ createReactComponent } from "./createComponent";
 export const WlButtonInner = /*@__PURE__*/ createReactComponent<
   JSX.WlButton,
   HTMLWlButtonElement
->("wl-button");
+>("wl-button", true);

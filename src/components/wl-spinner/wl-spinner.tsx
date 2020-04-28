@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, h, Prop } from "@stencil/core";
+import { Component, ComponentInterface, h, Prop, Host } from "@stencil/core";
 import { createColorClasses } from "../../utils/utils";
 import { Color } from "../../interfaces/Color.model";
 import { SpinerVariant } from "../../interfaces/SpinerVariant.mode";
@@ -18,6 +18,14 @@ export class WlSpinner implements ComponentInterface {
     reflectToAttr: true,
   })
   color?: Color = "light";
+
+  /**
+   * @size defaults to 80px
+   */
+  @Prop({
+    reflectToAttr: true,
+  })
+  size?: string = "80px";
 
   private matchDivCountToVariant(): Element[] {
     let loader = 8;
@@ -62,19 +70,25 @@ export class WlSpinner implements ComponentInterface {
   }
 
   render() {
-    const me = this.matchDivCountToVariant();
+    const divsArray = this.matchDivCountToVariant();
     return (
-      <div
-        //@ts-ignore
-        variant={this.variant}
-        color={this.color}
-        class={{
-          "lds-roller": true,
-          ...createColorClasses(this.color),
+      <Host
+        style={{
+          ["--size"]: `${this.size}`,
         }}
       >
-        {...me}
-      </div>
+        <div
+          //@ts-ignore
+          variant={this.variant}
+          color={this.color}
+          class={{
+            "lds-roller": true,
+            ...createColorClasses(this.color),
+          }}
+        >
+          {...divsArray}
+        </div>
+      </Host>
     );
   }
 }

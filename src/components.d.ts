@@ -27,16 +27,16 @@ export namespace Components {
           * If `true`, the user cannot interact with the button.
          */
         "disabled": boolean;
-        "href": string | undefined;
+        "href"?: string;
         /**
           * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "rel": string | undefined;
+        "rel"?: string;
         "size"?: "sm" | "lg" | "xl";
         /**
           * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
-        "target": string | undefined;
+        "target"?: string;
         /**
           * The type of the button.
          */
@@ -144,9 +144,32 @@ export namespace Components {
         "sizeXs"?: string;
     }
     interface WlContainer {
+        "class": string;
         "fluid": boolean;
         "maxWidth": Breakpoints;
         "size": Breakpoints;
+    }
+    interface WlDrawer {
+        "close": () => Promise<void>;
+        "color"?: Color;
+        "isOpen": boolean;
+        "onDrawerClosed": () => Promise<void>;
+        "open": () => Promise<void>;
+        "placement": "right" | "left" | "top" | "bottom";
+    }
+    interface WlDrawerBody {
+    }
+    interface WlDrawerCloseButton {
+        "close": () => Promise<void>;
+        "color"?: Color;
+    }
+    interface WlDrawerContent {
+    }
+    interface WlDrawerFooter {
+        "color"?: Color;
+    }
+    interface WlDrawerHeader {
+        "color"?: Color;
     }
     interface WlGrid {
         /**
@@ -287,8 +310,8 @@ export namespace Components {
         "position"?: "fixed" | "stacked" | "floating";
     }
     interface WlModal {
-        "close": () => Promise<boolean>;
-        "open": () => Promise<unknown>;
+        "close": () => Promise<void>;
+        "open": () => Promise<void>;
         "show": boolean;
     }
     interface WlRow {
@@ -296,6 +319,10 @@ export namespace Components {
     }
     interface WlSpinner {
         "color"?: Color;
+        /**
+          * @size defaults to 80px
+         */
+        "size"?: string;
         "variant": SpinerVariant;
     }
 }
@@ -329,6 +356,42 @@ declare global {
     var HTMLWlContainerElement: {
         prototype: HTMLWlContainerElement;
         new (): HTMLWlContainerElement;
+    };
+    interface HTMLWlDrawerElement extends Components.WlDrawer, HTMLStencilElement {
+    }
+    var HTMLWlDrawerElement: {
+        prototype: HTMLWlDrawerElement;
+        new (): HTMLWlDrawerElement;
+    };
+    interface HTMLWlDrawerBodyElement extends Components.WlDrawerBody, HTMLStencilElement {
+    }
+    var HTMLWlDrawerBodyElement: {
+        prototype: HTMLWlDrawerBodyElement;
+        new (): HTMLWlDrawerBodyElement;
+    };
+    interface HTMLWlDrawerCloseButtonElement extends Components.WlDrawerCloseButton, HTMLStencilElement {
+    }
+    var HTMLWlDrawerCloseButtonElement: {
+        prototype: HTMLWlDrawerCloseButtonElement;
+        new (): HTMLWlDrawerCloseButtonElement;
+    };
+    interface HTMLWlDrawerContentElement extends Components.WlDrawerContent, HTMLStencilElement {
+    }
+    var HTMLWlDrawerContentElement: {
+        prototype: HTMLWlDrawerContentElement;
+        new (): HTMLWlDrawerContentElement;
+    };
+    interface HTMLWlDrawerFooterElement extends Components.WlDrawerFooter, HTMLStencilElement {
+    }
+    var HTMLWlDrawerFooterElement: {
+        prototype: HTMLWlDrawerFooterElement;
+        new (): HTMLWlDrawerFooterElement;
+    };
+    interface HTMLWlDrawerHeaderElement extends Components.WlDrawerHeader, HTMLStencilElement {
+    }
+    var HTMLWlDrawerHeaderElement: {
+        prototype: HTMLWlDrawerHeaderElement;
+        new (): HTMLWlDrawerHeaderElement;
     };
     interface HTMLWlGridElement extends Components.WlGrid, HTMLStencilElement {
     }
@@ -372,6 +435,12 @@ declare global {
         "wl-card": HTMLWlCardElement;
         "wl-col": HTMLWlColElement;
         "wl-container": HTMLWlContainerElement;
+        "wl-drawer": HTMLWlDrawerElement;
+        "wl-drawer-body": HTMLWlDrawerBodyElement;
+        "wl-drawer-close-button": HTMLWlDrawerCloseButtonElement;
+        "wl-drawer-content": HTMLWlDrawerContentElement;
+        "wl-drawer-footer": HTMLWlDrawerFooterElement;
+        "wl-drawer-header": HTMLWlDrawerHeaderElement;
         "wl-grid": HTMLWlGridElement;
         "wl-input": HTMLWlInputElement;
         "wl-label": HTMLWlLabelElement;
@@ -395,16 +464,16 @@ declare namespace LocalJSX {
           * If `true`, the user cannot interact with the button.
          */
         "disabled"?: boolean;
-        "href"?: string | undefined;
+        "href"?: string;
         /**
           * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
          */
-        "rel"?: string | undefined;
+        "rel"?: string;
         "size"?: "sm" | "lg" | "xl";
         /**
           * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
          */
-        "target"?: string | undefined;
+        "target"?: string;
         /**
           * The type of the button.
          */
@@ -512,9 +581,29 @@ declare namespace LocalJSX {
         "sizeXs"?: string;
     }
     interface WlContainer {
+        "class"?: string;
         "fluid"?: boolean;
         "maxWidth"?: Breakpoints;
         "size"?: Breakpoints;
+    }
+    interface WlDrawer {
+        "color"?: Color;
+        "isOpen"?: boolean;
+        "onClosed"?: (event: CustomEvent<any>) => void;
+        "placement"?: "right" | "left" | "top" | "bottom";
+    }
+    interface WlDrawerBody {
+    }
+    interface WlDrawerCloseButton {
+        "color"?: Color;
+    }
+    interface WlDrawerContent {
+    }
+    interface WlDrawerFooter {
+        "color"?: Color;
+    }
+    interface WlDrawerHeader {
+        "color"?: Color;
     }
     interface WlGrid {
         /**
@@ -670,6 +759,10 @@ declare namespace LocalJSX {
     }
     interface WlSpinner {
         "color"?: Color;
+        /**
+          * @size defaults to 80px
+         */
+        "size"?: string;
         "variant"?: SpinerVariant;
     }
     interface IntrinsicElements {
@@ -678,6 +771,12 @@ declare namespace LocalJSX {
         "wl-card": WlCard;
         "wl-col": WlCol;
         "wl-container": WlContainer;
+        "wl-drawer": WlDrawer;
+        "wl-drawer-body": WlDrawerBody;
+        "wl-drawer-close-button": WlDrawerCloseButton;
+        "wl-drawer-content": WlDrawerContent;
+        "wl-drawer-footer": WlDrawerFooter;
+        "wl-drawer-header": WlDrawerHeader;
         "wl-grid": WlGrid;
         "wl-input": WlInput;
         "wl-label": WlLabel;
@@ -695,6 +794,12 @@ declare module "@stencil/core" {
             "wl-card": LocalJSX.WlCard & JSXBase.HTMLAttributes<HTMLWlCardElement>;
             "wl-col": LocalJSX.WlCol & JSXBase.HTMLAttributes<HTMLWlColElement>;
             "wl-container": LocalJSX.WlContainer & JSXBase.HTMLAttributes<HTMLWlContainerElement>;
+            "wl-drawer": LocalJSX.WlDrawer & JSXBase.HTMLAttributes<HTMLWlDrawerElement>;
+            "wl-drawer-body": LocalJSX.WlDrawerBody & JSXBase.HTMLAttributes<HTMLWlDrawerBodyElement>;
+            "wl-drawer-close-button": LocalJSX.WlDrawerCloseButton & JSXBase.HTMLAttributes<HTMLWlDrawerCloseButtonElement>;
+            "wl-drawer-content": LocalJSX.WlDrawerContent & JSXBase.HTMLAttributes<HTMLWlDrawerContentElement>;
+            "wl-drawer-footer": LocalJSX.WlDrawerFooter & JSXBase.HTMLAttributes<HTMLWlDrawerFooterElement>;
+            "wl-drawer-header": LocalJSX.WlDrawerHeader & JSXBase.HTMLAttributes<HTMLWlDrawerHeaderElement>;
             "wl-grid": LocalJSX.WlGrid & JSXBase.HTMLAttributes<HTMLWlGridElement>;
             "wl-input": LocalJSX.WlInput & JSXBase.HTMLAttributes<HTMLWlInputElement>;
             "wl-label": LocalJSX.WlLabel & JSXBase.HTMLAttributes<HTMLWlLabelElement>;

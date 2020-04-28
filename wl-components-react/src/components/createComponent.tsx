@@ -7,6 +7,7 @@ import {
   dashToPascalCase,
   isCoveredByReact,
 } from "./utils";
+import { RouterDirection } from "./hrefprops";
 
 interface WlReactInternalProps<ElementType>
   extends React.HTMLAttributes<ElementType> {
@@ -14,10 +15,13 @@ interface WlReactInternalProps<ElementType>
   href?: string;
   ref?: React.Ref<any>;
   translate?: any;
+  routerLink?: string;
+  routerDirection?: RouterDirection;
 }
 
 export const createReactComponent = <PropType, ElementType>(
-  tagName: string
+  tagName: string,
+  routerLinkComponent = false
 ) => {
   const displayName = dashToPascalCase(tagName);
   const ReactComponent = class extends React.Component<
@@ -35,6 +39,15 @@ export const createReactComponent = <PropType, ElementType>(
       const node = ReactDom.findDOMNode(this) as HTMLElement;
       attachProps(node, this.props, prevProps);
     }
+
+    private handleClick = (e: React.MouseEvent<PropType>) => {
+      const { routerLink, routerDirection } = this.props;
+      if (routerLink !== undefined) {
+        e.preventDefault();
+        //Not Sure If this is going to work.
+        this.context.navigate(routerLink, routerDirection);
+      }
+    };
 
     render() {
       const {
@@ -62,6 +75,23 @@ export const createReactComponent = <PropType, ElementType>(
         ref: forwardedRef,
         style,
       };
+
+      if (routerLinkComponent) {
+        if (this.props.routerLink && !this.props.href) {
+          newProps.href = this.props.routerLink;
+        }
+        if (newProps.onClick) {
+          const oldClick = newProps.onClick;
+          newProps.onClick = (e: React.MouseEvent<PropType>) => {
+            oldClick(e);
+            if (!e.defaultPrevented) {
+              this.handleClick(e);
+            }
+          };
+        } else {
+          newProps.onClick = this.handleClick;
+        }
+      }
 
       return React.createElement(tagName, newProps, children);
     }

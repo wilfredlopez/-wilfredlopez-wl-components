@@ -43,3 +43,12 @@ export const WlSpinner = /*@__PURE__*/ createReactComponent<
   JSX.WlSpinner,
   HTMLWlSpinnerElement
 >("wl-spinner");
+
+export const WlInput = /*@__PURE__*/ createReactComponent<
+  JSX.WlInput,
+  HTMLWlInputElement
+>("wl-input");
+export const WlLabel = /*@__PURE__*/ createReactComponent<
+  JSX.WlLabel,
+  HTMLWlLabelElement
+>("wl-label");

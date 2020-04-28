@@ -149,7 +149,28 @@
   <body>
     <wl-appbar color="primary">
       <h1 class="wl-no-padding wl-no-margin">WL COMPONENTS</h1>
-
+      <wl-drawer>
+        <wl-drawer-content>
+          <wl-drawer-close-button></wl-drawer-close-button>
+          <wl-drawer-header>Wilfred Lopez </wl-drawer-header>
+          <wl-drawer-body>
+            <p>Hello</p>
+            <div>Im The Best</div>
+          </wl-drawer-body>
+          <wl-drawer-footer>
+            <wl-grid>
+              <wl-row>
+                <wl-col>
+                  <p>Col 1</p>
+                </wl-col>
+                <wl-col>
+                  <p>Col 2</p>
+                </wl-col>
+              </wl-row>
+            </wl-grid>
+          </wl-drawer-footer>
+        </wl-drawer-content>
+      </wl-drawer>
       <wl-button color="danger">@Wilfredlopez/wl-components</wl-button>
     </wl-appbar>
 
@@ -267,17 +288,13 @@
       openButton.addEventListener("click", () => {
         modal.open();
       });
-      if (cancelBtn) {
-        cancelBtn.addEventListener("click", () => {
-          modal.close();
-        });
-      }
 
-      if (daleBtn) {
-        daleBtn.addEventListener("click", () => {
-          modal.close();
-        });
-      }
+      cancelBtn.addEventListener("click", () => {
+        modal.close();
+      });
+      daleBtn.addEventListener("click", () => {
+        modal.close();
+      });
     </script>
     <!-- <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script> -->
   </body>

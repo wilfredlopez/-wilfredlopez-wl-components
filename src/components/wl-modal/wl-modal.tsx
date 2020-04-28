@@ -14,14 +14,11 @@ export class WlModal {
   show: boolean = false;
 
   @Method() async close() {
-    return (this.show = false);
+    this.show = false;
   }
 
   @Method() async open() {
-    return new Promise((resolve, _reject) => {
-      this.show = true;
-      return resolve(true);
-    });
+    this.show = true;
   }
 
   render() {

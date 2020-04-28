@@ -19,7 +19,14 @@ const SpinnersShowCase = (props: Props) => {
           <WlCol translate size="2">
             <div>
               <p>Default Spinner</p>
-              <WlSpinner translate color="warning"></WlSpinner>
+              <WlSpinner
+                translate
+                color="warning"
+                style={{
+                  width: 50,
+                  height: 50,
+                }}
+              ></WlSpinner>
             </div>
           </WlCol>
           <WlCol translate size="2">

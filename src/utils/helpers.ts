@@ -30,6 +30,10 @@ export const findItemLabel = (componentEl: HTMLElement) => {
   return null;
 };
 
+export const hostContext = (selector: string, el: HTMLElement): boolean => {
+  return el.closest(selector) !== null;
+};
+
 export const renderHiddenInput = (
   always: boolean,
   container: HTMLElement,

@@ -7,6 +7,7 @@ import {
   Host,
   Method,
   Prop,
+  Watch,
 } from "@stencil/core";
 import { Color } from "../../interfaces/Color.model";
 import { createColorClasses } from "../../utils/utils";
@@ -117,6 +118,16 @@ export class WlSpinner implements ComponentInterface {
     }
 
     return positionStyles;
+  }
+
+  @Watch("isOpen")
+  watchHandler(newValue: boolean, oldValue: boolean) {
+    if (newValue !== oldValue) {
+      if (newValue === false) {
+        const body = document.querySelector("body");
+        body!.style.overflow = "";
+      }
+    }
   }
 
   render() {

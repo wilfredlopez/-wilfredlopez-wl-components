@@ -68,7 +68,7 @@ export const config: Config = {
   ],
 };
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV === "development") {
   config.outputTargets.push(devTarget);
   config.devMode = true;
   config.devServer = {

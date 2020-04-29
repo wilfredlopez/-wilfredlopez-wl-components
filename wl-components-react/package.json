@@ -1,6 +1,6 @@
 {
   "name": "@wilfredlopez/react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "React specific wrapper for @wilfredlopez/wl-components",
   "keywords": [
     "pwa",
@@ -32,7 +32,7 @@
     "css/"
   ],
   "dependencies": {
-    "@wilfredlopez/wl-components": "^0.1.6",
+    "@wilfredlopez/wl-components": "^0.1.7",
     "tslib": "*"
   },
   "peerDependencies": {

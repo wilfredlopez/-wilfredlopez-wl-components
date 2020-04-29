@@ -21,7 +21,7 @@ export type Placement = "right" | "left" | "top" | "bottom";
   styleUrl: "drawer.scss",
   shadow: true,
 })
-export class WlSpinner implements ComponentInterface {
+export class WlDrawer implements ComponentInterface {
   @Prop({
     reflectToAttr: true,
   })
@@ -39,24 +39,7 @@ export class WlSpinner implements ComponentInterface {
   color?: Color = "light";
   buttonRef: any;
 
-  @Event() closed!: EventEmitter;
-
-  @Method() async onDrawerClosed() {
-    this.closed.emit();
-  }
-
-  @Method() async close() {
-    this.isOpen = false;
-    const body = document.querySelector("body");
-    body!.style.overflow = "";
-    this.onDrawerClosed();
-  }
-
-  @Method() async open() {
-    this.isOpen = true;
-    const body = document.querySelector("body");
-    body!.style.overflow = "hidden";
-  }
+  @Event() drawerOpenStateChange!: EventEmitter<{ isOpen: boolean }>;
 
   private getStylesFromPlacement(placement: Placement) {
     let percent = "100%";
@@ -120,12 +103,38 @@ export class WlSpinner implements ComponentInterface {
     return positionStyles;
   }
 
+  @Method() async close() {
+    this.isOpen = false;
+  }
+
+  @Method() async open() {
+    this.isOpen = true;
+  }
+
+  //toggle body overflow hidden
+  private setBodyOverflow(value: "hidden" | "") {
+    const body = document.querySelector("body");
+    body!.style.overflow = value;
+  }
+
+  // disconnectedCallback() {
+  //   this.enableScrollEvents(false);
+  //   this.scrollEl = undefined;
+  // }
+
   @Watch("isOpen")
   watchHandler(newValue: boolean, oldValue: boolean) {
     if (newValue !== oldValue) {
       if (newValue === false) {
-        const body = document.querySelector("body");
-        body!.style.overflow = "";
+        this.drawerOpenStateChange.emit({
+          isOpen: false,
+        });
+        this.setBodyOverflow("");
+      } else {
+        this.drawerOpenStateChange.emit({
+          isOpen: true,
+        });
+        this.setBodyOverflow("hidden");
       }
     }
   }
@@ -144,7 +153,6 @@ export class WlSpinner implements ComponentInterface {
           <wl-drawer-menu-button
             onClick={() => this.open()}
           ></wl-drawer-menu-button>
-          {/* <wl-button onClick={() => this.open()}>Open</wl-button> */}
         </slot>
 
         <div id="focus-guard"></div>

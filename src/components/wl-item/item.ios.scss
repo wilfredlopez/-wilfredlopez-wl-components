@@ -1,0 +1,213 @@
+@import "./item";
+@import "./item.ios.vars";
+
+// iOS Item
+// --------------------------------------------------
+
+:host {
+  --min-height: #{$item-ios-min-height};
+  --transition: background-color 200ms linear, opacity 200ms linear;
+  --padding-start: #{$item-ios-padding-start};
+  --inner-padding-end: #{$item-ios-padding-end / 2};
+  --inner-border-width: #{0px 0px $item-ios-border-bottom-width 0px};
+  --background: #{$item-ios-background};
+  --background-activated: #000;
+  --background-focused: #000;
+  --background-hover: currentColor;
+  --background-activated-opacity: 0.12;
+  --background-focused-opacity: 0.15;
+  --background-hover-opacity: 0.04;
+  --border-color: #{$item-ios-border-bottom-color};
+  --color: #{$item-ios-color};
+  --highlight-height: 0;
+  --highlight-color-focused: #{$item-ios-input-highlight-color};
+  --highlight-color-valid: #{$item-ios-input-highlight-color-valid};
+  --highlight-color-invalid: #{$item-ios-input-highlight-color-invalid};
+
+  font-size: $item-ios-font-size;
+}
+
+// iOS Item: States
+// --------------------------------------------------
+
+:host(.wl-activated) {
+  --transition: none;
+}
+
+:host(.wl-color.wl-focused) .item-native::after {
+  background: #000;
+
+  opacity: 0.15;
+}
+
+:host(.wl-color.wl-activated) .item-native {
+  &::after {
+    background: #000;
+
+    opacity: 0.12;
+  }
+}
+
+// iOS Item Lines
+// --------------------------------------------------
+
+// Default input items have an inset border
+:host(.item-interactive) {
+  --show-full-highlight: 0;
+  --show-inset-highlight: 1;
+}
+
+// Full lines - apply the border to the item
+// Inset lines - apply the border to the item inner
+:host(.item-lines-full) {
+  --border-width: #{0px 0px $item-ios-border-bottom-width 0px};
+  --show-full-highlight: 1;
+  --show-inset-highlight: 0;
+}
+
+:host(.item-lines-inset) {
+  --inner-border-width: #{0px 0px $item-ios-border-bottom-width 0px};
+  --show-full-highlight: 0;
+  --show-inset-highlight: 1;
+}
+
+// Full lines - remove the border from the item inner (inset list items)
+// Inset lines - remove the border on the item (full list items)
+// No lines - remove the border on both (full / inset list items)
+:host(.item-lines-inset),
+:host(.item-lines-none) {
+  --border-width: 0px;
+  --show-full-highlight: 0;
+}
+
+:host(.item-lines-full),
+:host(.item-lines-none) {
+  --inner-border-width: 0px;
+  --show-inset-highlight: 0;
+}
+
+// iOS Item Slots
+// --------------------------------------------------
+
+::slotted([slot="start"]) {
+  @include margin(
+    $item-ios-slot-start-margin-top,
+    $item-ios-slot-start-margin-end,
+    $item-ios-slot-start-margin-bottom,
+    $item-ios-slot-start-margin-start
+  );
+}
+
+::slotted([slot="end"]) {
+  @include margin(
+    $item-ios-slot-end-margin-top,
+    $item-ios-slot-end-margin-end,
+    $item-ios-slot-end-margin-bottom,
+    $item-ios-slot-end-margin-start
+  );
+}
+
+// iOS Slotted Icon
+// --------------------------------------------------
+
+::slotted(wl-icon[slot="start"]),
+::slotted(wl-icon[slot="end"]) {
+  @include margin(
+    $item-ios-icon-slot-margin-top,
+    $item-ios-icon-slot-margin-end,
+    $item-ios-icon-slot-margin-bottom,
+    $item-ios-icon-slot-margin-start
+  );
+}
+
+// iOS Slotted Toggle
+// --------------------------------------------------
+
+::slotted(wl-toggle[slot="start"]),
+::slotted(wl-toggle[slot="end"]) {
+  @include margin(0);
+}
+
+// iOS Stacked / Floating Labels
+// --------------------------------------------------
+
+:host(.item-label-stacked) ::slotted([slot="end"]),
+:host(.item-label-floating) ::slotted([slot="end"]) {
+  @include margin(
+    $item-ios-label-slot-end-margin-top,
+    $item-ios-label-slot-end-margin-end,
+    $item-ios-label-slot-end-margin-bottom,
+    $item-ios-label-slot-end-margin-start
+  );
+}
+
+// iOS Item Button
+// --------------------------------------------------
+
+::slotted(.button-small) {
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+  --padding-start: 0.5em;
+  --padding-end: 0.5em;
+
+  height: 24px;
+
+  font-size: 13px;
+}
+
+// iOS Item Avatar & Thumbnail
+// --------------------------------------------------
+
+::slotted(wl-avatar) {
+  width: $item-ios-avatar-width;
+  height: $item-ios-avatar-height;
+}
+
+::slotted(wl-thumbnail) {
+  width: $item-ios-thumbnail-width;
+  height: $item-ios-thumbnail-height;
+}
+
+::slotted(wl-avatar[slot="end"]),
+::slotted(wl-thumbnail[slot="end"]) {
+  @include margin(($item-ios-padding-end / 2));
+}
+
+// iOS Radio / Toggle Item Label
+// -----------------------------------------
+
+:host(.item-radio) ::slotted(wl-label),
+:host(.item-toggle) ::slotted(wl-label) {
+  @include margin-horizontal(0px, null);
+}
+
+// TODO: MOVE FROM RADIO
+// iOS Radio Item Label: Checked
+// -----------------------------------------
+
+// :host(.item-radio-checked) ::slotted(wl-label) {
+//   color: $radio-ios-color-on;
+// }
+
+// iOS Slotted Label
+// --------------------------------------------------
+
+::slotted(wl-label) {
+  @include margin(10px, 8px, 10px, 0);
+}
+
+// iOS Stacked & Floating Inputs
+// --------------------------------------------------
+
+:host(.item-label-floating),
+:host(.item-label-stacked) {
+  --min-height: 68px;
+}
+
+// TODO: refactor, wl-item and wl-textarea have the same CSS
+:host(.item-label-stacked) ::slotted(wl-select),
+:host(.item-label-floating) ::slotted(wl-select) {
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  --padding-start: 0px;
+}

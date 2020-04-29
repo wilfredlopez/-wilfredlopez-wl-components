@@ -149,33 +149,48 @@
   <body>
     <wl-appbar color="primary">
       <wl-drawer placement="top" color="primary">
-        <wl-drawer-menu-button variant="outline" slot="button-open"></wl-drawer-menu-button>
+        <wl-drawer-menu-button
+          variant="outline"
+          slot="button-open"
+        ></wl-drawer-menu-button>
         <wl-drawer-content>
-          <wl-drawer-close-button color="primary" ></wl-drawer-close-button>
-          <wl-drawer-header>Wilfred Lopez </wl-drawer-header>
-          <wl-drawer-body>
-            <p>Hello</p>
-            <div>Im The Best</div>
-          </wl-drawer-body>
-          <wl-drawer-footer>
-            <wl-grid>
+          <wl-drawer-close-button color="primary"></wl-drawer-close-button>
+          <wl-drawer-header>
+            <wl-text>Wilfred Lopez </wl-text>
+          </wl-drawer-header>
+          <wl-drawer-body class="wl-no-padding">
+            <wl-grid fixed>
               <wl-row>
-                <wl-col>
-                  <p>Col 1</p>
+                <wl-col size-sm="3">
+                  <wl-item button color="secondary" href="/">
+                    <div slot="start">*</div>
+                    <span>Home</span>
+                  </wl-item>
                 </wl-col>
-                <wl-col>
-                  <p>Col 2</p>
+              </wl-row>
+              <wl-row>
+                <wl-col size-sm="3">
+                  <wl-item color="secondary" button>
+                    <div slot="start">*</div>
+                    <div>Other</div>
+                  </wl-item>
                 </wl-col>
               </wl-row>
             </wl-grid>
-          </wl-drawer-content>
+          </wl-drawer-body>
+        </wl-drawer-content>
+        <wl-drawer-footer>
+          <wl-flex>
+            <wl-text>Twitter: @WilfredDonaldLo</wl-text>
+          </wl-flex>
         </wl-drawer-footer>
       </wl-drawer>
       <wl-flex>
-
         <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
 
-        <wl-button color="danger" class="wl-hide-sm-down">@Wilfredlopez/wl-components</wl-button>
+        <wl-button color="danger" class="wl-hide-sm-down"
+          >@Wilfredlopez/wl-components</wl-button
+        >
       </wl-flex>
     </wl-appbar>
 
@@ -192,11 +207,10 @@
           </div>
         </wl-flex>
         <wl-flex>
-
-          <div> Flex 2</div>
-          <div> Flex 3</div>
-          <div> Flex 4</div>
-          <div> Flex 5</div>
+          <div>Flex 2</div>
+          <div>Flex 3</div>
+          <div>Flex 4</div>
+          <div>Flex 5</div>
         </wl-flex>
       </wl-flex>
 
@@ -304,6 +318,17 @@
       </wl-grid>
     </wl-container>
     <script>
+      //wl-drawer
+      const drawer = document.querySelector("wl-drawer");
+      if (drawer) {
+        drawer.addEventListener("drawerOpenStateChange", (e) => {
+          if (e.detail.isOpen === false) {
+            console.log("drawer was closed");
+          }
+        });
+      }
+
+      //wl-modal
       const cancelBtn = document.getElementById("cancelBtn");
       const daleBtn = document.getElementById("daleBtn");
       const openButton = document.getElementById("openBtn");

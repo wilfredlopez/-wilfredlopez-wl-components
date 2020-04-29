@@ -218,6 +218,14 @@ $VARIANTS: (outline, solid, clear);
 [variant="full"] {
   display: block;
 }
+:host([variant="full"]) {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: block;
+  contain: content;
+}
 
 [variant="full"].button-native {
   @include margin-horizontal(0);

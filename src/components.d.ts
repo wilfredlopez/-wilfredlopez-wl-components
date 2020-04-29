@@ -154,7 +154,6 @@ export namespace Components {
         "close": () => Promise<void>;
         "color"?: Color;
         "isOpen": boolean;
-        "onDrawerClosed": () => Promise<void>;
         "open": () => Promise<void>;
         "placement": Placement;
     }
@@ -408,6 +407,46 @@ export namespace Components {
         "value"?: string | number | null;
     }
     interface WlItem {
+        /**
+          * If `true`, a button tag will be rendered and the item will be tappable.
+         */
+        "button": boolean;
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * If `true`, the user cannot interact with the item.
+         */
+        "disabled": boolean;
+        /**
+          * This attribute instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file. If the attribute has a value, it is used as the pre-filled file name in the Save prompt (the user can still change the file name if they want).
+         */
+        "download": string | undefined;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "href": string | undefined;
+        /**
+          * How the bottom border should be displayed on the item.
+         */
+        "lines"?: "full" | "inset" | "none";
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        /**
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+         */
+        "rel": string | undefined;
+        /**
+          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+         */
+        "target": string | undefined;
+        /**
+          * The type of the button. Only used when an `onclick` or `button` property is present.
+         */
+        "type": "submit" | "reset" | "button";
     }
     interface WlLabel {
         /**
@@ -434,6 +473,9 @@ export namespace Components {
          */
         "size"?: string;
         "variant": SpinerVariant;
+    }
+    interface WlText {
+        "color"?: Color;
     }
 }
 declare global {
@@ -557,6 +599,12 @@ declare global {
         prototype: HTMLWlSpinnerElement;
         new (): HTMLWlSpinnerElement;
     };
+    interface HTMLWlTextElement extends Components.WlText, HTMLStencilElement {
+    }
+    var HTMLWlTextElement: {
+        prototype: HTMLWlTextElement;
+        new (): HTMLWlTextElement;
+    };
     interface HTMLElementTagNameMap {
         "wl-appbar": HTMLWlAppbarElement;
         "wl-button": HTMLWlButtonElement;
@@ -578,6 +626,7 @@ declare global {
         "wl-modal": HTMLWlModalElement;
         "wl-row": HTMLWlRowElement;
         "wl-spinner": HTMLWlSpinnerElement;
+        "wl-text": HTMLWlTextElement;
     }
 }
 declare namespace LocalJSX {
@@ -720,7 +769,9 @@ declare namespace LocalJSX {
     interface WlDrawer {
         "color"?: Color;
         "isOpen"?: boolean;
-        "onClosed"?: (event: CustomEvent<any>) => void;
+        "onDrawerOpenStateChange"?: (event: CustomEvent<{
+            isOpen: boolean;
+        }>) => void;
         "placement"?: Placement;
     }
     interface WlDrawerBody {
@@ -980,6 +1031,46 @@ declare namespace LocalJSX {
         "value"?: string | number | null;
     }
     interface WlItem {
+        /**
+          * If `true`, a button tag will be rendered and the item will be tappable.
+         */
+        "button"?: boolean;
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * If `true`, the user cannot interact with the item.
+         */
+        "disabled"?: boolean;
+        /**
+          * This attribute instructs browsers to download a URL instead of navigating to it, so the user will be prompted to save it as a local file. If the attribute has a value, it is used as the pre-filled file name in the Save prompt (the user can still change the file name if they want).
+         */
+        "download"?: string | undefined;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "href"?: string | undefined;
+        /**
+          * How the bottom border should be displayed on the item.
+         */
+        "lines"?: "full" | "inset" | "none";
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        /**
+          * Specifies the relationship of the target object to the link object. The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
+         */
+        "rel"?: string | undefined;
+        /**
+          * Specifies where to display the linked URL. Only applies when an `href` is provided. Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
+         */
+        "target"?: string | undefined;
+        /**
+          * The type of the button. Only used when an `onclick` or `button` property is present.
+         */
+        "type"?: "submit" | "reset" | "button";
     }
     interface WlLabel {
         /**
@@ -1005,6 +1096,9 @@ declare namespace LocalJSX {
         "size"?: string;
         "variant"?: SpinerVariant;
     }
+    interface WlText {
+        "color"?: Color;
+    }
     interface IntrinsicElements {
         "wl-appbar": WlAppbar;
         "wl-button": WlButton;
@@ -1026,6 +1120,7 @@ declare namespace LocalJSX {
         "wl-modal": WlModal;
         "wl-row": WlRow;
         "wl-spinner": WlSpinner;
+        "wl-text": WlText;
     }
 }
 export { LocalJSX as JSX };
@@ -1052,6 +1147,7 @@ declare module "@stencil/core" {
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
             "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;
             "wl-spinner": LocalJSX.WlSpinner & JSXBase.HTMLAttributes<HTMLWlSpinnerElement>;
+            "wl-text": LocalJSX.WlText & JSXBase.HTMLAttributes<HTMLWlTextElement>;
         }
     }
 }

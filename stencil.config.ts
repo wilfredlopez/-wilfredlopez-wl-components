@@ -5,7 +5,20 @@ export const config: Config = {
   namespace: "wl-components",
   taskQueue: "async",
   enableCache: true,
-  bundles: [{ components: ["wl-grid", "wl-row", "wl-col"] }],
+  bundles: [
+    { components: ["wl-grid", "wl-row", "wl-col"] },
+    {
+      components: [
+        "wl-drawer",
+        "wl-drawer-body",
+        "wl-drawer-close-button",
+        "wl-drawer-content",
+        "wl-drawer-footer",
+        "wl-drawer-header",
+        "wl-drawer-menu-button",
+      ],
+    },
+  ],
   // devMode: true,
   // devServer: {
   //   reloadStrategy: "hmr",

@@ -1,8 +1,42 @@
+@import "../../themes/wl.globals";
+@import "../wl-grid/grid.mixins";
+
+// Grid Column
+// --------------------------------------------------
+
+/// @prop - The padding for the grid column
+$grid-column-padding: var(--wl-grid-column-padding, 5px) !default;
+
+/// @prop - The padding for the column at different breakpoints
+$grid-column-paddings: (
+  xs: var(--wl-grid-column-padding-xs, $grid-column-padding),
+  sm: var(--wl-grid-column-padding-sm, $grid-column-padding),
+  md: var(--wl-grid-column-padding-md, $grid-column-padding),
+  lg: var(--wl-grid-column-padding-lg, $grid-column-padding),
+  xl: var(--wl-grid-column-padding-xl, $grid-column-padding),
+) !default;
+
+// ::slotted {
+//   width: 100%;
+// }
 :host {
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  @include make-breakpoint-padding($grid-column-paddings);
+  @include margin(0);
+  box-sizing: border-box;
+  /*
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+   background-color: #2f855a;
+   padding: 0.5rem;
+   */
+  color: inherit;
+  /*
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -11,10 +45,5 @@
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding: 1.5rem;
-  background-color: #2f855a;
-  color: #fff;
+  */
 }

@@ -8,9 +8,8 @@ import { Color } from "../../interfaces/Color.model";
   shadow: true,
 })
 export class WlDrawerMenuButton {
-  @Prop({ reflectToAttr: true }) variant: Variants = "clear";
+  @Prop({ reflectToAttr: true }) variant?: Variants = "clear";
   @Prop({
-    attribute: "color",
     reflect: true,
   })
   color?: Color = "dark";
@@ -37,13 +36,14 @@ export class WlDrawerMenuButton {
   };
 
   render() {
+    const { size, color, variant } = this;
     return (
-      <Host size={this.size} color={this.color} variant={this.variant}>
+      <Host size={size} color={color} variant={variant}>
         <wl-button
           onClick={(e) => this.onClick(e)}
-          size={this.size}
-          color={this.color}
-          variant={this.variant}
+          size={size}
+          color={color}
+          variant={variant}
         >
           <span class="label">
             <svg

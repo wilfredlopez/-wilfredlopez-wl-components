@@ -45,8 +45,9 @@ $TextMofifiers: (
 @each $type in $TextMofifiers {
   :host([textAlign="#{$type}"]) ::slotted(:first-child) {
     text-align: #{$type};
-
+    /*
     flex-grow: 1;
+    */
   }
 }
 

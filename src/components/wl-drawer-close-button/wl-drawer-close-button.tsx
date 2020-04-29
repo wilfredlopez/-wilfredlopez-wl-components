@@ -22,7 +22,7 @@ export class WlDrawerCloseButton implements ComponentInterface {
   })
   color?: Color = "light";
   @Prop({
-    attribute: "color",
+    attribute: "variant",
   })
   variant?: Variants = "outline";
   @Element() el!: HTMLElement;
@@ -35,16 +35,17 @@ export class WlDrawerCloseButton implements ComponentInterface {
   }
 
   render() {
-    let { color, variant } = this;
     return (
       <Host
+        color={this.color}
+        variant={this.variant}
         class={{
           "in-drawer": hostContext("wl-drawer", this.el),
         }}
       >
         <wl-button
-          color={color}
-          variant={variant}
+          color={this.color}
+          variant={this.variant}
           class="close wl-no-padding"
           onClick={() => this.close()}
         >

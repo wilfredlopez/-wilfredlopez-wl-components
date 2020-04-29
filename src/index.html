@@ -148,11 +148,10 @@
   </head>
   <body>
     <wl-appbar color="primary">
-      <h1 class="wl-no-padding wl-no-margin">WL COMPONENTS</h1>
-      <wl-drawer placement="top">
-        <!-- <wl-drawer-menu-button variant="outline" slot="button-open"></wl-drawer-menu-button> -->
+      <wl-drawer placement="top" color="primary">
+        <wl-drawer-menu-button variant="outline" slot="button-open"></wl-drawer-menu-button>
         <wl-drawer-content>
-          <wl-drawer-close-button></wl-drawer-close-button>
+          <wl-drawer-close-button color="primary" ></wl-drawer-close-button>
           <wl-drawer-header>Wilfred Lopez </wl-drawer-header>
           <wl-drawer-body>
             <p>Hello</p>
@@ -172,11 +171,34 @@
           </wl-drawer-content>
         </wl-drawer-footer>
       </wl-drawer>
-      <wl-button color="danger">@Wilfredlopez/wl-components</wl-button>
+      <wl-flex>
+
+        <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
+
+        <wl-button color="danger" class="wl-hide-sm-down">@Wilfredlopez/wl-components</wl-button>
+      </wl-flex>
     </wl-appbar>
 
     <wl-container size="sm">
       <br />
+
+      <wl-flex>
+        <wl-flex>
+          <div>
+            <p>
+              Flex 1 SUPER SUPER
+            </p>
+            <p>SUPER</p>
+          </div>
+        </wl-flex>
+        <wl-flex>
+
+          <div> Flex 2</div>
+          <div> Flex 3</div>
+          <div> Flex 4</div>
+          <div> Flex 5</div>
+        </wl-flex>
+      </wl-flex>
 
       <wl-card>
         <div slot="header">

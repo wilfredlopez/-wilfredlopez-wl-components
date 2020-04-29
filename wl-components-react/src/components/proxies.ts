@@ -52,3 +52,42 @@ export const WlLabel = /*@__PURE__*/ createReactComponent<
   JSX.WlLabel,
   HTMLWlLabelElement
 >("wl-label");
+
+export const WlDrawer = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawer,
+  HTMLWlDrawerElement
+>("wl-drawer");
+export const WlDrawerBody = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerBody,
+  HTMLWlDrawerBodyElement
+>("wl-drawer-body");
+
+export const WlDrawerCloseButton = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerCloseButton,
+  HTMLWlDrawerCloseButtonElement
+>("wl-drawer-close-button");
+
+export const WlDrawerContent = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerContent,
+  HTMLWlDrawerContentElement
+>("wl-drawer-content");
+
+export const WlDrawerFooter = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerFooter,
+  HTMLWlDrawerFooterElement
+>("wl-drawer-footer");
+
+export const WlDrawerHeader = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerHeader,
+  HTMLWlDrawerHeaderElement
+>("wl-drawer-header");
+
+export const WlDrawerMenuButton = /*@__PURE__*/ createReactComponent<
+  JSX.WlDrawerMenuButton,
+  HTMLWlDrawerMenuButtonElement
+>("wl-drawer-menu-button");
+
+export const WlFlex = /*@__PURE__*/ createReactComponent<
+  JSX.WlFlex,
+  HTMLWlFlexElement
+>("wl-flex");

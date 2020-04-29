@@ -24,17 +24,23 @@ export const config: Config = {
   //   reloadStrategy: "hmr",
   // },
   outputTargets: [
+    // {
+    //   type: "www",
+    //   copy: [
+    //     {
+    //       src: "../css",
+    //       dest: "./css",
+    //     },
+    //   ],
+    // },
     {
-      type: "www",
+      type: "dist",
       copy: [
         {
           src: "../css",
           dest: "./css",
         },
       ],
-    },
-    {
-      type: "dist",
       esmLoaderPath: "../loader",
     },
     {

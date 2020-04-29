@@ -49,6 +49,21 @@
 | `--transition`                   | Transition of the button                                                                                  |
 
 
+## Dependencies
+
+### Used by
+
+ - [wl-drawer-close-button](../wl-drawer-close-button)
+ - [wl-drawer-menu-button](../wl-drawer-menu-button)
+
+### Graph
+```mermaid
+graph TD;
+  wl-drawer-close-button --> wl-button
+  wl-drawer-menu-button --> wl-button
+  style wl-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

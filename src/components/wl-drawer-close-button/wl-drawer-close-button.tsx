@@ -8,8 +8,8 @@ import {
   Element,
 } from "@stencil/core";
 import { Color } from "../../interfaces/Color.model";
-import { createColorClasses } from "../../utils/utils";
 import { hostContext } from "../../utils/helpers";
+import { Variants } from "../../interfaces/Variants.model";
 
 @Component({
   tag: "wl-drawer-close-button",
@@ -19,9 +19,12 @@ import { hostContext } from "../../utils/helpers";
 export class WlDrawerCloseButton implements ComponentInterface {
   @Prop({
     attribute: "color",
-    reflect: true,
   })
-  color?: Color = "primary";
+  color?: Color = "light";
+  @Prop({
+    attribute: "color",
+  })
+  variant?: Variants = "outline";
   @Element() el!: HTMLElement;
 
   @Method() async close() {
@@ -32,16 +35,16 @@ export class WlDrawerCloseButton implements ComponentInterface {
   }
 
   render() {
+    let { color, variant } = this;
     return (
       <Host
         class={{
-          ...createColorClasses(this.color),
           "in-drawer": hostContext("wl-drawer", this.el),
         }}
       >
         <wl-button
-          color={this.color}
-          variant="clear"
+          color={color}
+          variant={variant}
           class="close wl-no-padding"
           onClick={() => this.close()}
         >

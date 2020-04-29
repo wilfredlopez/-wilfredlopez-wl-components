@@ -1,5 +1,3 @@
-@import "../../css/wl.bundle.scss";
-
 wl-button.close,
 button.close {
   outline: none;
@@ -40,4 +38,5 @@ svg {
   flex-shrink: 0;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform: translateY(-8%);
 }

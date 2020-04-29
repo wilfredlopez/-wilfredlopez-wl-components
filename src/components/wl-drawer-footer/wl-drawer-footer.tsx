@@ -1,6 +1,4 @@
 import { Component, ComponentInterface, h, Prop, Host } from "@stencil/core";
-import { Color } from "../../interfaces/Color.model";
-import { createColorClasses } from "../../utils/utils";
 
 @Component({
   tag: "wl-drawer-footer",
@@ -11,12 +9,13 @@ export class WlDrawerFooter implements ComponentInterface {
   @Prop({
     reflect: true,
   })
-  color?: Color;
+  fixed: boolean = false;
+
   render() {
     return (
       <Host
         class={{
-          ...createColorClasses(this.color),
+          fixed: this.fixed,
         }}
       >
         <footer>

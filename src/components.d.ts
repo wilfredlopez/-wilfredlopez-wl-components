@@ -10,6 +10,7 @@ import { AlignmentModifier, JustificationModifier, } from "./interfaces/FlexClas
 import { TextClassModifier, } from "./interfaces/TextClassModifier.model";
 import { Variants, } from "./interfaces/Variants.model";
 import { Breakpoints, } from "./interfaces/Breakpoints.model";
+import { Placement, } from "./components/wl-drawer/wl-drawer";
 import { InputChangeEventDetail, StyleEventDetail, TextFieldTypes, } from "./interfaces/Inputs.model";
 import { SpinerVariant, } from "./interfaces/SpinerVariant.mode";
 export namespace Components {
@@ -155,21 +156,27 @@ export namespace Components {
         "isOpen": boolean;
         "onDrawerClosed": () => Promise<void>;
         "open": () => Promise<void>;
-        "placement": "right" | "left" | "top" | "bottom";
+        "placement": Placement;
     }
     interface WlDrawerBody {
     }
     interface WlDrawerCloseButton {
         "close": () => Promise<void>;
         "color"?: Color;
+        "variant"?: Variants;
     }
     interface WlDrawerContent {
     }
     interface WlDrawerFooter {
-        "color"?: Color;
+        "fixed": boolean;
     }
     interface WlDrawerHeader {
         "color"?: Color;
+    }
+    interface WlDrawerMenuButton {
+        "color"?: Color;
+        "size"?: "sm" | "lg" | "xl";
+        "variant": Variants;
     }
     interface WlGrid {
         /**
@@ -393,6 +400,12 @@ declare global {
         prototype: HTMLWlDrawerHeaderElement;
         new (): HTMLWlDrawerHeaderElement;
     };
+    interface HTMLWlDrawerMenuButtonElement extends Components.WlDrawerMenuButton, HTMLStencilElement {
+    }
+    var HTMLWlDrawerMenuButtonElement: {
+        prototype: HTMLWlDrawerMenuButtonElement;
+        new (): HTMLWlDrawerMenuButtonElement;
+    };
     interface HTMLWlGridElement extends Components.WlGrid, HTMLStencilElement {
     }
     var HTMLWlGridElement: {
@@ -441,6 +454,7 @@ declare global {
         "wl-drawer-content": HTMLWlDrawerContentElement;
         "wl-drawer-footer": HTMLWlDrawerFooterElement;
         "wl-drawer-header": HTMLWlDrawerHeaderElement;
+        "wl-drawer-menu-button": HTMLWlDrawerMenuButtonElement;
         "wl-grid": HTMLWlGridElement;
         "wl-input": HTMLWlInputElement;
         "wl-label": HTMLWlLabelElement;
@@ -590,20 +604,26 @@ declare namespace LocalJSX {
         "color"?: Color;
         "isOpen"?: boolean;
         "onClosed"?: (event: CustomEvent<any>) => void;
-        "placement"?: "right" | "left" | "top" | "bottom";
+        "placement"?: Placement;
     }
     interface WlDrawerBody {
     }
     interface WlDrawerCloseButton {
         "color"?: Color;
+        "variant"?: Variants;
     }
     interface WlDrawerContent {
     }
     interface WlDrawerFooter {
-        "color"?: Color;
+        "fixed"?: boolean;
     }
     interface WlDrawerHeader {
         "color"?: Color;
+    }
+    interface WlDrawerMenuButton {
+        "color"?: Color;
+        "size"?: "sm" | "lg" | "xl";
+        "variant"?: Variants;
     }
     interface WlGrid {
         /**
@@ -777,6 +797,7 @@ declare namespace LocalJSX {
         "wl-drawer-content": WlDrawerContent;
         "wl-drawer-footer": WlDrawerFooter;
         "wl-drawer-header": WlDrawerHeader;
+        "wl-drawer-menu-button": WlDrawerMenuButton;
         "wl-grid": WlGrid;
         "wl-input": WlInput;
         "wl-label": WlLabel;
@@ -800,6 +821,7 @@ declare module "@stencil/core" {
             "wl-drawer-content": LocalJSX.WlDrawerContent & JSXBase.HTMLAttributes<HTMLWlDrawerContentElement>;
             "wl-drawer-footer": LocalJSX.WlDrawerFooter & JSXBase.HTMLAttributes<HTMLWlDrawerFooterElement>;
             "wl-drawer-header": LocalJSX.WlDrawerHeader & JSXBase.HTMLAttributes<HTMLWlDrawerHeaderElement>;
+            "wl-drawer-menu-button": LocalJSX.WlDrawerMenuButton & JSXBase.HTMLAttributes<HTMLWlDrawerMenuButtonElement>;
             "wl-grid": LocalJSX.WlGrid & JSXBase.HTMLAttributes<HTMLWlGridElement>;
             "wl-input": LocalJSX.WlInput & JSXBase.HTMLAttributes<HTMLWlInputElement>;
             "wl-label": LocalJSX.WlLabel & JSXBase.HTMLAttributes<HTMLWlLabelElement>;

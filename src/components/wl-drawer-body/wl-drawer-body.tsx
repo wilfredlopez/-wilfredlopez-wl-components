@@ -8,13 +8,7 @@ import { Component, ComponentInterface, h, Host } from "@stencil/core";
 export class WlDrawerBody implements ComponentInterface {
   render() {
     return (
-      <Host
-        class={
-          {
-            // ...createColorClasses(this.color),
-          }
-        }
-      >
+      <Host>
         <slot></slot>
       </Host>
     );

@@ -1,5 +1,9 @@
-@import "../../css/wl.bundle.scss";
-
+:host(.fixed) {
+  bottom: 0;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
 :host {
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,26 +17,18 @@
   padding-right: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: current-color(base);
+  color: var(--wl-color-base, #000);
+  border-color: rgba(var(--wl-color-base-rgb), 0.2);
+  border-top: 1px solid rgba(var(--wl-color-base-rgb), 0.2);
 
-  color: current-color(base);
+  :host::before,
+  :host::after {
+    border-width: 0px;
+    border-style: solid;
+    border-color: rgba(var(--wl-color-base-rgb), 0.2);
+  }
   footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    color: current-color(base);
+    color: var(--wl-color-base, #000);
+    width: 100%;
   }
 }

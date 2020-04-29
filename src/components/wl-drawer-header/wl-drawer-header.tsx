@@ -12,6 +12,7 @@ export class WlDrawerHeader implements ComponentInterface {
     reflect: true,
   })
   color?: Color;
+
   render() {
     return (
       <Host

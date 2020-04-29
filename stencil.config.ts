@@ -1,5 +1,16 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
+import { OutputTargetWww } from "@stencil/core/internal";
+
+const devTarget = {
+  type: "www",
+  copy: [
+    {
+      src: "../css",
+      dest: "./css",
+    },
+  ],
+} as OutputTargetWww;
 
 export const config: Config = {
   namespace: "wl-components",
@@ -56,3 +67,11 @@ export const config: Config = {
     }),
   ],
 };
+
+if (process.env.NODE_ENV !== "production") {
+  config.outputTargets.push(devTarget);
+  config.devMode = true;
+  config.devServer = {
+    reloadStrategy: "hmr",
+  };
+}

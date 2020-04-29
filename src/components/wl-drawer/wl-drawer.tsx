@@ -8,8 +8,8 @@ import {
   Method,
   Prop,
 } from "@stencil/core";
-import { createColorClasses } from "../../utils/utils";
 import { Color } from "../../interfaces/Color.model";
+import { createColorClasses } from "../../utils/utils";
 // import { createColorClasses } from "../../utils/utils";
 // import { Color } from "../../interfaces/Color.model";
 
@@ -138,15 +138,19 @@ export class WlSpinner implements ComponentInterface {
 
         <div id="focus-guard"></div>
         <div class="overlay-container">
-          <div class="overlay" onClick={() => this.close()}>
-            <div
-              class="dialog"
-              style={styles}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-            >
+          <div
+            class="overlay"
+            onClick={(e) => {
+              if (e.srcElement) {
+                let target = e.srcElement as HTMLDivElement;
+                let shouldClose = target.className === "overlay";
+                if (shouldClose) {
+                  this.close();
+                }
+              }
+            }}
+          >
+            <div class="dialog" style={styles}>
               <slot></slot>
             </div>
           </div>

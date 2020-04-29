@@ -407,6 +407,8 @@ export namespace Components {
          */
         "value"?: string | number | null;
     }
+    interface WlItem {
+    }
     interface WlLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
@@ -525,6 +527,12 @@ declare global {
         prototype: HTMLWlInputElement;
         new (): HTMLWlInputElement;
     };
+    interface HTMLWlItemElement extends Components.WlItem, HTMLStencilElement {
+    }
+    var HTMLWlItemElement: {
+        prototype: HTMLWlItemElement;
+        new (): HTMLWlItemElement;
+    };
     interface HTMLWlLabelElement extends Components.WlLabel, HTMLStencilElement {
     }
     var HTMLWlLabelElement: {
@@ -565,6 +573,7 @@ declare global {
         "wl-flex": HTMLWlFlexElement;
         "wl-grid": HTMLWlGridElement;
         "wl-input": HTMLWlInputElement;
+        "wl-item": HTMLWlItemElement;
         "wl-label": HTMLWlLabelElement;
         "wl-modal": HTMLWlModalElement;
         "wl-row": HTMLWlRowElement;
@@ -970,6 +979,8 @@ declare namespace LocalJSX {
          */
         "value"?: string | number | null;
     }
+    interface WlItem {
+    }
     interface WlLabel {
         /**
           * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
@@ -1010,6 +1021,7 @@ declare namespace LocalJSX {
         "wl-flex": WlFlex;
         "wl-grid": WlGrid;
         "wl-input": WlInput;
+        "wl-item": WlItem;
         "wl-label": WlLabel;
         "wl-modal": WlModal;
         "wl-row": WlRow;
@@ -1035,6 +1047,7 @@ declare module "@stencil/core" {
             "wl-flex": LocalJSX.WlFlex & JSXBase.HTMLAttributes<HTMLWlFlexElement>;
             "wl-grid": LocalJSX.WlGrid & JSXBase.HTMLAttributes<HTMLWlGridElement>;
             "wl-input": LocalJSX.WlInput & JSXBase.HTMLAttributes<HTMLWlInputElement>;
+            "wl-item": LocalJSX.WlItem & JSXBase.HTMLAttributes<HTMLWlItemElement>;
             "wl-label": LocalJSX.WlLabel & JSXBase.HTMLAttributes<HTMLWlLabelElement>;
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
             "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;

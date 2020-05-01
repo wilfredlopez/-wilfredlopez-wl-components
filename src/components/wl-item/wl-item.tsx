@@ -132,7 +132,9 @@ export class WlItem
     const inputs = this.el.querySelectorAll("wl-input");
 
     // The following elements should also stay clickable when an input with cover is present
-    const clickables = this.el.querySelectorAll("wl-button, a, button");
+    const clickables = this.el.querySelectorAll(
+      "wl-list, wl-button, a, button"
+    );
 
     // Check for multiple inputs to change the position of the input cover to relative
     // for all of the covered inputs above

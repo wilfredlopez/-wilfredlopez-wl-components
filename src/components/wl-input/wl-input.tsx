@@ -83,13 +83,13 @@ export class WlInput implements ComponentInterface {
   @Prop() clearOnEdit?: boolean;
 
   /**
-   * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+   * Set the amount of time, in milliseconds, to wait to trigger the `wlChange` event after each keystroke.
    */
   @Prop() debounce = 0;
 
   @Watch("debounce")
   protected debounceChanged() {
-    this.ionChange = debounceEvent(this.ionChange, this.debounce);
+    this.wlChange = debounceEvent(this.wlChange, this.debounce);
   }
 
   /**
@@ -213,7 +213,7 @@ export class WlInput implements ComponentInterface {
   @Watch("value")
   protected valueChanged() {
     this.emitStyle();
-    this.ionChange.emit({
+    this.wlChange.emit({
       value: this.value == null ? this.value : this.value.toString(),
     });
   }
@@ -221,22 +221,22 @@ export class WlInput implements ComponentInterface {
   /**
    * Emitted when a keyboard input occurred.
    */
-  @Event() ionInput!: EventEmitter<KeyboardEvent>;
+  @Event() wlInput!: EventEmitter<KeyboardEvent>;
 
   /**
    * Emitted when the value has changed.
    */
-  @Event() ionChange!: EventEmitter<InputChangeEventDetail>;
+  @Event() wlChange!: EventEmitter<InputChangeEventDetail>;
 
   /**
    * Emitted when the input loses focus.
    */
-  @Event() ionBlur!: EventEmitter<void>;
+  @Event() wlBlur!: EventEmitter<void>;
 
   /**
    * Emitted when the input has focus.
    */
-  @Event() ionFocus!: EventEmitter<void>;
+  @Event() wlFocus!: EventEmitter<void>;
 
   /**
    * Emitted when the styles change.
@@ -249,7 +249,7 @@ export class WlInput implements ComponentInterface {
     this.debounceChanged();
     if (Build.isBrowser) {
       document.dispatchEvent(
-        new CustomEvent("ionInputDidLoad", {
+        new CustomEvent("wlInputDidLoad", {
           detail: this.el,
         })
       );
@@ -259,7 +259,7 @@ export class WlInput implements ComponentInterface {
   disconnectedCallback() {
     if (Build.isBrowser) {
       document.dispatchEvent(
-        new CustomEvent("ionInputDidUnload", {
+        new CustomEvent("wlInputDidUnload", {
           detail: this.el,
         })
       );
@@ -312,7 +312,7 @@ export class WlInput implements ComponentInterface {
     if (input) {
       this.value = input.value || "";
     }
-    this.ionInput.emit(ev as KeyboardEvent);
+    this.wlInput.emit(ev as KeyboardEvent);
   };
 
   private onBlur = () => {
@@ -320,7 +320,7 @@ export class WlInput implements ComponentInterface {
     this.focusChanged();
     this.emitStyle();
 
-    this.ionBlur.emit();
+    this.wlBlur.emit();
   };
 
   private onFocus = () => {
@@ -328,7 +328,7 @@ export class WlInput implements ComponentInterface {
     this.focusChanged();
     this.emitStyle();
 
-    this.ionFocus.emit();
+    this.wlFocus.emit();
   };
 
   private onKeydown = (ev: KeyboardEvent) => {

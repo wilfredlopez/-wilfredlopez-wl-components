@@ -91,3 +91,18 @@ export const WlFlex = /*@__PURE__*/ createReactComponent<
   JSX.WlFlex,
   HTMLWlFlexElement
 >("wl-flex");
+
+export const WlItem = /*@__PURE__*/ createReactComponent<
+  JSX.WlItem,
+  HTMLWlItemElement
+>("wl-item", true);
+
+export const WlText = /*@__PURE__*/ createReactComponent<
+  JSX.WlText,
+  HTMLWlTextElement
+>("wl-text");
+
+export const WlList = /*@__PURE__*/ createReactComponent<
+  JSX.WlList,
+  HTMLWlListElement
+>("wl-list");

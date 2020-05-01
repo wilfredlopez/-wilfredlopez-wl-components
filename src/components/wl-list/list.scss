@@ -1,0 +1,20 @@
+@import "../../themes/wl.globals";
+
+// List
+// --------------------------------------------------
+
+wl-list {
+  @include margin(0);
+  @include padding(0);
+
+  display: block;
+
+  contain: content;
+  list-style-type: none;
+}
+
+wl-list.list-inset {
+  transform: translateZ(0);
+
+  overflow: hidden;
+}

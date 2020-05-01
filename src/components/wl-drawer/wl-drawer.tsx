@@ -117,18 +117,23 @@ export class WlDrawer implements ComponentInterface {
     body!.style.overflow = value;
   }
 
-  // disconnectedCallback() {
-  //   this.enableScrollEvents(false);
-  //   this.scrollEl = undefined;
-  // }
+  disconnectedCallback() {
+    this.setBodyOverflow("");
+    this.drawerOpenStateChange.emit({ isOpen: this.isOpen });
+  }
 
   @Watch("isOpen")
   watchHandler(newValue: boolean, oldValue: boolean) {
+    this.drawerOpenStateChange.emit({
+      isOpen: newValue,
+    });
+
+    if (newValue === oldValue && newValue === false) {
+      this.setBodyOverflow("");
+    }
+
     if (newValue !== oldValue) {
       if (newValue === false) {
-        this.drawerOpenStateChange.emit({
-          isOpen: false,
-        });
         this.setBodyOverflow("");
       } else {
         this.drawerOpenStateChange.emit({

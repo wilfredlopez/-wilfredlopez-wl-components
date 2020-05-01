@@ -21,5 +21,17 @@ export const createForwardRef = <PropType, ElementType>(
   return React.forwardRef(forwardRef);
 };
 
+interface WLTestCoreConfig {}
+
+export const getConfig = (): WLTestCoreConfig | null => {
+  if (typeof (window as any) !== "undefined") {
+    const Wl = (window as any).Wl;
+    if (Wl && Wl.config) {
+      return Wl.config;
+    }
+  }
+  return null;
+};
+
 export * from "./attachProps";
 export * from "./case";

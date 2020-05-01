@@ -8,6 +8,7 @@ import {
   isCoveredByReact,
 } from "./utils";
 import { RouterDirection } from "./hrefprops";
+import { NavContext } from "../contexts/NavContext";
 
 interface WlReactInternalProps<ElementType>
   extends React.HTMLAttributes<ElementType> {
@@ -27,6 +28,7 @@ export const createReactComponent = <PropType, ElementType>(
   const ReactComponent = class extends React.Component<
     WlReactInternalProps<PropType>
   > {
+    context!: React.ContextType<typeof NavContext>;
     constructor(props: WlReactInternalProps<PropType>) {
       super(props);
     }
@@ -98,6 +100,9 @@ export const createReactComponent = <PropType, ElementType>(
 
     static get displayName() {
       return displayName;
+    }
+    static get contextType() {
+      return NavContext;
     }
   };
   return createForwardRef<PropType, ElementType>(ReactComponent, displayName);

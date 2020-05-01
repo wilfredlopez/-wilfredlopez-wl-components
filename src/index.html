@@ -5,9 +5,14 @@
     <style>
       body {
         margin: 0;
+        font-family: sans-serif;
       }
       :root {
-        --wl-item-border-color: black;
+        --wl-item-border-color: #d3d3d3;
+        --wl-item-background: #ffffff;
+        --wl-text-color: #000000;
+        --wl-text-color-rgb: 0, 0, 0;
+
         --wl-color-primary: #ff8742;
         --wl-color-primary-rgb: 255, 135, 66;
         --wl-color-primary-contrast: #ffffff;
@@ -73,12 +78,6 @@
       }
 
       .ios {
-        --wl-background-color: #000000;
-        --wl-background-color-rgb: 0, 0, 0;
-
-        --wl-text-color: #ffffff;
-        --wl-text-color-rgb: 255, 255, 255;
-
         --wl-color-step-50: #0d0d0d;
         --wl-color-step-100: #1a1a1a;
         --wl-color-step-150: #262626;
@@ -99,8 +98,8 @@
         --wl-color-step-900: #e6e6e6;
         --wl-color-step-950: #f2f2f2;
 
-        --wl-item-background: #1c1c1c;
-
+        --wl-background-color: #000000;
+        --wl-background-color-rgb: 0, 0, 0;
         --wl-toolbar-background: #000;
         --wl-toolbar-color: #fff;
       }
@@ -108,9 +107,6 @@
       .md {
         --wl-background-color: #121212;
         --wl-background-color-rgb: 18, 18, 18;
-
-        --wl-text-color: #ffffff;
-        --wl-text-color-rgb: 255, 255, 255;
 
         --wl-border-color: #222222;
 
@@ -133,8 +129,6 @@
         --wl-color-step-850: #dbdbdb;
         --wl-color-step-900: #e7e7e7;
         --wl-color-step-950: #f3f3f3;
-
-        --wl-item-background: #1a1b1e;
       }
     </style>
     <meta
@@ -159,24 +153,16 @@
             <wl-text>Wilfred Lopez </wl-text>
           </wl-drawer-header>
           <wl-drawer-body class="wl-no-padding">
-            <wl-grid fixed>
-              <wl-row>
-                <wl-col size-sm="3">
-                  <wl-item button color="secondary" href="/">
-                    <div slot="start">*</div>
-                    <span>Home</span>
-                  </wl-item>
-                </wl-col>
-              </wl-row>
-              <wl-row>
-                <wl-col size-sm="3">
-                  <wl-item color="secondary" button>
-                    <div slot="start">*</div>
-                    <div>Other</div>
-                  </wl-item>
-                </wl-col>
-              </wl-row>
-            </wl-grid>
+            <wl-list>
+              <wl-item button href="/">
+                <span slot="start">😀</span>
+                <wl-label>Home</wl-label>
+              </wl-item>
+              <wl-item button>
+                <span slot="start">😂</span>
+                <wl-label>Other</wl-label>
+              </wl-item>
+            </wl-list>
           </wl-drawer-body>
         </wl-drawer-content>
         <wl-drawer-footer>

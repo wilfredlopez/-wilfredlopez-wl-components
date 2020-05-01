@@ -38,19 +38,6 @@
 | `wrap`     | `wrap`      |                                                                                                                                                                                      | `"nowrap" \| "wrap" \| "wrap-reverse" \| undefined`                              | `"wrap"`    |
 
 
-## Dependencies
-
-### Used by
-
- - [wl-item](../wl-item)
-
-### Graph
-```mermaid
-graph TD;
-  wl-item --> wl-flex
-  style wl-flex fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

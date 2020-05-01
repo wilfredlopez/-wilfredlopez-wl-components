@@ -12,6 +12,9 @@ import { Variants, } from "./interfaces/Variants.model";
 import { Breakpoints, } from "./interfaces/Breakpoints.model";
 import { Placement, } from "./components/wl-drawer/wl-drawer";
 import { InputChangeEventDetail, StyleEventDetail, TextFieldTypes, } from "./interfaces/Inputs.model";
+import { RouterDirection, RouterEventDetail, } from "./components/router/utils/interface";
+import { AnimationBuilder, ComponentProps, FrameworkDelegate, RouteID, RouterDirection as RouterDirection1, RouteWrite, } from "./interfaces";
+import { RouterOutletOptions, SwipeGestureHandler, } from "./interfaces/Nav";
 import { SpinerVariant, } from "./interfaces/SpinerVariant.mode";
 export namespace Components {
     interface WlAppbar {
@@ -318,7 +321,7 @@ export namespace Components {
          */
         "color"?: Color;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `wlChange` event after each keystroke.
          */
         "debounce": number;
         /**
@@ -458,10 +461,83 @@ export namespace Components {
          */
         "position"?: "fixed" | "stacked" | "floating";
     }
+    interface WlList {
+        /**
+          * If `true`, the list will have margin around it and rounded corners.
+         */
+        "inset": boolean;
+        /**
+          * How the bottom border should be displayed on all items.
+         */
+        "lines"?: "full" | "inset" | "none";
+    }
     interface WlModal {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
         "show": boolean;
+    }
+    interface WlRoute {
+        /**
+          * Name of the component to load/select in the navigation outlet (`wl-tabs`, `wl-nav`) when the route matches.  The value of this property is not always the tagname of the component to load, in `wl-tabs` it actually refers to the name of the `wl-tab` to select.
+         */
+        "component": string;
+        /**
+          * A key value `{ 'red': true, 'blue': 'white'}` containing props that should be passed to the defined component when rendered.
+         */
+        "componentProps"?: {
+            [key: string]: any;
+        };
+        /**
+          * Relative path that needs to match in order for this route to apply.  Accepts paths similar to expressjs so that you can define parameters in the url /foo/:bar where bar would be available in incoming props.
+         */
+        "url": string;
+    }
+    interface WlRouteRedirect {
+        /**
+          * A redirect route, redirects "from" a URL "to" another URL. This property is that "from" URL. It needs to be an exact match of the navigated URL in order to apply.  The path specified in this value is always an absolute path, even if the initial `/` slash is not specified.
+         */
+        "from": string;
+        /**
+          * A redirect route, redirects "from" a URL "to" another URL. This property is that "to" URL. When the defined `wl-route-redirect` rule matches, the router will redirect to the path specified in this property.  The value of this property is always an absolute path inside the scope of routes defined in `wl-router` it can't be used with another router or to perform a redirection to a different domain.  Note that this is a virtual redirect, it will not cause a real browser refresh, again, it's a redirect inside the context of wl-router.  When this property is not specified or his value is `undefined` the whole redirect route is noop, even if the "from" value matches.
+         */
+        "to": string | undefined | null;
+    }
+    interface WlRouter {
+        /**
+          * Go back to previous page in the window.history.
+         */
+        "back": () => Promise<void>;
+        "navChanged": (direction: RouterDirection) => Promise<boolean>;
+        "printDebug": () => Promise<void>;
+        /**
+          * Navigate to the specified URL.
+          * @param url The url to navigate to.
+          * @param direction The direction of the animation. Defaults to `"forward"`.
+         */
+        "push": (url: string, direction?: RouterDirection) => Promise<boolean>;
+        /**
+          * By default `wl-router` will match the routes at the root path ("/"). That can be changed when
+         */
+        "root": string;
+        /**
+          * The router can work in two "modes": - With hash: `/index.html#/path/to/page` - Without hash: `/path/to/page`  Using one or another might depend in the requirements of your app and/or where it's deployed.  Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might requires additional server-side configuration in order to properly work.  On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.  By default, this property is `true`, change to `false` to allow hash-less URLs.
+         */
+        "useHash": boolean;
+    }
+    interface WlRouterOutlet {
+        /**
+          * If `true`, the router-outlet should animate the transition of components.
+         */
+        "animated": boolean;
+        /**
+          * By default `wl-nav` animates transition between pages based in the mode (ios or material design). However, this property allows to create custom transition using `AnimateBuilder` functions.
+         */
+        "animation"?: AnimationBuilder;
+        "commit": (enteringEl: HTMLElement, leavingEl: HTMLElement | undefined, opts?: RouterOutletOptions | undefined) => Promise<boolean>;
+        "delegate"?: FrameworkDelegate;
+        "getRouteId": () => Promise<RouteID | undefined>;
+        "setRouteId": (id: string, params: ComponentProps<null> | undefined, direction: RouterDirection) => Promise<RouteWrite>;
+        "swipeHandler"?: SwipeGestureHandler;
     }
     interface WlRow {
         "align": "center" | "end" | "start" | "baseline";
@@ -581,11 +657,41 @@ declare global {
         prototype: HTMLWlLabelElement;
         new (): HTMLWlLabelElement;
     };
+    interface HTMLWlListElement extends Components.WlList, HTMLStencilElement {
+    }
+    var HTMLWlListElement: {
+        prototype: HTMLWlListElement;
+        new (): HTMLWlListElement;
+    };
     interface HTMLWlModalElement extends Components.WlModal, HTMLStencilElement {
     }
     var HTMLWlModalElement: {
         prototype: HTMLWlModalElement;
         new (): HTMLWlModalElement;
+    };
+    interface HTMLWlRouteElement extends Components.WlRoute, HTMLStencilElement {
+    }
+    var HTMLWlRouteElement: {
+        prototype: HTMLWlRouteElement;
+        new (): HTMLWlRouteElement;
+    };
+    interface HTMLWlRouteRedirectElement extends Components.WlRouteRedirect, HTMLStencilElement {
+    }
+    var HTMLWlRouteRedirectElement: {
+        prototype: HTMLWlRouteRedirectElement;
+        new (): HTMLWlRouteRedirectElement;
+    };
+    interface HTMLWlRouterElement extends Components.WlRouter, HTMLStencilElement {
+    }
+    var HTMLWlRouterElement: {
+        prototype: HTMLWlRouterElement;
+        new (): HTMLWlRouterElement;
+    };
+    interface HTMLWlRouterOutletElement extends Components.WlRouterOutlet, HTMLStencilElement {
+    }
+    var HTMLWlRouterOutletElement: {
+        prototype: HTMLWlRouterOutletElement;
+        new (): HTMLWlRouterOutletElement;
     };
     interface HTMLWlRowElement extends Components.WlRow, HTMLStencilElement {
     }
@@ -623,7 +729,12 @@ declare global {
         "wl-input": HTMLWlInputElement;
         "wl-item": HTMLWlItemElement;
         "wl-label": HTMLWlLabelElement;
+        "wl-list": HTMLWlListElement;
         "wl-modal": HTMLWlModalElement;
+        "wl-route": HTMLWlRouteElement;
+        "wl-route-redirect": HTMLWlRouteRedirectElement;
+        "wl-router": HTMLWlRouterElement;
+        "wl-router-outlet": HTMLWlRouterOutletElement;
         "wl-row": HTMLWlRowElement;
         "wl-spinner": HTMLWlSpinnerElement;
         "wl-text": HTMLWlTextElement;
@@ -934,7 +1045,7 @@ declare namespace LocalJSX {
          */
         "color"?: Color;
         /**
-          * Set the amount of time, in milliseconds, to wait to trigger the `ionChange` event after each keystroke.
+          * Set the amount of time, in milliseconds, to wait to trigger the `wlChange` event after each keystroke.
          */
         "debounce"?: number;
         /**
@@ -980,19 +1091,19 @@ declare namespace LocalJSX {
         /**
           * Emitted when the input loses focus.
          */
-        "onIonBlur"?: (event: CustomEvent<void>) => void;
+        "onWlBlur"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when the value has changed.
          */
-        "onIonChange"?: (event: CustomEvent<InputChangeEventDetail>) => void;
+        "onWlChange"?: (event: CustomEvent<InputChangeEventDetail>) => void;
         /**
           * Emitted when the input has focus.
          */
-        "onIonFocus"?: (event: CustomEvent<void>) => void;
+        "onWlFocus"?: (event: CustomEvent<void>) => void;
         /**
           * Emitted when a keyboard input occurred.
          */
-        "onIonInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        "onWlInput"?: (event: CustomEvent<KeyboardEvent>) => void;
         /**
           * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
          */
@@ -1082,8 +1193,80 @@ declare namespace LocalJSX {
          */
         "position"?: "fixed" | "stacked" | "floating";
     }
+    interface WlList {
+        /**
+          * If `true`, the list will have margin around it and rounded corners.
+         */
+        "inset"?: boolean;
+        /**
+          * How the bottom border should be displayed on all items.
+         */
+        "lines"?: "full" | "inset" | "none";
+    }
     interface WlModal {
         "show"?: boolean;
+    }
+    interface WlRoute {
+        /**
+          * Name of the component to load/select in the navigation outlet (`wl-tabs`, `wl-nav`) when the route matches.  The value of this property is not always the tagname of the component to load, in `wl-tabs` it actually refers to the name of the `wl-tab` to select.
+         */
+        "component": string;
+        /**
+          * A key value `{ 'red': true, 'blue': 'white'}` containing props that should be passed to the defined component when rendered.
+         */
+        "componentProps"?: {
+            [key: string]: any;
+        };
+        /**
+          * Used internally by `wl-router` to know when this route did change.
+         */
+        "onWlRouteDataChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * Relative path that needs to match in order for this route to apply.  Accepts paths similar to expressjs so that you can define parameters in the url /foo/:bar where bar would be available in incoming props.
+         */
+        "url"?: string;
+    }
+    interface WlRouteRedirect {
+        /**
+          * A redirect route, redirects "from" a URL "to" another URL. This property is that "from" URL. It needs to be an exact match of the navigated URL in order to apply.  The path specified in this value is always an absolute path, even if the initial `/` slash is not specified.
+         */
+        "from": string;
+        /**
+          * Internal event that fires when any value of this rule is added/removed from the DOM, or any of his public properties changes.  `wl-router` captures this event in order to update his internal registry of router rules.
+         */
+        "onWlRouteRedirectChanged"?: (event: CustomEvent<any>) => void;
+        /**
+          * A redirect route, redirects "from" a URL "to" another URL. This property is that "to" URL. When the defined `wl-route-redirect` rule matches, the router will redirect to the path specified in this property.  The value of this property is always an absolute path inside the scope of routes defined in `wl-router` it can't be used with another router or to perform a redirection to a different domain.  Note that this is a virtual redirect, it will not cause a real browser refresh, again, it's a redirect inside the context of wl-router.  When this property is not specified or his value is `undefined` the whole redirect route is noop, even if the "from" value matches.
+         */
+        "to": string | undefined | null;
+    }
+    interface WlRouter {
+        /**
+          * Emitted when the route had changed
+         */
+        "onWlRouteDidChange"?: (event: CustomEvent<RouterEventDetail>) => void;
+        /**
+          * Event emitted when the route is about to change
+         */
+        "onWlRouteWillChange"?: (event: CustomEvent<RouterEventDetail>) => void;
+        /**
+          * By default `wl-router` will match the routes at the root path ("/"). That can be changed when
+         */
+        "root"?: string;
+        /**
+          * The router can work in two "modes": - With hash: `/index.html#/path/to/page` - Without hash: `/path/to/page`  Using one or another might depend in the requirements of your app and/or where it's deployed.  Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might requires additional server-side configuration in order to properly work.  On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.  By default, this property is `true`, change to `false` to allow hash-less URLs.
+         */
+        "useHash"?: boolean;
+    }
+    interface WlRouterOutlet {
+        /**
+          * If `true`, the router-outlet should animate the transition of components.
+         */
+        "animated"?: boolean;
+        /**
+          * By default `wl-nav` animates transition between pages based in the mode (ios or material design). However, this property allows to create custom transition using `AnimateBuilder` functions.
+         */
+        "animation"?: AnimationBuilder;
     }
     interface WlRow {
         "align"?: "center" | "end" | "start" | "baseline";
@@ -1117,7 +1300,12 @@ declare namespace LocalJSX {
         "wl-input": WlInput;
         "wl-item": WlItem;
         "wl-label": WlLabel;
+        "wl-list": WlList;
         "wl-modal": WlModal;
+        "wl-route": WlRoute;
+        "wl-route-redirect": WlRouteRedirect;
+        "wl-router": WlRouter;
+        "wl-router-outlet": WlRouterOutlet;
         "wl-row": WlRow;
         "wl-spinner": WlSpinner;
         "wl-text": WlText;
@@ -1144,7 +1332,12 @@ declare module "@stencil/core" {
             "wl-input": LocalJSX.WlInput & JSXBase.HTMLAttributes<HTMLWlInputElement>;
             "wl-item": LocalJSX.WlItem & JSXBase.HTMLAttributes<HTMLWlItemElement>;
             "wl-label": LocalJSX.WlLabel & JSXBase.HTMLAttributes<HTMLWlLabelElement>;
+            "wl-list": LocalJSX.WlList & JSXBase.HTMLAttributes<HTMLWlListElement>;
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
+            "wl-route": LocalJSX.WlRoute & JSXBase.HTMLAttributes<HTMLWlRouteElement>;
+            "wl-route-redirect": LocalJSX.WlRouteRedirect & JSXBase.HTMLAttributes<HTMLWlRouteRedirectElement>;
+            "wl-router": LocalJSX.WlRouter & JSXBase.HTMLAttributes<HTMLWlRouterElement>;
+            "wl-router-outlet": LocalJSX.WlRouterOutlet & JSXBase.HTMLAttributes<HTMLWlRouterOutletElement>;
             "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;
             "wl-spinner": LocalJSX.WlSpinner & JSXBase.HTMLAttributes<HTMLWlSpinnerElement>;
             "wl-text": LocalJSX.WlText & JSXBase.HTMLAttributes<HTMLWlTextElement>;

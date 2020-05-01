@@ -16,24 +16,14 @@
 
 ## Events
 
-| Event    | Description | Type               |
-| -------- | ----------- | ------------------ |
-| `closed` |             | `CustomEvent<any>` |
+| Event                   | Description | Type                                |
+| ----------------------- | ----------- | ----------------------------------- |
+| `drawerOpenStateChange` |             | `CustomEvent<{ isOpen: boolean; }>` |
 
 
 ## Methods
 
 ### `close() => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
-### `onDrawerClosed() => Promise<void>`
 
 
 

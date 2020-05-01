@@ -2,8 +2,6 @@ import React, { ReactNode } from "react";
 
 import { ViewStacks } from "./ViewStacks";
 
-import { BrowserRouter } from "react-router-dom";
-
 export interface RouteManagerContextState {
   syncView: (page: HTMLElement, viewId: string) => void;
   syncRoute: (route: any) => void;
@@ -12,7 +10,7 @@ export interface RouteManagerContextState {
   setupWlRouter: (
     id: string,
     children: ReactNode,
-    routerOutlet: BrowserRouter
+    routerOutlet: HTMLWlRouterOutletElement
   ) => void;
   removeViewStack: (stack: string) => void;
   getRoute: (id: string) => any;

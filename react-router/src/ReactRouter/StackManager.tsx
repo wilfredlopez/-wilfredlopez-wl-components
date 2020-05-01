@@ -1,7 +1,7 @@
 import React from "react";
 
 import { generateId, isDevMode } from "../utils";
-import { BrowserRouter } from "react-router-dom";
+
 import {
   RouteManagerContext,
   RouteManagerContextState,
@@ -22,8 +22,9 @@ class StackManagerInner extends React.Component<
   StackManagerProps,
   StackManagerState
 > {
-  // routerOutletEl: React.RefObject<HTMLWlRouterOutletElement> = React.createRef();
-  routerOutletEl: React.RefObject<BrowserRouter> = React.createRef();
+  routerOutletEl: React.RefObject<
+    HTMLWlRouterOutletElement
+  > = React.createRef();
   id: string;
 
   constructor(props: StackManagerProps) {

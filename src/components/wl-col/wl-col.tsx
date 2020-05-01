@@ -9,6 +9,7 @@ import {
 } from "@stencil/core";
 
 import { matchBreakpoint } from "../../utils/utils";
+import { getWlMode } from "../../global/wl-global";
 
 const win = window as any;
 const SUPPORTS_VARS = !!(
@@ -261,11 +262,12 @@ export class WlCol implements ComponentInterface {
     return this.calculatePosition("push", isRTL ? "right" : "left");
   }
   render() {
+    const mode = getWlMode(this);
     const isRTL = document.dir === "rtl";
     return (
       <Host
         class={{
-          md: true,
+          [mode]: true,
         }}
         style={{
           ...this.calculateOffset(isRTL),

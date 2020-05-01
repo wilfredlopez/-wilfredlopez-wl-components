@@ -7,12 +7,7 @@ import {
   UnregisterCallback,
 } from "history";
 import React from "react";
-import {
-  RouteComponentProps,
-  matchPath,
-  withRouter,
-  BrowserRouter,
-} from "react-router-dom";
+import { RouteComponentProps, matchPath, withRouter } from "react-router-dom";
 
 import { generateId, isDevMode } from "../utils";
 import { LocationHistory } from "../utils/LocationHistory";
@@ -26,6 +21,7 @@ import {
 } from "./RouteManagerContext";
 import { ViewItem } from "./ViewItem";
 import { ViewStack, ViewStacks } from "./ViewStacks";
+// import { getConfig } from "@wilfredlopez/react";
 
 export interface LocationState {
   direction?: RouterDirection;
@@ -52,7 +48,7 @@ export class RouteManager extends React.Component<
   locationHistory = new LocationHistory();
   routes: { [key: string]: React.ReactElement<any> } = {};
   wlPageElements: { [key: string]: HTMLElement } = {};
-  routerOutlets: { [key: string]: BrowserRouter } = {};
+  routerOutlets: { [key: string]: HTMLWlRouterOutletElement } = {};
   firstRender = true;
 
   constructor(props: RouteManagerProps) {
@@ -306,7 +302,11 @@ export class RouteManager extends React.Component<
     });
   }
 
-  setupWlRouter(id: string, children: any, routerOutlet: BrowserRouter) {
+  setupWlRouter(
+    id: string,
+    children: any,
+    routerOutlet: HTMLWlRouterOutletElement
+  ) {
     const views: ViewItem[] = [];
     let activeId: string | undefined;
     const wlRouterOutlet = React.Children.only(children) as React.ReactElement;
@@ -382,7 +382,7 @@ export class RouteManager extends React.Component<
     stack: string,
     activeId: string | undefined,
     stackItems: ViewItem[],
-    routerOutlet: BrowserRouter,
+    routerOutlet: HTMLWlRouterOutletElement,
     _location: HistoryLocation
   ) {
     this.setState(
@@ -410,7 +410,7 @@ export class RouteManager extends React.Component<
     );
   }
 
-  async setupRouterOutlet(routerOutlet: BrowserRouter) {
+  async setupRouterOutlet(routerOutlet: HTMLWlRouterOutletElement) {
     const canStart = () => {
       const swipeEnabled = false;
       if (swipeEnabled) {
@@ -422,7 +422,15 @@ export class RouteManager extends React.Component<
         return false;
       }
     };
-    return routerOutlet;
+
+    const onStart = () => {
+      this.navigateBack();
+    };
+    routerOutlet.swipeHandler = {
+      canStart,
+      onStart,
+      onEnd: (_shouldContinue) => true,
+    };
   }
 
   removeViewStack(stack: string) {
@@ -473,7 +481,7 @@ export class RouteManager extends React.Component<
   private async commitView(
     enteringEl: HTMLElement,
     leavingEl: HTMLElement,
-    wlRouterOutlet: BrowserRouter,
+    wlRouterOutlet: HTMLWlRouterOutletElement,
     direction?: NavDirection,
     showGoBack?: boolean,
     leavingViewHtml?: string
@@ -487,23 +495,23 @@ export class RouteManager extends React.Component<
         // If a page is transitioning to another version of itself
         // we clone it so we can have an animation to show
         const newLeavingElement = clonePageElement(leavingViewHtml);
-        // wlRouterOutlet.appendChild(newLeavingElement);
-        // await wlRouterOutlet.commit(enteringEl, newLeavingElement, {
-        //   deepWait: true,
-        //   duration: direction === undefined ? 0 : undefined,
-        //   direction,
-        //   showGoBack,
-        //   progressAnimation: false,
-        // });
-        // wlRouterOutlet.removeChild(newLeavingElement);
+        wlRouterOutlet.appendChild(newLeavingElement);
+        await wlRouterOutlet.commit(enteringEl, newLeavingElement, {
+          deepWait: true,
+          duration: direction === undefined ? 0 : undefined,
+          direction,
+          showGoBack,
+          progressAnimation: false,
+        });
+        wlRouterOutlet.removeChild(newLeavingElement);
       } else {
-        // await wlRouterOutlet.commit(enteringEl, leavingEl, {
-        //   deepWait: true,
-        //   duration: direction === undefined ? 0 : undefined,
-        //   direction,
-        //   showGoBack,
-        //   progressAnimation: false,
-        // });
+        await wlRouterOutlet.commit(enteringEl, leavingEl, {
+          deepWait: true,
+          duration: direction === undefined ? 0 : undefined,
+          direction,
+          showGoBack,
+          progressAnimation: false,
+        });
       }
 
       if (leavingEl && enteringEl !== leavingEl) {
@@ -622,7 +630,9 @@ function clonePageElement(leavingViewHtml: string) {
   return newEl.firstChild as HTMLElement;
 }
 
-async function waitUntilRouterOutletReady(wlRouterOutlet: BrowserRouter) {
+async function waitUntilRouterOutletReady(
+  wlRouterOutlet: HTMLWlRouterOutletElement
+) {
   if ("componentOnReady" in wlRouterOutlet) {
     return;
   } else {

@@ -14,6 +14,7 @@ import {
 import { createColorClasses } from "../../utils/utils";
 import { Color } from "../../interfaces/Color.model";
 import { StyleEventDetail } from "../../interfaces/Inputs.model";
+import { getWlMode } from "../../global/wl-global";
 
 @Component({
   tag: "wl-label",
@@ -73,12 +74,12 @@ export class WlLabel implements ComponentInterface {
 
   render() {
     const position = this.position;
-
+    const mode = getWlMode(this);
     return (
       <Host
         class={{
           ...createColorClasses(this.color),
-          md: true,
+          [mode]: true,
           [`label-${position}`]: position !== undefined,
           [`label-no-animate`]: true,
         }}

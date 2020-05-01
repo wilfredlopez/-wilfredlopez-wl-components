@@ -1,0 +1,7 @@
+html.plt-mobile wl-app {
+  user-select: none;
+}
+
+wl-app.force-statusbar-padding {
+  --wl-safe-area-top: 20px;
+}

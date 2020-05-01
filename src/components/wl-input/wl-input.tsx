@@ -21,6 +21,7 @@ import {
   InputChangeEventDetail,
   StyleEventDetail,
 } from "../../interfaces/Inputs.model";
+import { getWlMode } from "../../global/wl-global";
 
 /**
  * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
@@ -378,6 +379,7 @@ export class WlInput implements ComponentInterface {
     const value = this.getValue();
     const labelId = this.inputId + "-lbl";
     const label = findItemLabel(this.el);
+    const mode = getWlMode(this);
     if (label) {
       label.id = labelId;
     }
@@ -386,7 +388,7 @@ export class WlInput implements ComponentInterface {
         aria-disabled={this.disabled ? "true" : null}
         class={{
           ...createColorClasses(this.color),
-          md: true,
+          [mode]: true,
           "has-value": this.hasValue(),
           "has-focus": this.hasFocus,
         }}

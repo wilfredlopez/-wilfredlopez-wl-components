@@ -1,8 +1,9 @@
 import { Animation, AnimationBuilder } from "../animation/animation-interface";
 
 import { ViewController } from "./view-controller";
-import { ComponentRef } from "@stencil/core/internal";
+
 import { FrameworkDelegate } from "./framework";
+import { ComponentRef } from "../interfaces";
 
 export type NavDirection = "back" | "forward";
 

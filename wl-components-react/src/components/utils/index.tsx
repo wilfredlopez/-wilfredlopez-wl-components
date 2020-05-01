@@ -1,5 +1,10 @@
 import React from "react";
-
+import {
+  Config as CoreConfig,
+  Platforms,
+  getPlatforms as getPlatformsCore,
+  isPlatform as isPlatformCore,
+} from "@wilfredlopez/wl-components/dist/types/interfaces";
 import { WlReactProps } from "../WlReactProps";
 
 export type WlReactExternalProps<PropType, ElementType> = PropType &
@@ -21,9 +26,7 @@ export const createForwardRef = <PropType, ElementType>(
   return React.forwardRef(forwardRef);
 };
 
-interface WLTestCoreConfig {}
-
-export const getConfig = (): WLTestCoreConfig | null => {
+export const getConfig = (): CoreConfig | null => {
   if (typeof (window as any) !== "undefined") {
     const Wl = (window as any).Wl;
     if (Wl && Wl.config) {
@@ -31,6 +34,14 @@ export const getConfig = (): WLTestCoreConfig | null => {
     }
   }
   return null;
+};
+
+export const isPlatform = (platform: Platforms) => {
+  return isPlatformCore(window, platform);
+};
+
+export const getPlatforms = () => {
+  return getPlatformsCore(window);
 };
 
 export * from "./attachProps";

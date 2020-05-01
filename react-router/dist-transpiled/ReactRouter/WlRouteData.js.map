@@ -1,0 +1,1 @@
+{"version":3,"file":"WlRouteData.js","sourceRoot":"","sources":["../../src/ReactRouter/WlRouteData.ts"],"names":[],"mappings":"","sourcesContent":["import { RouteProps, match } from \"react-router-dom\";\n\nexport interface WlRouteData {\n  match: match | null;\n  childProps: RouteProps;\n}\n"]}

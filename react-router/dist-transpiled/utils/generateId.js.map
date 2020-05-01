@@ -1,0 +1,1 @@
+{"version":3,"file":"generateId.js","sourceRoot":"","sources":["../../src/utils/generateId.ts"],"names":[],"mappings":"AAAA,IAAI,KAAK,GAAG,CAAC,CAAC;AAEd,MAAM,CAAC,MAAM,UAAU,GAAG,GAAG,EAAE,CAAC,CAAC,KAAK,EAAE,CAAC,CAAC,QAAQ,EAAE,CAAC","sourcesContent":["let count = 0;\r\n\r\nexport const generateId = () => (count++).toString();\r\n"]}

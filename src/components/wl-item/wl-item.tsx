@@ -9,7 +9,7 @@ import {
   forceUpdate,
   h,
 } from "@stencil/core";
-
+import { getWlMode } from "../../global/wl-global";
 import { createColorClasses, CssClassMap } from "../../utils/utils";
 import { ButtonInterface } from "../../interfaces/ButtonType";
 import { LinkInterface } from "../../interfaces/LinkInterface";
@@ -175,6 +175,8 @@ export class WlItem
       Object.assign(childStyles, value);
     });
 
+    const mode = getWlMode(this);
+
     return (
       <Host
         aria-disabled={disabled ? "true" : null}
@@ -182,7 +184,7 @@ export class WlItem
           ...childStyles,
           ...createColorClasses(this.color),
           item: true,
-          ["md"]: true,
+          [mode]: true,
           [`item-lines-${lines}`]: lines !== undefined,
           "item-disabled": disabled,
           "in-drawer": hostContext("wl-drawer", this.el),

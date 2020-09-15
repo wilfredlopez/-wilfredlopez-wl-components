@@ -1,0 +1,27 @@
+:host div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0.2em .5em;
+    text-align: center;
+    width: fit-content;
+}
+
+:host input{
+    display: none;
+}
+
+:host label{
+    color: #d6d6d6;
+    font-size: var(--size, 24px);
+    cursor: pointer;
+}
+
+
+:host label.star.active{
+    color:var(--colorActive,#f90);
+}
+
+:host label:hover, .star-rating label:hover ~label{
+color: var(--colorActive,#f90);
+}

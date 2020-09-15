@@ -5,18 +5,21 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { Color, } from "./interfaces/Color.model";
-import { AlignmentModifier, JustificationModifier, WrapType, } from "./interfaces/FlexClassModifiers.model";
-import { TextClassModifier, } from "./interfaces/TextClassModifier.model";
-import { Variants, } from "./interfaces/Variants.model";
-import { Breakpoints, } from "./interfaces/Breakpoints.model";
-import { Placement, } from "./components/wl-drawer/wl-drawer";
-import { InputChangeEventDetail, StyleEventDetail, TextFieldTypes, } from "./interfaces/Inputs.model";
-import { RouterDirection, RouterEventDetail, } from "./components/router/utils/interface";
-import { AnimationBuilder, ComponentProps, FrameworkDelegate, RouteID, RouterDirection as RouterDirection1, RouteWrite, } from "./interfaces";
-import { RouterOutletOptions, SwipeGestureHandler, } from "./interfaces/Nav";
-import { SpinerVariant, } from "./interfaces/SpinerVariant.mode";
+import { Color } from "./interfaces/Color.model";
+import { AlignmentModifier, JustificationModifier, WrapType } from "./interfaces/FlexClassModifiers.model";
+import { TextClassModifier } from "./interfaces/TextClassModifier.model";
+import { Variants } from "./interfaces/Variants.model";
+import { Breakpoints } from "./interfaces/Breakpoints.model";
+import { Placement } from "./components/wl-drawer/wl-drawer";
+import { InputChangeEventDetail, StyleEventDetail, TextFieldTypes } from "./interfaces/Inputs.model";
+import { RouterDirection, RouterEventDetail } from "./components/router/utils/interface";
+import { AnimationBuilder, ComponentProps, FrameworkDelegate, RouteID, RouterDirection as RouterDirection1, RouteWrite } from "./interfaces";
+import { RouterOutletOptions, SwipeGestureHandler } from "./interfaces/Nav";
+import { SpinerVariant } from "./interfaces/SpinerVariant.mode";
+import { StarChangeEventDetail } from "./components/wl-star/wl-star";
 export namespace Components {
+    interface WlApp {
+    }
     interface WlAppbar {
         "align"?: AlignmentModifier;
         "color"?: Color;
@@ -331,7 +334,13 @@ export namespace Components {
         /**
           * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "enterkeyhint"?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send";
+        "enterkeyhint"?: | "enter"
+    | "done"
+    | "go"
+    | "next"
+    | "previous"
+    | "search"
+    | "send";
         /**
           * Returns the native `<input>` element used under the hood.
          */
@@ -339,7 +348,14 @@ export namespace Components {
         /**
           * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
          */
-        "inputmode"?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";
+        "inputmode"?: | "none"
+    | "text"
+    | "tel"
+    | "url"
+    | "email"
+    | "numeric"
+    | "decimal"
+    | "search";
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
@@ -484,9 +500,7 @@ export namespace Components {
         /**
           * A key value `{ 'red': true, 'blue': 'white'}` containing props that should be passed to the defined component when rendered.
          */
-        "componentProps"?: {
-            [key: string]: any;
-        };
+        "componentProps"?: { [key: string]: any };
         /**
           * Relative path that needs to match in order for this route to apply.  Accepts paths similar to expressjs so that you can define parameters in the url /foo/:bar where bar would be available in incoming props.
          */
@@ -536,7 +550,7 @@ export namespace Components {
         "commit": (enteringEl: HTMLElement, leavingEl: HTMLElement | undefined, opts?: RouterOutletOptions | undefined) => Promise<boolean>;
         "delegate"?: FrameworkDelegate;
         "getRouteId": () => Promise<RouteID | undefined>;
-        "setRouteId": (id: string, params: ComponentProps<null> | undefined, direction: RouterDirection) => Promise<RouteWrite>;
+        "setRouteId": (id: string, params: ComponentProps | undefined, direction: RouterDirection) => Promise<RouteWrite>;
         "swipeHandler"?: SwipeGestureHandler;
     }
     interface WlRow {
@@ -550,11 +564,34 @@ export namespace Components {
         "size"?: string;
         "variant": SpinerVariant;
     }
+    interface WlStar {
+        "colorActive"?: string;
+        "debounce": number;
+        "setTotalRating": (number: number) => Promise<void>;
+        "showBorder"?: boolean;
+        /**
+          * @size defaults to 80px
+         */
+        "size"?: string;
+        "totalRating": number;
+    }
     interface WlText {
         "color"?: Color;
     }
+    interface WlTooltip {
+        "color"?: Color;
+        "contentWidth": string;
+        "iconWidth": string;
+        "message": string;
+    }
 }
 declare global {
+    interface HTMLWlAppElement extends Components.WlApp, HTMLStencilElement {
+    }
+    var HTMLWlAppElement: {
+        prototype: HTMLWlAppElement;
+        new (): HTMLWlAppElement;
+    };
     interface HTMLWlAppbarElement extends Components.WlAppbar, HTMLStencilElement {
     }
     var HTMLWlAppbarElement: {
@@ -705,13 +742,26 @@ declare global {
         prototype: HTMLWlSpinnerElement;
         new (): HTMLWlSpinnerElement;
     };
+    interface HTMLWlStarElement extends Components.WlStar, HTMLStencilElement {
+    }
+    var HTMLWlStarElement: {
+        prototype: HTMLWlStarElement;
+        new (): HTMLWlStarElement;
+    };
     interface HTMLWlTextElement extends Components.WlText, HTMLStencilElement {
     }
     var HTMLWlTextElement: {
         prototype: HTMLWlTextElement;
         new (): HTMLWlTextElement;
     };
+    interface HTMLWlTooltipElement extends Components.WlTooltip, HTMLStencilElement {
+    }
+    var HTMLWlTooltipElement: {
+        prototype: HTMLWlTooltipElement;
+        new (): HTMLWlTooltipElement;
+    };
     interface HTMLElementTagNameMap {
+        "wl-app": HTMLWlAppElement;
         "wl-appbar": HTMLWlAppbarElement;
         "wl-button": HTMLWlButtonElement;
         "wl-card": HTMLWlCardElement;
@@ -737,10 +787,14 @@ declare global {
         "wl-router-outlet": HTMLWlRouterOutletElement;
         "wl-row": HTMLWlRowElement;
         "wl-spinner": HTMLWlSpinnerElement;
+        "wl-star": HTMLWlStarElement;
         "wl-text": HTMLWlTextElement;
+        "wl-tooltip": HTMLWlTooltipElement;
     }
 }
 declare namespace LocalJSX {
+    interface WlApp {
+    }
     interface WlAppbar {
         "align"?: AlignmentModifier;
         "color"?: Color;
@@ -880,9 +934,7 @@ declare namespace LocalJSX {
     interface WlDrawer {
         "color"?: Color;
         "isOpen"?: boolean;
-        "onDrawerOpenStateChange"?: (event: CustomEvent<{
-            isOpen: boolean;
-        }>) => void;
+        "onDrawerOpenStateChange"?: (event: CustomEvent<{ isOpen: boolean }>) => void;
         "placement"?: Placement;
     }
     interface WlDrawerBody {
@@ -1055,11 +1107,24 @@ declare namespace LocalJSX {
         /**
           * A hint to the browser for which enter key to display. Possible values: `"enter"`, `"done"`, `"go"`, `"next"`, `"previous"`, `"search"`, and `"send"`.
          */
-        "enterkeyhint"?: "enter" | "done" | "go" | "next" | "previous" | "search" | "send";
+        "enterkeyhint"?: | "enter"
+    | "done"
+    | "go"
+    | "next"
+    | "previous"
+    | "search"
+    | "send";
         /**
           * A hint to the browser for which keyboard to display. Possible values: `"none"`, `"text"`, `"tel"`, `"url"`, `"email"`, `"numeric"`, `"decimal"`, and `"search"`.
          */
-        "inputmode"?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search";
+        "inputmode"?: | "none"
+    | "text"
+    | "tel"
+    | "url"
+    | "email"
+    | "numeric"
+    | "decimal"
+    | "search";
         /**
           * The maximum value, which must not be less than its minimum (min attribute) value.
          */
@@ -1104,6 +1169,10 @@ declare namespace LocalJSX {
           * Emitted when a keyboard input occurred.
          */
         "onWlInput"?: (event: CustomEvent<KeyboardEvent>) => void;
+        /**
+          * Emitted when the styles change.
+         */
+        "onWlStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
         /**
           * A regular expression that the value is checked against. The pattern must match the entire value, not just some subset. Use the title attribute to describe the pattern to help the user. This attribute applies when the value of the type attribute is `"text"`, `"search"`, `"tel"`, `"url"`, `"email"`, `"date"`, or `"password"`, otherwise it is ignored. When the type attribute is `"date"`, `pattern` will only be used in browsers that do not support the `"date"` input type natively. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date for more information.
          */
@@ -1189,6 +1258,10 @@ declare namespace LocalJSX {
          */
         "color"?: Color;
         /**
+          * Emitted when the styles change.
+         */
+        "onWlStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        /**
           * The position determines where and how the label behaves inside an item.
          */
         "position"?: "fixed" | "stacked" | "floating";
@@ -1214,9 +1287,7 @@ declare namespace LocalJSX {
         /**
           * A key value `{ 'red': true, 'blue': 'white'}` containing props that should be passed to the defined component when rendered.
          */
-        "componentProps"?: {
-            [key: string]: any;
-        };
+        "componentProps"?: { [key: string]: any };
         /**
           * Used internally by `wl-router` to know when this route did change.
          */
@@ -1267,6 +1338,11 @@ declare namespace LocalJSX {
           * By default `wl-nav` animates transition between pages based in the mode (ios or material design). However, this property allows to create custom transition using `AnimateBuilder` functions.
          */
         "animation"?: AnimationBuilder;
+        "delegate"?: FrameworkDelegate;
+        "onWlNavDidChange"?: (event: CustomEvent<void>) => void;
+        "onWlNavWillChange"?: (event: CustomEvent<void>) => void;
+        "onWlNavWillLoad"?: (event: CustomEvent<void>) => void;
+        "swipeHandler"?: SwipeGestureHandler;
     }
     interface WlRow {
         "align"?: "center" | "end" | "start" | "baseline";
@@ -1279,10 +1355,31 @@ declare namespace LocalJSX {
         "size"?: string;
         "variant"?: SpinerVariant;
     }
+    interface WlStar {
+        "colorActive"?: string;
+        "debounce"?: number;
+        /**
+          * Emitted when the value has changed.
+         */
+        "onWlChange"?: (event: CustomEvent<StarChangeEventDetail>) => void;
+        "showBorder"?: boolean;
+        /**
+          * @size defaults to 80px
+         */
+        "size"?: string;
+        "totalRating"?: number;
+    }
     interface WlText {
         "color"?: Color;
     }
+    interface WlTooltip {
+        "color"?: Color;
+        "contentWidth"?: string;
+        "iconWidth"?: string;
+        "message": string;
+    }
     interface IntrinsicElements {
+        "wl-app": WlApp;
         "wl-appbar": WlAppbar;
         "wl-button": WlButton;
         "wl-card": WlCard;
@@ -1308,13 +1405,16 @@ declare namespace LocalJSX {
         "wl-router-outlet": WlRouterOutlet;
         "wl-row": WlRow;
         "wl-spinner": WlSpinner;
+        "wl-star": WlStar;
         "wl-text": WlText;
+        "wl-tooltip": WlTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "wl-app": LocalJSX.WlApp & JSXBase.HTMLAttributes<HTMLWlAppElement>;
             "wl-appbar": LocalJSX.WlAppbar & JSXBase.HTMLAttributes<HTMLWlAppbarElement>;
             "wl-button": LocalJSX.WlButton & JSXBase.HTMLAttributes<HTMLWlButtonElement>;
             "wl-card": LocalJSX.WlCard & JSXBase.HTMLAttributes<HTMLWlCardElement>;
@@ -1340,7 +1440,9 @@ declare module "@stencil/core" {
             "wl-router-outlet": LocalJSX.WlRouterOutlet & JSXBase.HTMLAttributes<HTMLWlRouterOutletElement>;
             "wl-row": LocalJSX.WlRow & JSXBase.HTMLAttributes<HTMLWlRowElement>;
             "wl-spinner": LocalJSX.WlSpinner & JSXBase.HTMLAttributes<HTMLWlSpinnerElement>;
+            "wl-star": LocalJSX.WlStar & JSXBase.HTMLAttributes<HTMLWlStarElement>;
             "wl-text": LocalJSX.WlText & JSXBase.HTMLAttributes<HTMLWlTextElement>;
+            "wl-tooltip": LocalJSX.WlTooltip & JSXBase.HTMLAttributes<HTMLWlTooltipElement>;
         }
     }
 }

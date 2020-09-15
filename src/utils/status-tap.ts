@@ -1,4 +1,4 @@
-import { readTask, writeTask } from "@stencil/core";
+import { readTask } from "@stencil/core";
 
 export const startStatusTap = () => {
   const win = window;

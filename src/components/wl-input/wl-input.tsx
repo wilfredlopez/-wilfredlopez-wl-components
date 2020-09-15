@@ -248,7 +248,8 @@ export class WlInput implements ComponentInterface {
   connectedCallback() {
     this.emitStyle();
     this.debounceChanged();
-    if (Build.isBrowser) {
+    if (Build.isBrowser)
+    {
       document.dispatchEvent(
         new CustomEvent("wlInputDidLoad", {
           detail: this.el,
@@ -258,7 +259,8 @@ export class WlInput implements ComponentInterface {
   }
 
   disconnectedCallback() {
-    if (Build.isBrowser) {
+    if (Build.isBrowser)
+    {
       document.dispatchEvent(
         new CustomEvent("wlInputDidUnload", {
           detail: this.el,
@@ -273,7 +275,8 @@ export class WlInput implements ComponentInterface {
    */
   @Method()
   async setFocus() {
-    if (this.nativeInput) {
+    if (this.nativeInput)
+    {
       this.nativeInput.focus();
     }
   }
@@ -310,7 +313,8 @@ export class WlInput implements ComponentInterface {
 
   private onInput = (ev: Event) => {
     const input = ev.target as HTMLInputElement | null;
-    if (input) {
+    if (input)
+    {
       this.value = input.value || "";
     }
     this.wlInput.emit(ev as KeyboardEvent);
@@ -333,10 +337,12 @@ export class WlInput implements ComponentInterface {
   };
 
   private onKeydown = (ev: KeyboardEvent) => {
-    if (this.shouldClearOnEdit()) {
+    if (this.shouldClearOnEdit())
+    {
       // Did the input value change after it was blurred and edited?
       // Do not clear if user is hitting Enter to submit form
-      if (this.didBlurAfterEdit && this.hasValue() && ev.key !== "Enter") {
+      if (this.didBlurAfterEdit && this.hasValue() && ev.key !== "Enter")
+      {
         // Clear the input
         this.clearTextInput();
       }
@@ -347,7 +353,8 @@ export class WlInput implements ComponentInterface {
   };
 
   private clearTextInput = (ev?: Event) => {
-    if (this.clearInput && !this.readonly && !this.disabled && ev) {
+    if (this.clearInput && !this.readonly && !this.disabled && ev)
+    {
       ev.preventDefault();
       ev.stopPropagation();
     }
@@ -359,14 +366,16 @@ export class WlInput implements ComponentInterface {
      * Otherwise the value will not be cleared
      * if user is inside the input
      */
-    if (this.nativeInput) {
+    if (this.nativeInput)
+    {
       this.nativeInput.value = "";
     }
   };
 
   private focusChanged() {
     // If clearOnEdit is enabled and the input blurred but has a value, set a flag
-    if (!this.hasFocus && this.shouldClearOnEdit() && this.hasValue()) {
+    if (!this.hasFocus && this.shouldClearOnEdit() && this.hasValue())
+    {
       this.didBlurAfterEdit = true;
     }
   }
@@ -380,7 +389,8 @@ export class WlInput implements ComponentInterface {
     const labelId = this.inputId + "-lbl";
     const label = findItemLabel(this.el);
     const mode = getWlMode(this);
-    if (label) {
+    if (label)
+    {
       label.id = labelId;
     }
     return (
@@ -415,7 +425,7 @@ export class WlInput implements ComponentInterface {
           placeholder={this.placeholder || ""}
           readOnly={this.readonly}
           required={this.required}
-          spellCheck={this.spellcheck}
+          spellcheck={this.spellcheck}
           step={this.step}
           size={this.size}
           type={this.type}

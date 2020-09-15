@@ -106,3 +106,14 @@ export const WlList = /*@__PURE__*/ createReactComponent<
   JSX.WlList,
   HTMLWlListElement
 >("wl-list");
+
+
+export const WlTooltip = /*@__PURE__*/ createReactComponent<
+  JSX.WlTooltip,
+  HTMLWlTooltipElement
+>("wl-tooltip");
+
+export const WlStar = /*@__PURE__*/ createReactComponent<
+  JSX.WlStar,
+  HTMLWlStarElement
+>("wl-star");

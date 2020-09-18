@@ -9,7 +9,7 @@ npm install @wilfredlopez/wl-components
 
 ```html
 <link rel="stylesheet" href="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/css/wl.bundle.css">
-<script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script>
+<script src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components.js"></script>
 ```
 
 Then you can use the element anywhere in

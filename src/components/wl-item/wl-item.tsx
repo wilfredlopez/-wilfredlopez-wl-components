@@ -80,7 +80,7 @@ export class WlItem
   /**
    * How the bottom border should be displayed on the item.
    */
-  @Prop() lines?: "full" | "inset" | "none";
+  @Prop() lines?: "full" | "inset" | "none" = 'none';
 
   /**
    * Specifies where to display the linked URL.

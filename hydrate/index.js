@@ -6496,6 +6496,10 @@ class WlItem {
          */
         this.disabled = false;
         /**
+         * How the bottom border should be displayed on the item.
+         */
+        this.lines = 'none';
+        /**
          * The type of the button. Only used when an `onclick` or `button` property is present.
          */
         this.type = "button";

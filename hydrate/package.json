@@ -1,6 +1,0 @@
-{
-  "name": "@wilfredlopez/wl-components/hydrate",
-  "description": "WlComponents component hydration app.",
-  "main": "index.js",
-  "types": "index.d.ts"
-}

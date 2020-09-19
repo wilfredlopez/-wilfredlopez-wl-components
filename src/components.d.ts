@@ -158,7 +158,7 @@ export namespace Components {
     }
     interface WlDrawer {
         "close": () => Promise<void>;
-        "color"?: Color;
+        "disabled"?: boolean;
         "isOpen": boolean;
         "open": () => Promise<void>;
         "placement": Placement;
@@ -932,7 +932,7 @@ declare namespace LocalJSX {
         "size"?: Breakpoints;
     }
     interface WlDrawer {
-        "color"?: Color;
+        "disabled"?: boolean;
         "isOpen"?: boolean;
         "onDrawerOpenStateChange"?: (event: CustomEvent<{ isOpen: boolean }>) => void;
         "placement"?: Placement;

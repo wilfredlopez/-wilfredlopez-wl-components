@@ -1,14 +1,4 @@
 import { defineCustomElements } from '@wilfredlopez/wl-components/loader';
-// export {
-//   Gesture,
-//   GestureConfig,
-//   GestureDetail,
-//   createGesture,
-//   createAnimation,
-//   mdTransitionAnimation,
-//   iosTransitionAnimation,
-//   setupConfig,
-// } from '@wilfredlopez/wl-components/dist/types/interfaces';
 export {
   Gesture,
   GestureConfig,

@@ -1,10 +1,4 @@
 import React from 'react';
-// import {
-//   Config as CoreConfig,
-//   Platforms,
-//   getPlatforms as getPlatformsCore,
-//   isPlatform as isPlatformCore,
-// } from '@wilfredlopez/wl-components/dist/types/interfaces';
 import {
   Config as CoreConfig,
   Platforms,

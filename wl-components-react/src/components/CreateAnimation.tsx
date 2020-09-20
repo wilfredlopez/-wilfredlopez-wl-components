@@ -1,14 +1,5 @@
 import React from 'react';
 
-// import {
-//   Animation,
-//   AnimationCallbackOptions,
-//   AnimationDirection,
-//   AnimationFill,
-//   AnimationKeyFrames,
-//   AnimationLifecycle,
-//   createAnimation,
-// } from '@wilfredlopez/wl-components/dist/types/interfaces';
 import {
   Animation,
   AnimationCallbackOptions,

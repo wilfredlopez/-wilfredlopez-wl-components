@@ -1,5 +1,12 @@
+export { iosTransitionAnimation } from "./transition/ios.transition";
+export { mdTransitionAnimation } from "./transition/md.transition";
+export * from "./utils/framework-delegate";
+export * from "./global/config";
+export * from "./global/wl-config";
+export * from "./components/nav/constants";
 export * from "./components";
 export * from "./components/nav/constants";
 export * from "./interfaces";
 export * from "./animation/animation";
 export * from "./gesture";
+export * from "./utils/platform";

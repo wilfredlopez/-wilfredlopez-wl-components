@@ -1,6 +1,6 @@
 {
   "name": "@wilfredlopez/wl-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Reusable Stencil Component By Wilfred Lopez",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { attachProps } from "./utils";
+import { attachProps } from './utils';
 export interface OverlayEventDetail<T = any> {
   data?: T;
   role?: string;

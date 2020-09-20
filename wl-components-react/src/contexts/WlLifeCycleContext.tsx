@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface WlLifeCycleContextInterface {
   onWlViewWillEnter: (callback: () => void) => void;
@@ -56,7 +56,7 @@ export const DefaultWlLifeCycleContext = class
   onWlViewWillEnter(callback: LifeCycleCallback) {
     if (callback.id) {
       const index = this.wlViewWillEnterCallbacks.findIndex(
-        (x) => x.id === callback.id
+        x => x.id === callback.id
       );
       if (index > -1) {
         this.wlViewWillEnterCallbacks[index] = callback;
@@ -69,13 +69,13 @@ export const DefaultWlLifeCycleContext = class
   }
 
   wlViewWillEnter() {
-    this.wlViewWillEnterCallbacks.forEach((cb) => cb());
+    this.wlViewWillEnterCallbacks.forEach(cb => cb());
   }
 
   onWlViewDidEnter(callback: LifeCycleCallback) {
     if (callback.id) {
       const index = this.wlViewDidEnterCallbacks.findIndex(
-        (x) => x.id === callback.id
+        x => x.id === callback.id
       );
       if (index > -1) {
         this.wlViewDidEnterCallbacks[index] = callback;
@@ -88,13 +88,13 @@ export const DefaultWlLifeCycleContext = class
   }
 
   wlViewDidEnter() {
-    this.wlViewDidEnterCallbacks.forEach((cb) => cb());
+    this.wlViewDidEnterCallbacks.forEach(cb => cb());
   }
 
   onWlViewWillLeave(callback: LifeCycleCallback) {
     if (callback.id) {
       const index = this.wlViewWillLeaveCallbacks.findIndex(
-        (x) => x.id === callback.id
+        x => x.id === callback.id
       );
       if (index > -1) {
         this.wlViewWillLeaveCallbacks[index] = callback;
@@ -107,13 +107,13 @@ export const DefaultWlLifeCycleContext = class
   }
 
   wlViewWillLeave() {
-    this.wlViewWillLeaveCallbacks.forEach((cb) => cb());
+    this.wlViewWillLeaveCallbacks.forEach(cb => cb());
   }
 
   onWlViewDidLeave(callback: LifeCycleCallback) {
     if (callback.id) {
       const index = this.wlViewDidLeaveCallbacks.findIndex(
-        (x) => x.id === callback.id
+        x => x.id === callback.id
       );
       if (index > -1) {
         this.wlViewDidLeaveCallbacks[index] = callback;
@@ -126,7 +126,7 @@ export const DefaultWlLifeCycleContext = class
   }
 
   wlViewDidLeave() {
-    this.wlViewDidLeaveCallbacks.forEach((cb) => cb());
+    this.wlViewDidLeaveCallbacks.forEach(cb => cb());
     this.componentCanBeDestroyed();
   }
 

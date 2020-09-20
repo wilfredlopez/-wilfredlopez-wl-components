@@ -1,14 +1,14 @@
-import React from "react";
-import ReactDom from "react-dom";
+import React from 'react';
+import ReactDom from 'react-dom';
 
 import {
   attachProps,
   createForwardRef,
   dashToPascalCase,
   isCoveredByReact,
-} from "./utils";
-import { RouterDirection } from "./hrefprops";
-import { NavContext } from "../contexts/NavContext";
+} from './utils';
+import { RouterDirection } from './hrefprops';
+import { NavContext } from '../contexts/NavContext';
 
 interface WlReactInternalProps<ElementType>
   extends React.HTMLAttributes<ElementType> {
@@ -46,9 +46,10 @@ export const createReactComponent = <PropType, ElementType>(
       const { routerLink, routerDirection } = this.props;
       if (routerLink !== undefined) {
         e.preventDefault();
-        //Not Sure If this is going to work.
+        // Not Sure If this is going to work.
         this.context.navigate(routerLink, routerDirection);
       }
+      // tslint:disable-next-line: semicolon
     };
 
     render() {
@@ -63,7 +64,7 @@ export const createReactComponent = <PropType, ElementType>(
       } = this.props;
 
       const propsToPass = Object.keys(cProps).reduce((acc, name) => {
-        if (name.indexOf("on") === 0 && name[2] === name[2].toUpperCase()) {
+        if (name.indexOf('on') === 0 && name[2] === name[2].toUpperCase()) {
           const eventName = name.substring(2).toLowerCase();
           if (isCoveredByReact(eventName)) {
             (acc as any)[name] = (cProps as any)[name];

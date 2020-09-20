@@ -13,9 +13,21 @@ export class WlText implements ComponentInterface {
   })
   color?: Color = "light";
 
+  @Prop({
+    reflectToAttr: true,
+  })
+  size?: string;
+
   render() {
     return (
       <Host
+        style={
+          this.size
+            ? {
+                fontSize: this.size,
+              }
+            : {}
+        }
         class={{
           ...createColorClasses(this.color),
         }}

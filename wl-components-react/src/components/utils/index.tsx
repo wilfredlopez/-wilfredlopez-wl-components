@@ -1,14 +1,21 @@
-import React from "react";
+import React from 'react';
+// import {
+//   Config as CoreConfig,
+//   Platforms,
+//   getPlatforms as getPlatformsCore,
+//   isPlatform as isPlatformCore,
+// } from '@wilfredlopez/wl-components/dist/types/interfaces';
 import {
   Config as CoreConfig,
   Platforms,
   getPlatforms as getPlatformsCore,
   isPlatform as isPlatformCore,
-} from "@wilfredlopez/wl-components/dist/types/interfaces";
-import { WlReactProps } from "../WlReactProps";
+} from '@wilfredlopez/wl-components';
+
+import { WlReactProps } from '../WlReactProps';
 
 export type WlReactExternalProps<PropType, ElementType> = PropType &
-  Omit<React.HTMLAttributes<ElementType>, "style"> &
+  Omit<React.HTMLAttributes<ElementType>, 'style'> &
   WlReactProps;
 
 export const createForwardRef = <PropType, ElementType>(
@@ -27,7 +34,7 @@ export const createForwardRef = <PropType, ElementType>(
 };
 
 export const getConfig = (): CoreConfig | null => {
-  if (typeof (window as any) !== "undefined") {
+  if (typeof (window as any) !== 'undefined') {
     const Wl = (window as any).Wl;
     if (Wl && Wl.config) {
       return Wl.config;
@@ -44,5 +51,5 @@ export const getPlatforms = () => {
   return getPlatformsCore(window);
 };
 
-export * from "./attachProps";
-export * from "./case";
+export * from './attachProps';
+export * from './case';

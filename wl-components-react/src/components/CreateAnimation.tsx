@@ -1,3 +1,14 @@
+import React from 'react';
+
+// import {
+//   Animation,
+//   AnimationCallbackOptions,
+//   AnimationDirection,
+//   AnimationFill,
+//   AnimationKeyFrames,
+//   AnimationLifecycle,
+//   createAnimation,
+// } from '@wilfredlopez/wl-components/dist/types/interfaces';
 import {
   Animation,
   AnimationCallbackOptions,
@@ -6,9 +17,7 @@ import {
   AnimationKeyFrames,
   AnimationLifecycle,
   createAnimation,
-} from "@wilfredlopez/wl-components/dist/types/interfaces";
-import React from "react";
-
+} from '@wilfredlopez/wl-components';
 interface PartialPropertyValue {
   property: string;
   value: any;
@@ -115,18 +124,18 @@ const checkConfig = (
   prevProps: any = {}
 ) => {
   const reservedProps = [
-    "children",
-    "progressStart",
-    "progressStep",
-    "progressEnd",
-    "pause",
-    "stop",
-    "destroy",
-    "play",
-    "from",
-    "to",
-    "fromTo",
-    "onFinish",
+    'children',
+    'progressStart',
+    'progressStep',
+    'progressEnd',
+    'pause',
+    'stop',
+    'destroy',
+    'play',
+    'from',
+    'to',
+    'fromTo',
+    'onFinish',
   ];
   for (const key in currentProps) {
     if (
@@ -141,19 +150,19 @@ const checkConfig = (
   const fromValues = currentProps.from;
   if (fromValues && fromValues !== prevProps.from) {
     const values = Array.isArray(fromValues) ? fromValues : [fromValues];
-    values.forEach((val) => animation.from(val.property, val.value));
+    values.forEach(val => animation.from(val.property, val.value));
   }
 
   const toValues = currentProps.to;
   if (toValues && toValues !== prevProps.to) {
     const values = Array.isArray(toValues) ? toValues : [toValues];
-    values.forEach((val) => animation.to(val.property, val.value));
+    values.forEach(val => animation.to(val.property, val.value));
   }
 
   const fromToValues = currentProps.fromTo;
   if (fromToValues && fromToValues !== prevProps.fromTo) {
     const values = Array.isArray(fromToValues) ? fromToValues : [fromToValues];
-    values.forEach((val) =>
+    values.forEach(val =>
       animation.fromTo(val.property, val.fromValue, val.toValue)
     );
   }
@@ -163,7 +172,7 @@ const checkConfig = (
     const values = Array.isArray(onFinishValues)
       ? onFinishValues
       : [onFinishValues];
-    values.forEach((val) => animation.onFinish(val.callback, val.opts));
+    values.forEach(val => animation.onFinish(val.callback, val.opts));
   }
 };
 

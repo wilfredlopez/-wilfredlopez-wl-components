@@ -1,5 +1,5 @@
-import { RouterDirection } from "../components/hrefprops";
-import React from "react";
+import { RouterDirection } from '../components/hrefprops';
+import React from 'react';
 
 export interface NavContextState {
   getPageManager: () => any;
@@ -7,8 +7,8 @@ export interface NavContextState {
   goBack: (defaultHref?: string) => void;
   navigate: (
     path: string,
-    direction?: RouterDirection | "none",
-    wlRouteAction?: "push" | "replace" | "pop"
+    direction?: RouterDirection | 'none',
+    wlRouteAction?: 'push' | 'replace' | 'pop'
   ) => void;
   hasWlRouter: () => boolean;
   registerWlPage: (page: HTMLElement) => void;

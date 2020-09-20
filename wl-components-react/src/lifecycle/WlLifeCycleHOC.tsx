@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { WlLifeCycleContext } from "../contexts/WlLifeCycleContext";
+import { WlLifeCycleContext } from '../contexts/WlLifeCycleContext';
 
 export const withWlLifeCycle = (WrappedComponent: React.ComponentType<any>) => {
   return class WlLifeCycle extends React.Component<any, any> {
@@ -41,7 +41,7 @@ export const withWlLifeCycle = (WrappedComponent: React.ComponentType<any>) => {
     render() {
       return (
         <WlLifeCycleContext.Consumer>
-          {(context) => {
+          {context => {
             this.context = context;
             return <WrappedComponent ref={this.componentRef} {...this.props} />;
           }}

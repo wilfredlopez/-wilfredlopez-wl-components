@@ -1,8 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { attachProps } from "./utils";
-import { OverlayEventDetail } from "./createControllerComponent";
+import { attachProps } from './utils';
+import { OverlayEventDetail } from './createControllerComponent';
 
 interface OverlayElement extends HTMLElement {
   present: () => Promise<void>;
@@ -41,7 +41,7 @@ export const createOverlayComponent = <
 
     constructor(props: Props) {
       super(props);
-      this.el = document.createElement("div");
+      this.el = document.createElement('div');
       this.handleDismiss = this.handleDismiss.bind(this);
     }
 

@@ -1,6 +1,7 @@
 # Install
 
 #### npm
+
 ```bash
 npm install @wilfredlopez/wl-components
 ```
@@ -8,11 +9,20 @@ npm install @wilfredlopez/wl-components
 #### Or Script tag
 
 ```html
-  <link rel="stylesheet" href="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/css/wl.bundle.css" />
-  
-  <script  type="module" src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/wl-components.esm.js"></script>
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/css/wl.bundle.css"
+/>
 
-  <script nomodule src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components.js"></script>
+<script
+  type="module"
+  src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/wl-components.esm.js"
+></script>
+
+<script
+  nomodule
+  src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components.js"
+></script>
 ```
 
 Then you can use the element anywhere in
@@ -27,9 +37,7 @@ your template, JSX, html etc.
   <h1 slot="title">My Title</h1>
   <div>
     <p>Modal Content</p>
-    <p>
-     Lorem ipsum dolor sit.
-    </p>
+    <p>Lorem ipsum dolor sit.</p>
   </div>
   <div slot="actions">
     <wl-button id="cancelBtn" color="secondary" size="small">Cancel</wl-button>
@@ -55,8 +63,10 @@ your template, JSX, html etc.
 ```html
 <wl-button color="secondary">Click Me!</wl-button>
 ```
+
 #### And more:
->  `wl-app, wl-appbar, wl-button, wl-card, wl-grid, wl-col,wl-row, wl-container, wl-drawer, wl-drawer-body, wl-drawer-content, wl-flex, wl-input, wl-item, wl-label, wl-list, wl-modal, wl-spinner, wl-star, wl-text, wl-tooltip.`
+
+> `wl-app, wl-appbar, wl-button, wl-card, wl-grid, wl-col,wl-row, wl-container, wl-drawer, wl-drawer-body, wl-drawer-content, wl-flex, wl-input, wl-item, wl-label, wl-list, wl-modal, wl-spinner, wl-star, wl-text, wl-tooltip, wl-title.`
 
 #### API Documentation
 
@@ -64,67 +74,75 @@ https://github.com/wilfredlopez/-wilfredlopez-wl-components/tree/master/src/comp
 
 Example: https://github.com/wilfredlopez/-wilfredlopez-wl-components/tree/master/src/components/wl-star
 
+### Full Example:
 
-
-### Full Example: 
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Example - wl-components</title>
-  <link rel="stylesheet" href="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/css/wl.bundle.css">
-  <script  type="module" src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/wl-components.esm.js"></script>
-  <script nomodule src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components.js"></script>
-</head>
-<body>
-<wl-appbar color="primary">
-  <wl-drawer placement="left" color="primary">
-    <wl-drawer-menu-button slot="button-open"></wl-drawer-menu-button>
-    <wl-drawer-content>
-      <wl-drawer-close-button color="primary"></wl-drawer-close-button>
-      <wl-drawer-header>
-        <wl-text color="primary">Wilfred Lopez</wl-text>
-      </wl-drawer-header>
-      <wl-drawer-body class="wl-no-padding">
-        <wl-list>
-          <wl-item button href="/" lines="none">
-            <wl-label slot="start">😀</wl-label>
-              <wl-label>Home</wl-label>
-          </wl-item>
-          <wl-item button lines="none">
-            <wl-label slot="start">😂</wl-label>
-            <wl-label>Link 2</wl-label>
-          </wl-item>
-        </wl-list>
-      </wl-drawer-body>
-    </wl-drawer-content>
-    <wl-drawer-footer>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Example - wl-components</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/css/wl.bundle.css"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components/wl-components.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/@wilfredlopez/wl-components@latest/dist/wl-components.js"
+    ></script>
+  </head>
+  <body>
+    <wl-appbar color="primary">
+      <wl-drawer placement="left" color="primary">
+        <wl-drawer-menu-button slot="button-open"></wl-drawer-menu-button>
+        <wl-drawer-content>
+          <wl-drawer-close-button color="primary"></wl-drawer-close-button>
+          <wl-drawer-header>
+            <wl-text color="primary">Wilfred Lopez</wl-text>
+          </wl-drawer-header>
+          <wl-drawer-body class="wl-no-padding">
+            <wl-list>
+              <wl-item button href="/" lines="none">
+                <wl-label slot="start">😀</wl-label>
+                <wl-label>Home</wl-label>
+              </wl-item>
+              <wl-item button lines="none">
+                <wl-label slot="start">😂</wl-label>
+                <wl-label>Link 2</wl-label>
+              </wl-item>
+            </wl-list>
+          </wl-drawer-body>
+        </wl-drawer-content>
+        <wl-drawer-footer>
+          <wl-flex>
+            <wl-text color="primary">Lorem ipsum dolor sit amet.</wl-text>
+          </wl-flex>
+        </wl-drawer-footer>
+      </wl-drawer>
       <wl-flex>
-        <wl-text color="primary">Lorem ipsum dolor sit amet.</wl-text>
+        <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
       </wl-flex>
-    </wl-drawer-footer>
-  </wl-drawer>
-    <wl-flex>
-      <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
-    </wl-flex>
-</wl-appbar>
+    </wl-appbar>
 
-<wl-container size="sm" class="wl-margin">
-  <wl-card>
-    <div slot="header">
-      <h1 class="wl-no-padding wl-no-margin">Card Header</h1>
-    </div>
-    <div slot="content">Card Content</div>  
-    <div>
-      Slotted Content <wl-tooltip message="Best Content!" color="primary"></wl-tooltip> for you.
-    </div>
-  </wl-card>
-</wl-container>
-
-</body>
-
+    <wl-container size="sm" class="wl-margin">
+      <wl-card>
+        <div slot="header">
+          <h1 class="wl-no-padding wl-no-margin">Card Header</h1>
+        </div>
+        <div slot="content">Card Content</div>
+        <div>
+          Slotted Content
+          <wl-tooltip message="Best Content!" color="primary"></wl-tooltip> for
+          you.
+        </div>
+      </wl-card>
+    </wl-container>
+  </body>
 </html>
 ```
 

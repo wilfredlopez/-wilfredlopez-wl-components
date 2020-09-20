@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import { WlReactProps } from "./WlReactProps";
+import { WlReactProps } from './WlReactProps';
 
-import { createForwardRef } from "./utils";
-import { WlButtonInner } from "./inner-proxies";
-import { Components as WlComponents } from "@wilfredlopez/wl-components";
-import { RouterDirection } from "./hrefprops";
+import { createForwardRef } from './utils';
+import { WlButtonInner } from './inner-proxies';
+import { Components as WlComponents } from '@wilfredlopez/wl-components';
+import { RouterDirection } from './hrefprops';
 
 interface WlButtonProps extends Partial<WlComponents.WlButton> {
   ariaLabel?: string;
@@ -38,4 +38,4 @@ class WlButtonContainer extends React.PureComponent<InternalProps> {
 export const WlButton = createForwardRef<
   WlButtonProps & WlReactProps,
   HTMLWlButtonElement
->(WlButtonContainer, "WlButton");
+>(WlButtonContainer, 'WlButton');

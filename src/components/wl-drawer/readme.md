@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type                                                                                                                         | Default   |
-| ----------- | ----------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | --------- |
-| `color`     | `color`     |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `"light"` |
-| `isOpen`    | `is-open`   |             | `boolean`                                                                                                                    | `false`   |
-| `placement` | `placement` |             | `"bottom" \| "left" \| "right" \| "top"`                                                                                     | `"left"`  |
+| Property    | Attribute   | Description | Type                                     | Default     |
+| ----------- | ----------- | ----------- | ---------------------------------------- | ----------- |
+| `disabled`  | `color`     |             | `boolean \| undefined`                   | `undefined` |
+| `isOpen`    | `is-open`   |             | `boolean`                                | `false`     |
+| `placement` | `placement` |             | `"bottom" \| "left" \| "right" \| "top"` | `"left"`    |
 
 
 ## Events

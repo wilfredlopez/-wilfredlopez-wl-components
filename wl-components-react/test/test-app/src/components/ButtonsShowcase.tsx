@@ -1,6 +1,6 @@
-import React from "react";
-import { WlContainer } from "@wilfredlopez/react";
-import ButtonShowCase from "./ButtonShowCase";
+import React from 'react';
+import { WlContainer } from '@wilfredlopez/react';
+import ButtonShowCase from './ButtonShowCase';
 
 interface Props {}
 

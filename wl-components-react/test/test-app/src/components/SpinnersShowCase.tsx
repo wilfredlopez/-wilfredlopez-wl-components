@@ -1,5 +1,5 @@
-import React from "react";
-import { WlGrid, WlRow, WlCol, WlSpinner } from "@wilfredlopez/react";
+import React from 'react';
+import { WlGrid, WlRow, WlCol, WlSpinner } from '@wilfredlopez/react';
 
 interface Props {}
 
@@ -27,7 +27,7 @@ const SpinnersShowCase = (props: Props) => {
                   width: 50,
                   height: 50,
                 }}
-              ></WlSpinner>
+              />
             </div>
           </WlCol>
           <WlCol translate size="2">
@@ -37,7 +37,7 @@ const SpinnersShowCase = (props: Props) => {
               translate
               variant="facebook"
               color="tertiary"
-            ></WlSpinner>
+            />
           </WlCol>
           <WlCol translate size="2">
             <p>Ellipsis Spinner</p>
@@ -46,16 +46,11 @@ const SpinnersShowCase = (props: Props) => {
               translate
               variant="ellipsis"
               color="secondary"
-            ></WlSpinner>
+            />
           </WlCol>
           <WlCol translate size="2">
             <p>Ios Spinner</p>
-            <WlSpinner
-              size="50px"
-              translate
-              variant="ios"
-              color="danger"
-            ></WlSpinner>
+            <WlSpinner size="50px" translate variant="ios" color="danger" />
           </WlCol>
         </WlRow>
         <WlRow translate className="wl-text-center wl-justify-content-between">
@@ -67,30 +62,15 @@ const SpinnersShowCase = (props: Props) => {
           </WlCol>
           <WlCol translate size="2">
             <p>Loader Spinner</p>
-            <WlSpinner
-              size="50px"
-              translate
-              variant="loader"
-              color="primary"
-            ></WlSpinner>
+            <WlSpinner size="50px" translate variant="loader" color="primary" />
           </WlCol>
           <WlCol translate size="2">
             <p>Ring Spinner</p>
-            <WlSpinner
-              size="50px"
-              translate
-              variant="ring"
-              color="success"
-            ></WlSpinner>
+            <WlSpinner size="50px" translate variant="ring" color="success" />
           </WlCol>
           <WlCol translate size="2">
             <p>Ripple Spinner</p>
-            <WlSpinner
-              size="50px"
-              translate
-              variant="ripple"
-              color="danger"
-            ></WlSpinner>
+            <WlSpinner size="50px" translate variant="ripple" color="danger" />
           </WlCol>
         </WlRow>
       </WlGrid>

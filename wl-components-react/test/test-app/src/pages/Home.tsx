@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import ShowCase from "../components/ShowCase";
+import ShowCase from '../components/ShowCase';
 interface Props {}
 
 const Home = (props: Props) => {

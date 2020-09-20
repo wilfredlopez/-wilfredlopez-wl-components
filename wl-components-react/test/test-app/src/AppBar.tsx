@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   WlAppbar,
   WlDrawer,
@@ -11,7 +11,8 @@ import {
   WlDrawerContent,
   WlText,
   WlItem,
-} from "@wilfredlopez/react";
+} from '@wilfredlopez/react';
+
 interface Props {}
 
 const AppBar = (props: Props) => {
@@ -51,7 +52,7 @@ const AppBar = (props: Props) => {
               translate
               href="/"
             >
-              About{" "}
+              About{' '}
             </WlItem>
           </WlDrawerBody>
           <WlDrawerFooter translate fixed>

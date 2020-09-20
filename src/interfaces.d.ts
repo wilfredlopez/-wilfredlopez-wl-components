@@ -51,7 +51,7 @@ export type Color = PredefinedColors | string;
 export type Mode = "ios" | "md";
 export type ComponentTags = string;
 export type ComponentRef = Function | HTMLElement | string | null;
-export type ComponentProps<T = null> = { [key: string]: any };
+export type ComponentProps<T = any> = { [key: string]: T };
 export type BackButtonEvent = CustomEvent<BackButtonEventDetail>;
 
 export interface FrameworkDelegate {

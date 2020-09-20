@@ -1,12 +1,12 @@
-import React from "react";
-import { WlGrid, WlRow, WlCol, WlButton } from "@wilfredlopez/react";
+import React from 'react';
+import { WlGrid, WlRow, WlCol, WlButton } from '@wilfredlopez/react';
 
 interface Props {
-  size: "lg" | "sm" | "xl";
-  variant?: "block" | "outline" | "solid" | "clear" | "full";
+  size: 'lg' | 'sm' | 'xl';
+  variant?: 'block' | 'outline' | 'solid' | 'clear' | 'full';
 }
 
-const ButtonShowCase = ({ size, variant = "block" }: Props) => {
+const ButtonShowCase = ({ size, variant = 'block' }: Props) => {
   return (
     <WlGrid translate>
       <WlRow translate>

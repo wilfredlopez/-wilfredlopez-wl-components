@@ -1,9 +1,9 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from 'react';
 
 import {
   WlLifeCycleContext,
   LifeCycleCallback,
-} from "../contexts/WlLifeCycleContext";
+} from '../contexts/WlLifeCycleContext';
 
 export const useWlViewWillEnter = (
   callback: LifeCycleCallback,

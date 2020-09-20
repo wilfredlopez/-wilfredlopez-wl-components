@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { NavContext } from "../contexts/NavContext";
+import { NavContext } from '../contexts/NavContext';
 
-import { WlReactProps } from "./WlReactProps";
-import { createForwardRef } from "./utils";
+import { WlReactProps } from './WlReactProps';
+import { createForwardRef } from './utils';
 
 interface WlPageProps extends WlReactProps {}
 
@@ -33,7 +33,7 @@ class WlPageInternal extends React.Component<WlPageInternalProps> {
 
     return (
       <div
-        className={className ? `wl-page ${className}` : "wl-page"}
+        className={className ? `wl-page ${className}` : 'wl-page'}
         ref={this.ref}
         {...props}
       >
@@ -43,7 +43,7 @@ class WlPageInternal extends React.Component<WlPageInternalProps> {
   }
 
   static get displayName() {
-    return "WlPage";
+    return 'WlPage';
   }
 
   static get contextType() {
@@ -51,4 +51,4 @@ class WlPageInternal extends React.Component<WlPageInternalProps> {
   }
 }
 
-export const WlPage = createForwardRef(WlPageInternal, "WlPage");
+export const WlPage = createForwardRef(WlPageInternal, 'WlPage');

@@ -1,6 +1,6 @@
-import React from "react";
-import Router from "./Router";
-import AppBar from "./AppBar";
+import React from 'react';
+import Router from './Router';
+import AppBar from './AppBar';
 
 const App: React.FC = () => {
   return (

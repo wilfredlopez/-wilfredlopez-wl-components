@@ -8,7 +8,8 @@
     "@types/react": "16.8.24",
     "@types/react-dom": "16.8.5",
     "@types/react-router-dom": "^5.1.5",
-    "@wilfredlopez/wl-components": "^0.1.6",
+    "@wilfredlopez/react": "^0.1.3",
+    "@wilfredlopez/wl-components": "^1.0.2",
     "i": "^0.3.6",
     "npm": "^6.14.4",
     "react": "^16.8.6",
@@ -19,6 +20,7 @@
     "typescript": "3.5.3"
   },
   "scripts": {
+    "start:nocopy": "react-scripts start",
     "start": "npm run sync && react-scripts start",
     "build": "npm run sync && react-scripts build",
     "test": "start-server-and-test test:serve http://localhost:5000 test:open",

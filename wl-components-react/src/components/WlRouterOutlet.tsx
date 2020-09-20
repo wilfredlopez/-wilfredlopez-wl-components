@@ -1,11 +1,11 @@
-import { JSX as LocalJSX } from "@wilfredlopez/wl-components";
-import React from "react";
+import { JSX as LocalJSX } from '@wilfredlopez/wl-components';
+import React from 'react';
 
-import { NavContext } from "../contexts/NavContext";
+import { NavContext } from '../contexts/NavContext';
 
-import { WlReactProps } from "./WlReactProps";
-import { WlRouterOutletInner } from "./inner-proxies";
-import { createForwardRef } from "./utils";
+import { WlReactProps } from './WlReactProps';
+import { WlRouterOutletInner } from './inner-proxies';
+import { createForwardRef } from './utils';
 
 type Props = LocalJSX.WlRouterOutlet & {
   ref?: React.RefObject<any>;
@@ -43,4 +43,4 @@ const WlRouterOutletContainer = /*@__PURE__*/ (() =>
 export const WlRouterOutlet = createForwardRef<
   Props & WlReactProps,
   HTMLWlRouterOutletElement
->(WlRouterOutletContainer, "WlRouterOutlet");
+>(WlRouterOutletContainer, 'WlRouterOutlet');

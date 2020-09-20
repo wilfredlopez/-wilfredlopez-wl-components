@@ -577,6 +577,22 @@ export namespace Components {
     }
     interface WlText {
         "color"?: Color;
+        "size"?: string;
+    }
+    interface WlTitle {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "component": "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        "size"?: "sm" | "lg" | "xl" | "md";
     }
     interface WlTooltip {
         "color"?: Color;
@@ -754,6 +770,12 @@ declare global {
         prototype: HTMLWlTextElement;
         new (): HTMLWlTextElement;
     };
+    interface HTMLWlTitleElement extends Components.WlTitle, HTMLStencilElement {
+    }
+    var HTMLWlTitleElement: {
+        prototype: HTMLWlTitleElement;
+        new (): HTMLWlTitleElement;
+    };
     interface HTMLWlTooltipElement extends Components.WlTooltip, HTMLStencilElement {
     }
     var HTMLWlTooltipElement: {
@@ -789,6 +811,7 @@ declare global {
         "wl-spinner": HTMLWlSpinnerElement;
         "wl-star": HTMLWlStarElement;
         "wl-text": HTMLWlTextElement;
+        "wl-title": HTMLWlTitleElement;
         "wl-tooltip": HTMLWlTooltipElement;
     }
 }
@@ -1371,6 +1394,22 @@ declare namespace LocalJSX {
     }
     interface WlText {
         "color"?: Color;
+        "size"?: string;
+    }
+    interface WlTitle {
+        /**
+          * The color to use from your application's color palette. Default options are: `"primary"`, `"secondary"`, `"tertiary"`, `"success"`, `"warning"`, `"danger"`, `"light"`, `"medium"`, and `"dark"`. For more information on colors, see [theming](/docs/theming/basics).
+         */
+        "color"?: Color;
+        /**
+          * Contains a URL or a URL fragment that the hyperlink points to. If this property is set, an anchor tag will be rendered.
+         */
+        "component"?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span";
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        "size"?: "sm" | "lg" | "xl" | "md";
     }
     interface WlTooltip {
         "color"?: Color;
@@ -1407,6 +1446,7 @@ declare namespace LocalJSX {
         "wl-spinner": WlSpinner;
         "wl-star": WlStar;
         "wl-text": WlText;
+        "wl-title": WlTitle;
         "wl-tooltip": WlTooltip;
     }
 }
@@ -1442,6 +1482,7 @@ declare module "@stencil/core" {
             "wl-spinner": LocalJSX.WlSpinner & JSXBase.HTMLAttributes<HTMLWlSpinnerElement>;
             "wl-star": LocalJSX.WlStar & JSXBase.HTMLAttributes<HTMLWlStarElement>;
             "wl-text": LocalJSX.WlText & JSXBase.HTMLAttributes<HTMLWlTextElement>;
+            "wl-title": LocalJSX.WlTitle & JSXBase.HTMLAttributes<HTMLWlTitleElement>;
             "wl-tooltip": LocalJSX.WlTooltip & JSXBase.HTMLAttributes<HTMLWlTooltipElement>;
         }
     }

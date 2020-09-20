@@ -1,6 +1,6 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './pages/Home';
 interface Props {}
 
 const Router = (props: Props) => {

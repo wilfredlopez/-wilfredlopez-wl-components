@@ -133,3 +133,7 @@ body {
 
   --wl-item-background: #1a1b1e;
 }
+
+.text-center {
+  text-align: center;
+}

@@ -42,17 +42,17 @@ const AppBar = (props: Props) => {
               color="dark"
               className="wl-margin-bottom"
               translate
-              href="/"
+              href="/buttons"
             >
-              Showcase
+              Buttons
             </WlItem>
             <WlItem
               color="dark"
               className="wl-margin-bottom"
               translate
-              href="/"
+              href="/spinners"
             >
-              About{' '}
+              Spinners
             </WlItem>
           </WlDrawerBody>
           <WlDrawerFooter translate fixed>

@@ -116,3 +116,8 @@ export const WlStar = /*@__PURE__*/ createReactComponent<
   JSX.WlStar,
   HTMLWlStarElement
 >('wl-star');
+
+export const WlTitle = /*@__PURE__*/ createReactComponent<
+  JSX.WlTitle,
+  HTMLWlTitleElement
+>('wl-title');

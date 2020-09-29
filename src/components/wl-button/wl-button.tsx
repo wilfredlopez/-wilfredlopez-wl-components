@@ -24,27 +24,27 @@ export class WlButton implements ComponentInterface, ButtonInterface {
   /**
    * If `true`, the user cannot interact with the button.
    */
-  @Prop({ reflectToAttr: true }) disabled = false;
-  @Prop({ reflectToAttr: true }) circular = false;
-  @Prop({ reflectToAttr: true }) variant: Variants = "block";
+  @Prop({ reflect: true }) disabled = false;
+  @Prop({ reflect: true }) circular = false;
+  @Prop({ reflect: true }) variant: Variants = "block";
   @Prop({
     attribute: "color",
     reflect: true,
   })
   color?: Color = "primary";
-  @Prop({ reflectToAttr: true }) href?: string;
+  @Prop({ reflect: true }) href?: string;
   /**
    * Specifies where to display the linked URL.
    * Only applies when an `href` is provided.
    * Special keywords: `"_blank"`, `"_self"`, `"_parent"`, `"_top"`.
    */
-  @Prop({ reflectToAttr: true }) target?: string;
+  @Prop({ reflect: true }) target?: string;
 
   /**
    * Specifies the relationship of the target object to the link object.
    * The value is a space-separated list of [link types](https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types).
    */
-  @Prop({ reflectToAttr: true }) rel?: string;
+  @Prop({ reflect: true }) rel?: string;
 
   @Prop({
     attribute: "size",

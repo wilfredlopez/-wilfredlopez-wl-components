@@ -66,6 +66,15 @@ export const config: Config = {
       injectGlobalPaths: ["src/themes/wl.skip-warns.scss"],
     }),
   ],
+  globalScript: "src/global/wl-global.ts",
+  extras: {
+    cssVarsShim: true,
+    dynamicImportShim: true,
+    initializeNextTick: true,
+    safari10: true,
+    scriptDataOpts: true,
+    shadowDomShim: true,
+  },
 };
 
 if (process.env.NODE_ENV === "development") {

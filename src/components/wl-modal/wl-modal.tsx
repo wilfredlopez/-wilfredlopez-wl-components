@@ -23,7 +23,12 @@ export class WlModal {
 
   render() {
     return [
-      <div id="backdrop"></div>,
+      <div
+        id="backdrop"
+        onClick={() => {
+          this.close();
+        }}
+      ></div>,
       <div id="modal">
         <header>
           <slot name="title">

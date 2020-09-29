@@ -4,6 +4,7 @@ body {
   overflow: auto;
   position: relative;
 }
+
 :root {
   --wl-color-primary: #428cff;
   --wl-color-primary-rgb: 66, 140, 255;
@@ -47,12 +48,12 @@ body {
   --wl-color-danger-shade: #e04055;
   --wl-color-danger-tint: #ff5b71;
 
-  --wl-color-dark: #f4f5f8;
-  --wl-color-dark-rgb: 244, 245, 248;
-  --wl-color-dark-contrast: #000000;
-  --wl-color-dark-contrast-rgb: 0, 0, 0;
-  --wl-color-dark-shade: #d7d8da;
-  --wl-color-dark-tint: #f5f6f9;
+  --wl-color-light: #f4f5f8;
+  --wl-color-light-rgb: 244, 245, 248;
+  --wl-color-light-contrast: #000000;
+  --wl-color-light-contrast-rgb: 0, 0, 0;
+  --wl-color-light-shade: #d7d8da;
+  --wl-color-light-tint: #f5f6f9;
 
   --wl-color-medium: #989aa2;
   --wl-color-medium-rgb: 152, 154, 162;
@@ -61,20 +62,20 @@ body {
   --wl-color-medium-shade: #86888f;
   --wl-color-medium-tint: #a2a4ab;
 
-  --wl-color-light: #222428;
-  --wl-color-light-rgb: 34, 36, 40;
-  --wl-color-light-contrast: #ffffff;
-  --wl-color-light-contrast-rgb: 255, 255, 255;
-  --wl-color-light-shade: #1e2023;
-  --wl-color-light-tint: #383a3e;
+  --wl-color-dark: #222428;
+  --wl-color-dark-rgb: 34, 36, 40;
+  --wl-color-dark-contrast: #ffffff;
+  --wl-color-dark-contrast-rgb: 255, 255, 255;
+  --wl-color-dark-shade: #1e2023;
+  --wl-color-dark-tint: #383a3e;
 }
 
 .ios {
-  --wl-background-color: #000000;
-  --wl-background-color-rgb: 0, 0, 0;
+  --wl-background-color: #ffffff;
+  --wl-background-color-rgb: 255, 255, 255;
 
-  --wl-text-color: #ffffff;
-  --wl-text-color-rgb: 255, 255, 255;
+  --wl-text-color: #000000;
+  --wl-text-color-rgb: 0, 0, 0;
 
   --wl-color-step-50: #0d0d0d;
   --wl-color-step-100: #1a1a1a;
@@ -96,18 +97,18 @@ body {
   --wl-color-step-900: #e6e6e6;
   --wl-color-step-950: #f2f2f2;
 
-  --wl-item-background: #1c1c1c;
+  /* --wl-item-background: #ffffff; */
 
   --wl-toolbar-background: #000;
   --wl-toolbar-color: #fff;
 }
 
 .md {
-  --wl-background-color: #121212;
-  --wl-background-color-rgb: 18, 18, 18;
+  --wl-background-color: #ffffff;
+  --wl-background-color-rgb: 255, 255, 255;
 
-  --wl-text-color: #ffffff;
-  --wl-text-color-rgb: 255, 255, 255;
+  --wl-text-color: #000000;
+  --wl-text-color-rgb: 0, 0, 0;
 
   --wl-border-color: #222222;
 
@@ -131,7 +132,7 @@ body {
   --wl-color-step-900: #e7e7e7;
   --wl-color-step-950: #f3f3f3;
 
-  --wl-item-background: #1a1b1e;
+  --wl-item-background: #ffffff;
 }
 
 .text-center {

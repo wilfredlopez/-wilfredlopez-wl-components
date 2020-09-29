@@ -15,10 +15,10 @@ import { Breakpoints } from "../../interfaces/Breakpoints.model";
   // shadow: true,
 })
 export class WlContainer implements ComponentInterface {
-  @Prop({ reflectToAttr: true }) size: Breakpoints = "lg";
-  @Prop({ reflectToAttr: true }) maxWidth: Breakpoints = "xl";
-  @Prop({ reflectToAttr: true }) fluid = false;
-  @Prop({ reflectToAttr: true }) class = "";
+  @Prop({ reflect: true }) size: Breakpoints = "lg";
+  @Prop({ reflect: true }) maxWidth: Breakpoints = "xl";
+  @Prop({ reflect: true }) fluid = false;
+  @Prop({ reflect: true }) class = "";
 
   @Element() el!: HTMLElement;
 

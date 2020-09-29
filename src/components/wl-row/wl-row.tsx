@@ -7,7 +7,7 @@ import { Component, ComponentInterface, Host, h, Prop } from "@stencil/core";
 })
 export class WlRow implements ComponentInterface {
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   align: "center" | "end" | "start" | "baseline" = "center";
   render() {

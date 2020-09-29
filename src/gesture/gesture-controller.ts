@@ -54,7 +54,7 @@ class GestureController {
       this.capturedId = id;
       requestedStart.clear();
 
-      const event = new CustomEvent("ionGestureCaptured", {
+      const event = new CustomEvent("wlGestureCaptured", {
         detail: { gestureName },
       });
       document.dispatchEvent(event);

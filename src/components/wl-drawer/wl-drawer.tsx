@@ -1,34 +1,31 @@
 import {
   Component,
   ComponentInterface,
-  Element, Event,
+  Element,
+  Event,
   EventEmitter,
   h,
   Host,
   Method,
   Prop,
   State,
-  Watch
+  Watch,
 } from "@stencil/core";
-import { getWlMode, } from "../../global/wl-global";
+import { getWlMode } from "../../global/wl-global";
 
 import { Color } from "../../interfaces/Color.model";
 
 import { createColorClasses } from "../../utils/utils";
 
-
 export type Placement = "right" | "left" | "top" | "bottom";
 
-
-interface PositionStyles{
+interface PositionStyles {
   right?: string;
   left?: string;
   top?: string;
   bottom?: string;
-  transform: string,
+  transform: string;
 }
-
-
 
 @Component({
   tag: "wl-drawer",
@@ -37,12 +34,12 @@ interface PositionStyles{
 })
 export class WlDrawer implements ComponentInterface {
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   placement: Placement = "left";
 
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
     mutable: true,
   })
   isOpen: boolean = false;
@@ -51,19 +48,19 @@ export class WlDrawer implements ComponentInterface {
     reflect: true,
   })
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
     mutable: true,
   })
-  disabled?:boolean
+  disabled?: boolean;
   color?: Color = "light";
   buttonRef: any;
 
   OverlayContainer?: HTMLElement;
-  overlayElement?: HTMLElement
+  overlayElement?: HTMLElement;
   Dialog?: HTMLElement;
   @Element() el!: HTMLWlDrawerElement;
 
-  @State() transform = ''
+  @State() transform = "";
 
   @Event() drawerOpenStateChange!: EventEmitter<{ isOpen: boolean }>;
 
@@ -72,12 +69,12 @@ export class WlDrawer implements ComponentInterface {
     if (this.isOpen) {
       percent = "0%";
     }
-    let positionStyles:PositionStyles = {
+    let positionStyles: PositionStyles = {
       transform: `translateX(+${percent})`,
       right: "0px",
     };
 
-    const rightPercent = window.innerWidth -  (this.Dialog?.clientWidth || 300)
+    const rightPercent = window.innerWidth - (this.Dialog?.clientWidth || 300);
 
     let right = {
       transform: `translateX(${rightPercent}px)`,
@@ -96,7 +93,7 @@ export class WlDrawer implements ComponentInterface {
       right: "0px",
       bottom: "unset",
     };
-    
+
     let bottom = {
       transform: `translateY(+${percent})`,
       bottom: "0px",
@@ -109,24 +106,24 @@ export class WlDrawer implements ComponentInterface {
     switch (placement) {
       case "right":
         positionStyles = right;
-        this.transform = right.transform
+        this.transform = right.transform;
         break;
       case "left":
         positionStyles = left;
-        this.transform = left.transform
+        this.transform = left.transform;
         break;
       case "top":
-        this.transform = top.transform
+        this.transform = top.transform;
         positionStyles = top;
         break;
       case "bottom":
-        this.transform = bottom.transform
+        this.transform = bottom.transform;
         positionStyles = bottom;
         break;
       default:
         break;
     }
-    return positionStyles as {[key:string]: any};
+    return positionStyles as { [key: string]: any };
   }
 
   @Method() async close() {
@@ -139,8 +136,6 @@ export class WlDrawer implements ComponentInterface {
     this.isOpen = true;
   }
 
-
-
   //toggle body overflow hidden
   private setBodyOverflow(value: "hidden" | "") {
     const body = document.querySelector("body");
@@ -148,8 +143,7 @@ export class WlDrawer implements ComponentInterface {
   }
 
   // width!: number; // TODO
-  isEndSide: boolean = false
-
+  isEndSide: boolean = false;
 
   disconnectedCallback() {
     this.setBodyOverflow("");
@@ -168,11 +162,11 @@ export class WlDrawer implements ComponentInterface {
 
     if (newValue !== oldValue) {
       if (newValue === false) {
-        animate(this, false) //doing the overflow in animate.
+        animate(this, false); //doing the overflow in animate.
         // this.setBodyOverflow("");
       } else {
         // this.setBodyOverflow("hidden");
-        animate(this, true) //doing the overflow in animate.
+        animate(this, true); //doing the overflow in animate.
         this.drawerOpenStateChange.emit({
           isOpen: true,
         });
@@ -185,7 +179,7 @@ export class WlDrawer implements ComponentInterface {
     const mode = getWlMode(this);
     return (
       <Host
-      role="navigation"
+        role="navigation"
         aria-hidden={this.isOpen ? "false" : "true"}
         class={{
           "is-open": this.isOpen,
@@ -200,14 +194,17 @@ export class WlDrawer implements ComponentInterface {
         </slot>
 
         <div id="focus-guard"></div>
-        <div class="overlay-container" ref={el => this.OverlayContainer = el}>
+        <div
+          class="overlay-container"
+          ref={(el) => (this.OverlayContainer = el)}
+        >
           <div
-          ref={el => this.overlayElement = el}
+            ref={(el) => (this.overlayElement = el)}
             class="overlay"
             onClick={(e) => {
               if (e.target) {
                 // let target = e.srcElement as HTMLDivElement;
-                const target = e.target as HTMLDivElement
+                const target = e.target as HTMLDivElement;
                 let shouldClose = target.className === "overlay";
                 if (shouldClose) {
                   this.close();
@@ -215,9 +212,7 @@ export class WlDrawer implements ComponentInterface {
               }
             }}
           >
-            <div class="dialog"
-             style={styles}  
-              ref={el => this.Dialog = el}>
+            <div class="dialog" style={styles} ref={(el) => (this.Dialog = el)}>
               <slot></slot>
             </div>
           </div>
@@ -245,46 +240,43 @@ export class WlDrawer implements ComponentInterface {
 // const iosEasingReverse = 'cubic-bezier(1, 0, 0.68, 0.28)';
 // const mdEasingReverse = 'cubic-bezier(0.4, 0, 0.6, 1)';
 
-
 function setBodyOverflow(value: "hidden" | "") {
   const body = document.querySelector("body");
   body!.style.overflow = value;
 }
 
-async function animate(drawer: WlDrawer, open:boolean){
-  const overlayContainer = drawer.OverlayContainer!
-  const overlay = drawer.overlayElement!
-  const dialog = drawer.Dialog!
-  const transform = drawer.transform
-  const width = window.innerWidth - dialog.clientWidth
-  let replace = '-100%'
-  if(drawer.placement === 'right'){
-    replace = `${width}px`
+async function animate(drawer: WlDrawer, open: boolean) {
+  const overlayContainer = drawer.OverlayContainer!;
+  const overlay = drawer.overlayElement!;
+  const dialog = drawer.Dialog!;
+  const transform = drawer.transform;
+  const width = window.innerWidth - dialog.clientWidth;
+  let replace = "-100%";
+  if (drawer.placement === "right") {
+    replace = `${width}px`;
   }
   // const placement = drawer.getStylesFromPlacement(drawer.placement) as PositionStyles
-  if(open){
-   
-    setBodyOverflow('hidden')
-    overlayContainer.style.transform = 'translate(0%)'
+  if (open) {
+    setBodyOverflow("hidden");
+    overlayContainer.style.transform = "translate(0%)";
     overlayContainer.style.opacity = "1";
-    overlay.style.transform = 'translate(0%)'
-    dialog.style.transform = transform // 'translateX(0%)'
-    dialog.style.opacity = '1'
-  }else{
-    setBodyOverflow('')
-    await sleep(100)
+    overlay.style.transform = "translate(0%)";
+    dialog.style.transform = transform; // 'translateX(0%)'
+    dialog.style.opacity = "1";
+  } else {
+    setBodyOverflow("");
+    await sleep(100);
     overlayContainer.style.opacity = "0";
-    dialog.style.transform = transform.replace('0%', replace)
-    dialog.style.opacity = '0'
-    await sleep(400)
-    overlayContainer.style.transform = 'translate(-100%)'
-    overlay.style.transform = 'translate(-100%)'
-  }  
+    dialog.style.transform = transform.replace("0%", replace);
+    dialog.style.opacity = "0";
+    await sleep(400);
+    overlayContainer.style.transform = "translate(-100%)";
+    overlay.style.transform = "translate(-100%)";
+  }
 }
-function  sleep (n: number) {
+function sleep(n: number) {
   return new Promise((r) => setTimeout(r, n));
 }
-
 
 // const SHOW_MENU = 'show-menu';
 // const SHOW_BACKDROP = 'show-backdrop';

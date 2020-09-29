@@ -15,7 +15,7 @@ interface WlReactInternalProps<ElementType>
   forwardedRef?: React.Ref<ElementType>;
   href?: string;
   ref?: React.Ref<any>;
-  translate?: any;
+  // translate?: 'yes' | 'no' | undefined;
   routerLink?: string;
   routerDirection?: RouterDirection;
 }
@@ -58,7 +58,7 @@ export const createReactComponent = <PropType, ElementType>(
         forwardedRef,
         style,
         className,
-        translate,
+        // translate,
         ref,
         ...cProps
       } = this.props;

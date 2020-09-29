@@ -10,7 +10,7 @@ export interface ViewStack {
 }
 
 /**
- * The holistic view of all the Routes configured for an application inside of an IonRouterOutlet.
+ * The holistic view of all the Routes configured for an application inside of an WLRouterOutlet.
  */
 export class ViewStacks {
   private viewStacks: { [key: string]: ViewStack | undefined } = {};

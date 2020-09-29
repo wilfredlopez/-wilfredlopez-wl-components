@@ -10,12 +10,12 @@ import { SpinerVariant } from "../../interfaces/SpinerVariant.mode";
 })
 export class WlSpinner implements ComponentInterface {
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   variant: SpinerVariant = "ellipsis";
 
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   color?: Color = "light";
 
@@ -23,7 +23,7 @@ export class WlSpinner implements ComponentInterface {
    * @size defaults to 80px
    */
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   size?: string = "80px";
 

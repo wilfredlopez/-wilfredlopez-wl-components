@@ -121,3 +121,8 @@ export const WlTitle = /*@__PURE__*/ createReactComponent<
   JSX.WlTitle,
   HTMLWlTitleElement
 >('wl-title');
+
+export const WlRange = /*@__PURE__*/ createReactComponent<
+  JSX.WlRange,
+  HTMLWlRangeElement
+>('wl-range');

@@ -8,7 +8,7 @@ import { Color } from "../../interfaces/Color.model";
   shadow: true,
 })
 export class WlDrawerMenuButton {
-  @Prop({ reflectToAttr: true }) variant?: Variants = "clear";
+  @Prop({ reflect: true }) variant?: Variants = "clear";
   @Prop({
     reflect: true,
   })

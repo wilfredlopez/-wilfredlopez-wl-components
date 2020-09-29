@@ -22,16 +22,23 @@ const AppBar = (props: Props) => {
       color="primary"
       className="wl-justify-content-center wl-align-items-center"
     >
-      <WlDrawer placement="left" color="primary" translate>
-        <WlDrawerMenuButton color="dark" slot="button-open" translate />
+      <WlDrawer translate placement="left" color="primary">
+        <WlDrawerMenuButton color="light" slot="button-open" translate />
         <WlDrawerContent translate>
-          <WlDrawerCloseButton translate variant="clear" color="primary" />
+          <WlDrawerCloseButton
+            translate
+            variant="clear"
+            circular
+            color="primary"
+          />
           <WlDrawerHeader translate>
-            <WlText translate>Menu</WlText>
+            <WlText translate color="dark">
+              Menu
+            </WlText>
           </WlDrawerHeader>
           <WlDrawerBody translate>
             <WlItem
-              color="dark"
+              color="light"
               className="wl-margin-bottom wl-margin-top"
               translate
               href="/"
@@ -39,7 +46,7 @@ const AppBar = (props: Props) => {
               Home
             </WlItem>
             <WlItem
-              color="dark"
+              color="light"
               className="wl-margin-bottom"
               translate
               href="/buttons"
@@ -47,7 +54,7 @@ const AppBar = (props: Props) => {
               Buttons
             </WlItem>
             <WlItem
-              color="dark"
+              color="light"
               className="wl-margin-bottom"
               translate
               href="/spinners"

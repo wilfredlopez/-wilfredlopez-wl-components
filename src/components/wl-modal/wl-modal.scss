@@ -10,7 +10,7 @@
   left: 0;
   pointer-events: none;
   opacity: 0;
-  z-index: 1;
+  z-index: 101;
 }
 
 #modal {
@@ -19,7 +19,7 @@
   min-height: 200px;
   /* height: 325px; */
   background-color: white;
-  z-index: 100;
+  z-index: 102;
   opacity: 1;
   position: fixed;
   left: 10%;
@@ -54,9 +54,11 @@ header {
   bottom: 0;
   right: 0;
 }
+
 #action-data {
   margin: 1rem;
 }
+
 :host([show]) #backdrop {
   pointer-events: all;
   opacity: 1;

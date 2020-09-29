@@ -15,12 +15,10 @@ export { WlPage } from './WlPage';
 export { WlRouterOutlet } from './WlRouterOutlet';
 // Utils
 export { isPlatform, getPlatforms, getConfig } from './utils';
-// Ionic Animations
+// WL Animations
 export { CreateAnimation } from './CreateAnimation';
 export { RouterDirection } from './hrefprops';
 // createControllerComponent
 export { WlButton } from './WlButton';
 
-// TODO: defineCustomElements() is asyncronous
-// We need to use the promise
 defineCustomElements(window);

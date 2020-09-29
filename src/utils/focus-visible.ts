@@ -1,5 +1,5 @@
-const ION_FOCUSED = "wl-focused";
-const ION_FOCUSABLE = "wl-focusable";
+const WL_FOCUSED = "wl-focused";
+const WL_FOCUSABLE = "wl-focusable";
 const FOCUS_KEYS = [
   "Tab",
   "ArrowDown",
@@ -19,8 +19,8 @@ export const startFocusVisible = () => {
 
   const doc = document;
   const setFocus = (elements: Element[]) => {
-    currentFocus.forEach((el) => el.classList.remove(ION_FOCUSED));
-    elements.forEach((el) => el.classList.add(ION_FOCUSED));
+    currentFocus.forEach((el) => el.classList.remove(WL_FOCUSED));
+    elements.forEach((el) => el.classList.add(WL_FOCUSED));
     currentFocus = elements;
   };
   const pointerDown = () => {
@@ -39,7 +39,7 @@ export const startFocusVisible = () => {
     if (keyboardMode && ev.composedPath) {
       const toFocus = ev.composedPath().filter((el: any) => {
         if (el.classList) {
-          return el.classList.contains(ION_FOCUSABLE);
+          return el.classList.contains(WL_FOCUSABLE);
         }
         return false;
       }) as Element[];

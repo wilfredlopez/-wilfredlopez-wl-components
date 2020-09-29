@@ -9,12 +9,12 @@ import { Color } from "../../interfaces/Color.model";
 })
 export class WlText implements ComponentInterface {
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   color?: Color = "light";
 
   @Prop({
-    reflectToAttr: true,
+    reflect: true,
   })
   size?: string;
 

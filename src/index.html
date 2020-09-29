@@ -1,365 +1,361 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <style>
-      body {
-        margin: 0;
-        font-family: sans-serif;
-      }
 
-      :root {
-        --wl-item-border-color: #d3d3d3;
-        --wl-item-background: #ffffff;
-        --wl-text-color: #000000;
-        --wl-text-color-rgb: 0, 0, 0;
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
 
-        --wl-color-primary: #ff8742;
-        --wl-color-primary-rgb: 255, 135, 66;
-        --wl-color-primary-contrast: #ffffff;
-        --wl-color-primary-contrast-rgb: 0, 0, 0;
-        --wl-color-primary-shade: #e0773a;
-        --wl-color-primary-tint: #ff9355;
+    :root {
+      --wl-item-border-color: #d3d3d3;
+      --wl-item-background: #ffffff;
+      --wl-text-color: #000000;
+      --wl-text-color-rgb: 0, 0, 0;
 
-        --wl-color-secondary: #50c8ff;
-        --wl-color-secondary-rgb: 80, 200, 255;
-        --wl-color-secondary-contrast: #ffffff;
-        --wl-color-secondary-contrast-rgb: 255, 255, 255;
-        --wl-color-secondary-shade: #46b0e0;
-        --wl-color-secondary-tint: #62ceff;
+      --wl-color-primary: #ff8742;
+      --wl-color-primary-rgb: 255, 135, 66;
+      --wl-color-primary-contrast: #ffffff;
+      --wl-color-primary-contrast-rgb: 0, 0, 0;
+      --wl-color-primary-shade: #e0773a;
+      --wl-color-primary-tint: #ff9355;
 
-        --wl-color-tertiary: #6a64ff;
-        --wl-color-tertiary-rgb: 106, 100, 255;
-        --wl-color-tertiary-contrast: #ffffff;
-        --wl-color-tertiary-contrast-rgb: 255, 255, 255;
-        --wl-color-tertiary-shade: #5d58e0;
-        --wl-color-tertiary-tint: #7974ff;
+      --wl-color-secondary: #50c8ff;
+      --wl-color-secondary-rgb: 80, 200, 255;
+      --wl-color-secondary-contrast: #ffffff;
+      --wl-color-secondary-contrast-rgb: 255, 255, 255;
+      --wl-color-secondary-shade: #46b0e0;
+      --wl-color-secondary-tint: #62ceff;
 
-        --wl-color-success: #2fdf75;
-        --wl-color-success-rgb: 47, 223, 117;
-        --wl-color-success-contrast: #000000;
-        --wl-color-success-contrast-rgb: 0, 0, 0;
-        --wl-color-success-shade: #29c467;
-        --wl-color-success-tint: #44e283;
+      --wl-color-tertiary: #6a64ff;
+      --wl-color-tertiary-rgb: 106, 100, 255;
+      --wl-color-tertiary-contrast: #ffffff;
+      --wl-color-tertiary-contrast-rgb: 255, 255, 255;
+      --wl-color-tertiary-shade: #5d58e0;
+      --wl-color-tertiary-tint: #7974ff;
 
-        --wl-color-warning: #ffd534;
-        --wl-color-warning-rgb: 255, 213, 52;
-        --wl-color-warning-contrast: #000000;
-        --wl-color-warning-contrast-rgb: 0, 0, 0;
-        --wl-color-warning-shade: #e0bb2e;
-        --wl-color-warning-tint: #ffd948;
+      --wl-color-success: #2fdf75;
+      --wl-color-success-rgb: 47, 223, 117;
+      --wl-color-success-contrast: #000000;
+      --wl-color-success-contrast-rgb: 0, 0, 0;
+      --wl-color-success-shade: #29c467;
+      --wl-color-success-tint: #44e283;
 
-        --wl-color-danger: #ff4961;
-        --wl-color-danger-rgb: 255, 73, 97;
-        --wl-color-danger-contrast: #ffffff;
-        --wl-color-danger-contrast-rgb: 255, 255, 255;
-        --wl-color-danger-shade: #e04055;
-        --wl-color-danger-tint: #ff5b71;
+      --wl-color-warning: #ffd534;
+      --wl-color-warning-rgb: 255, 213, 52;
+      --wl-color-warning-contrast: #000000;
+      --wl-color-warning-contrast-rgb: 0, 0, 0;
+      --wl-color-warning-shade: #e0bb2e;
+      --wl-color-warning-tint: #ffd948;
 
-        --wl-color-dark: #f4f5f8;
-        --wl-color-dark-rgb: 244, 245, 248;
-        --wl-color-dark-contrast: #000000;
-        --wl-color-dark-contrast-rgb: 0, 0, 0;
-        --wl-color-dark-shade: #d7d8da;
-        --wl-color-dark-tint: #f5f6f9;
+      --wl-color-danger: #ff4961;
+      --wl-color-danger-rgb: 255, 73, 97;
+      --wl-color-danger-contrast: #ffffff;
+      --wl-color-danger-contrast-rgb: 255, 255, 255;
+      --wl-color-danger-shade: #e04055;
+      --wl-color-danger-tint: #ff5b71;
 
-        --wl-color-medium: #989aa2;
-        --wl-color-medium-rgb: 152, 154, 162;
-        --wl-color-medium-contrast: #000000;
-        --wl-color-medium-contrast-rgb: 0, 0, 0;
-        --wl-color-medium-shade: #86888f;
-        --wl-color-medium-tint: #a2a4ab;
+      --wl-color-dark: #f4f5f8;
+      --wl-color-dark-rgb: 244, 245, 248;
+      --wl-color-dark-contrast: #000000;
+      --wl-color-dark-contrast-rgb: 0, 0, 0;
+      --wl-color-dark-shade: #d7d8da;
+      --wl-color-dark-tint: #f5f6f9;
 
-        --wl-color-light: #222428;
-        --wl-color-light-rgb: 34, 36, 40;
-        --wl-color-light-contrast: #ffffff;
-        --wl-color-light-contrast-rgb: 255, 255, 255;
-        --wl-color-light-shade: #1e2023;
-        --wl-color-light-tint: #383a3e;
-      }
+      --wl-color-medium: #989aa2;
+      --wl-color-medium-rgb: 152, 154, 162;
+      --wl-color-medium-contrast: #000000;
+      --wl-color-medium-contrast-rgb: 0, 0, 0;
+      --wl-color-medium-shade: #86888f;
+      --wl-color-medium-tint: #a2a4ab;
 
-      .ios {
-        --wl-color-step-50: #0d0d0d;
-        --wl-color-step-100: #1a1a1a;
-        --wl-color-step-150: #262626;
-        --wl-color-step-200: #333333;
-        --wl-color-step-250: #404040;
-        --wl-color-step-300: #4d4d4d;
-        --wl-color-step-350: #595959;
-        --wl-color-step-400: #666666;
-        --wl-color-step-450: #737373;
-        --wl-color-step-500: #808080;
-        --wl-color-step-550: #8c8c8c;
-        --wl-color-step-600: #999999;
-        --wl-color-step-650: #a6a6a6;
-        --wl-color-step-700: #b3b3b3;
-        --wl-color-step-750: #bfbfbf;
-        --wl-color-step-800: #cccccc;
-        --wl-color-step-850: #d9d9d9;
-        --wl-color-step-900: #e6e6e6;
-        --wl-color-step-950: #f2f2f2;
+      --wl-color-light: #222428;
+      --wl-color-light-rgb: 34, 36, 40;
+      --wl-color-light-contrast: #ffffff;
+      --wl-color-light-contrast-rgb: 255, 255, 255;
+      --wl-color-light-shade: #1e2023;
+      --wl-color-light-tint: #383a3e;
+    }
 
-        --wl-background-color: #000000;
-        --wl-background-color-rgb: 0, 0, 0;
-        --wl-toolbar-background: #000;
-        --wl-toolbar-color: #fff;
-      }
+    .ios {
+      --wl-color-step-50: #0d0d0d;
+      --wl-color-step-100: #1a1a1a;
+      --wl-color-step-150: #262626;
+      --wl-color-step-200: #333333;
+      --wl-color-step-250: #404040;
+      --wl-color-step-300: #4d4d4d;
+      --wl-color-step-350: #595959;
+      --wl-color-step-400: #666666;
+      --wl-color-step-450: #737373;
+      --wl-color-step-500: #808080;
+      --wl-color-step-550: #8c8c8c;
+      --wl-color-step-600: #999999;
+      --wl-color-step-650: #a6a6a6;
+      --wl-color-step-700: #b3b3b3;
+      --wl-color-step-750: #bfbfbf;
+      --wl-color-step-800: #cccccc;
+      --wl-color-step-850: #d9d9d9;
+      --wl-color-step-900: #e6e6e6;
+      --wl-color-step-950: #f2f2f2;
 
-      .md {
-        --wl-background-color: #121212;
-        --wl-background-color-rgb: 18, 18, 18;
+      --wl-background-color: #ffffff;
+      --wl-background-color-rgb: 255, 255, 255;
+      --wl-toolbar-background: #000;
+      --wl-toolbar-color: #fff;
+    }
 
-        --wl-border-color: #222222;
+    .md {
+      --wl-background-color: #fafafa;
+      --wl-background-color-rgb: 255, 255, 255;
 
-        --wl-color-step-50: #1e1e1e;
-        --wl-color-step-100: #2a2a2a;
-        --wl-color-step-150: #363636;
-        --wl-color-step-200: #414141;
-        --wl-color-step-250: #4d4d4d;
-        --wl-color-step-300: #595959;
-        --wl-color-step-350: #656565;
-        --wl-color-step-400: #717171;
-        --wl-color-step-450: #7d7d7d;
-        --wl-color-step-500: #898989;
-        --wl-color-step-550: #949494;
-        --wl-color-step-600: #a0a0a0;
-        --wl-color-step-650: #acacac;
-        --wl-color-step-700: #b8b8b8;
-        --wl-color-step-750: #c4c4c4;
-        --wl-color-step-800: #d0d0d0;
-        --wl-color-step-850: #dbdbdb;
-        --wl-color-step-900: #e7e7e7;
-        --wl-color-step-950: #f3f3f3;
-      }
-    </style>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
-    />
-    <title>Stencil Component Starter</title>
-    <link rel="stylesheet" href="/css/wl.bundle.css" />
-    <script type="module" src="/build/wl-components.esm.js"></script>
-    <script nomodule src="/build/wl-components.js"></script>
-  </head>
+      --wl-border-color: #222222;
 
-  <body>
-    <wl-appbar color="primary">
-      <wl-drawer placement="left" color="primary">
-        <wl-drawer-menu-button
-          variant="outline"
-          slot="button-open"
-        ></wl-drawer-menu-button>
-        <wl-drawer-content>
-          <wl-drawer-close-button color="primary"></wl-drawer-close-button>
-          <wl-drawer-header>
-            <wl-text>Wilfred Lopez </wl-text>
-          </wl-drawer-header>
-          <wl-drawer-body class="wl-no-padding">
-            <wl-list>
-              <wl-item button href="/">
-                <span slot="start">😀</span>
-                <wl-label>Home</wl-label>
-              </wl-item>
-              <wl-item button>
-                <span slot="start">😂</span>
-                <wl-label>Other</wl-label>
-              </wl-item>
-            </wl-list>
-          </wl-drawer-body>
-        </wl-drawer-content>
-        <wl-drawer-footer>
-          <wl-flex>
-            <wl-text>Twitter: @WilfredDonaldLo</wl-text>
-          </wl-flex>
-        </wl-drawer-footer>
-      </wl-drawer>
-      <wl-flex>
-        <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
+      --wl-color-step-50: #1e1e1e;
+      --wl-color-step-100: #2a2a2a;
+      --wl-color-step-150: #363636;
+      --wl-color-step-200: #414141;
+      --wl-color-step-250: #4d4d4d;
+      --wl-color-step-300: #595959;
+      --wl-color-step-350: #656565;
+      --wl-color-step-400: #717171;
+      --wl-color-step-450: #7d7d7d;
+      --wl-color-step-500: #898989;
+      --wl-color-step-550: #949494;
+      --wl-color-step-600: #a0a0a0;
+      --wl-color-step-650: #acacac;
+      --wl-color-step-700: #b8b8b8;
+      --wl-color-step-750: #c4c4c4;
+      --wl-color-step-800: #d0d0d0;
+      --wl-color-step-850: #dbdbdb;
+      --wl-color-step-900: #e7e7e7;
+      --wl-color-step-950: #f3f3f3;
+    }
 
-        <wl-button color="danger" class="wl-hide-sm-down"
-          >@Wilfredlopez/wl-components</wl-button
-        >
-      </wl-flex>
-    </wl-appbar>
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" href="/css/wl.bundle.css" />
+  <script type="module" src="/build/wl-components.esm.js"></script>
+  <script nomodule src="/build/wl-components.js"></script>
+</head>
 
-    <wl-container size="sm">
-      <br />
-
-      <wl-flex>
+<body>
+  <wl-appbar color="primary">
+    <wl-drawer placement="left" color="primary">
+      <wl-drawer-menu-button variant="outline" slot="button-open"></wl-drawer-menu-button>
+      <wl-drawer-content>
+        <wl-drawer-close-button color="primary" circular="true" variant="full"></wl-drawer-close-button>
+        <wl-drawer-header>
+          <wl-text>Wilfred Lopez </wl-text>
+        </wl-drawer-header>
+        <wl-drawer-body class="wl-no-padding">
+          <wl-list>
+            <wl-item button href="/">
+              <span slot="start">😀</span>
+              <wl-label>Home</wl-label>
+            </wl-item>
+            <wl-item button>
+              <span slot="start">😂</span>
+              <wl-label>Other</wl-label>
+            </wl-item>
+          </wl-list>
+        </wl-drawer-body>
+      </wl-drawer-content>
+      <wl-drawer-footer>
         <wl-flex>
-          <div>
-            <p>Flex 1 SUPER SUPER</p>
-            <p>SUPER</p>
-          </div>
+          <wl-text>Twitter: @WilfredDonaldLo</wl-text>
         </wl-flex>
-        <wl-flex>
-          <div>Flex 2</div>
-          <div>Flex 3</div>
-          <div>Flex 4</div>
-          <div>Flex 5</div>
-        </wl-flex>
-      </wl-flex>
+      </wl-drawer-footer>
+    </wl-drawer>
+    <wl-flex>
+      <h1 class="wl-no-margin wl-margin-horizontal">WL COMPONENTS</h1>
 
-      <wl-card>
-        <div slot="header">
-          <h1 class="wl-no-padding wl-no-margin">Card Header</h1>
-        </div>
-        <div slot="content">Card Content</div>
+      <wl-button color="danger" class="wl-hide-sm-down">@Wilfredlopez/wl-components</wl-button>
+    </wl-flex>
+  </wl-appbar>
 
-        <div>Slotted Content</div>
-      </wl-card>
-      <wl-grid>
-        <wl-row>
-          <wl-col size="6">
-            <div>
-              <h1>Row 1</h1>
-            </div>
-          </wl-col>
-          <wl-col size="6">
-            <div>
-              <h1>Row 2</h1>
-            </div>
-          </wl-col>
-        </wl-row>
-      </wl-grid>
-      <wl-modal name="Wilfred">
-        <h1 slot="title">My Custom Title</h1>
+  <wl-container size="sm">
+    <br />
+
+    <wl-flex>
+      <wl-flex>
         <div>
-          <p>My Modal Content</p>
-          <p>You know me.</p>
+          <p>Flex 1 SUPER SUPER</p>
+          <p>SUPER</p>
         </div>
-        <div slot="actions">
-          <wl-button id="cancelBtn" color="secondary" size="small"
-            >Cancel</wl-button
-          >
-          <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
-        </div>
-      </wl-modal>
-      <div class="wl-text-center">
-        <wl-button id="openBtn" color="secondary">Open Modal</wl-button>
+      </wl-flex>
+      <wl-flex>
+        <div>Flex 2</div>
+        <div>Flex 3</div>
+        <div>Flex 4</div>
+        <div>Flex 5</div>
+      </wl-flex>
+    </wl-flex>
+
+    <wl-card>
+      <div slot="header">
+        <h1 class="wl-no-padding wl-no-margin">Card Header</h1>
       </div>
-    </wl-container>
+      <div slot="content">Card Content</div>
 
-    <wl-container>
-      <wl-label position="floating"> Email</wl-label>
-      <wl-input type="email"></wl-input>
-    </wl-container>
+      <div>Slotted Content</div>
+    </wl-card>
+    <wl-grid>
+      <wl-row>
+        <wl-col size="6">
+          <div>
+            <h1>Row 1</h1>
+          </div>
+        </wl-col>
+        <wl-col size="6">
+          <div>
+            <h1>Row 2</h1>
+          </div>
+        </wl-col>
+      </wl-row>
+    </wl-grid>
+    <wl-modal name="Wilfred">
+      <h1 slot="title">My Custom Title</h1>
+      <div>
+        <p>My Modal Content</p>
+        <p>You know me.</p>
+      </div>
+      <div slot="actions">
+        <wl-button id="cancelBtn" color="secondary" size="small">Cancel</wl-button>
+        <wl-button color="primary" size="small" id="daleBtn">Dale</wl-button>
+      </div>
+    </wl-modal>
+    <div class="wl-text-center">
+      <wl-button id="openBtn" color="secondary">Open Modal</wl-button>
+    </div>
+  </wl-container>
 
-    <wl-container>
-      <h1 class="wl-text-center">Spinners</h1>
-      <wl-grid>
-        <wl-row>
-          <wl-col>
-            <p>
-              Variants
+  <wl-container>
+    <wl-label position="floating"> Email</wl-label>
+    <wl-input type="email"></wl-input>
+  </wl-container>
 
-              <span>
-                "loader" | "ripple" | "ring" | "facebook" | "ios" | "ellipsis"
-              </span>
-            </p>
-            <wl-spinner color="primary"></wl-spinner>
-            <wl-spinner variant="loader"></wl-spinner>
-            <wl-spinner variant="ripple" color="secondary"></wl-spinner>
-            <wl-spinner variant="ring" color="danger"></wl-spinner>
-          </wl-col>
-        </wl-row>
-        <wl-row>
-          <wl-col> </wl-col>
-          <wl-col>
-            <wl-spinner variant="facebook" color="tertiary"></wl-spinner>
-          </wl-col>
-          <wl-col>
-            <wl-spinner variant="ios" color="light"></wl-spinner>
-          </wl-col>
-          <wl-col>
-            <wl-spinner variant="ellipsis" color="warning"></wl-spinner>
-          </wl-col>
-          <wl-col> </wl-col>
-        </wl-row>
-      </wl-grid>
-    </wl-container>
-    <wl-container>
-      <h1 class="wl-text-center">Buttons</h1>
-      <wl-grid>
-        <wl-row>
-          <wl-col>
-            <wl-button>Primary</wl-button>
-            <wl-button color="secondary">Secondary</wl-button>
-            <wl-button color="tertiary">Tertiary</wl-button>
-          </wl-col>
-        </wl-row>
-        <wl-row>
-          <wl-col>
-            <wl-button variant="outline">Primary Outline</wl-button>
-            <wl-button variant="outline" color="secondary"
-              >Secondary Outline</wl-button
-            >
-            <wl-button variant="outline" color="tertiary"
-              >Tertiary Outline</wl-button
-            >
-          </wl-col>
-        </wl-row>
-      </wl-grid>
-      <wl-grid>
-        <wl-row>
-          <wl-col>
-            <wl-star total-rating="4">STAR</wl-star>
-          </wl-col>
+  <wl-container>
+    <h1 class="wl-text-center">Spinners</h1>
+    <wl-grid>
+      <wl-row>
+        <wl-col>
+          <p>
+            Variants
 
-          <wl-col>
-            <button id="change-rating">Change Rating</button>
-          </wl-col>
-        </wl-row>
-        <wl-row>
-          <wl-col>
-            <p>
-              I Have to say that the proper
-              <wl-tooltip message="My Tool tip content" color="primary">
-              </wl-tooltip>
-              Is awesome
-            </p>
-            <div>
-              <wl-title component="h3">My Title</wl-title>
-            </div>
-          </wl-col>
-        </wl-row>
-      </wl-grid>
-    </wl-container>
-    <script>
-      //wl-star
+            <span>
+              "loader" | "ripple" | "ring" | "facebook" | "ios" | "ellipsis"
+            </span>
+          </p>
+          <wl-spinner color="primary"></wl-spinner>
+          <wl-spinner variant="loader"></wl-spinner>
+          <wl-spinner variant="ripple" color="secondary"></wl-spinner>
+          <wl-spinner variant="ring" color="danger"></wl-spinner>
+        </wl-col>
+      </wl-row>
+      <wl-row>
+        <wl-col> </wl-col>
+        <wl-col>
+          <wl-spinner variant="facebook" color="tertiary"></wl-spinner>
+        </wl-col>
+        <wl-col>
+          <wl-spinner variant="ios" color="light"></wl-spinner>
+        </wl-col>
+        <wl-col>
+          <wl-spinner variant="ellipsis" color="warning"></wl-spinner>
+        </wl-col>
+        <wl-col> </wl-col>
+      </wl-row>
+    </wl-grid>
+  </wl-container>
+  <wl-container>
+    <h1 class="wl-text-center">Buttons</h1>
+    <wl-grid>
+      <wl-row>
+        <wl-col>
+          <wl-button>Primary</wl-button>
+          <wl-button color="secondary">Secondary</wl-button>
+          <wl-button color="tertiary">Tertiary</wl-button>
+        </wl-col>
+      </wl-row>
+      <wl-row>
+        <wl-col>
+          <wl-button variant="outline">Primary Outline</wl-button>
+          <wl-button variant="outline" color="secondary">Secondary Outline</wl-button>
+          <wl-button variant="outline" color="tertiary">Tertiary Outline</wl-button>
+        </wl-col>
+      </wl-row>
+    </wl-grid>
+    <wl-grid>
+      <wl-row>
+        <wl-col>
+          <wl-star total-rating="4">STAR</wl-star>
+        </wl-col>
 
-      const star = document.querySelector("wl-star");
-      const changeRatingBtn = document.getElementById("change-rating");
-      changeRatingBtn.addEventListener("click", () => {
-        star.setTotalRating(1);
+        <wl-col>
+          <button id="change-rating">Change Rating</button>
+        </wl-col>
+      </wl-row>
+      <wl-row>
+        <wl-col>
+          <wl-item>
+            <wl-range min="0" max="100" value="20" color="primary" pin="true">
+              <wl-label slot="start">0</wl-label>
+              <wl-label slot="end"> 100</wl-label>
+            </wl-range>
+          </wl-item>
+          <p>
+            I Have to say that the proper
+            <wl-tooltip message="My Tool tip content" color="primary">
+            </wl-tooltip>
+            Is awesome
+          </p>
+          <div>
+            <wl-title component="h3">My Title</wl-title>
+          </div>
+        </wl-col>
+      </wl-row>
+    </wl-grid>
+  </wl-container>
+  <script>
+    //wl-star
+
+    const star = document.querySelector("wl-star");
+    const changeRatingBtn = document.getElementById("change-rating");
+    changeRatingBtn.addEventListener("click", () => {
+      star.setTotalRating(1);
+    });
+
+    //wl-drawer
+    const drawer = document.querySelector("wl-drawer");
+    if (drawer) {
+      drawer.addEventListener("drawerOpenStateChange", (e) => {
+        if (e.detail.isOpen === false) {
+          console.log("drawer was closed");
+        }
       });
+    }
 
-      //wl-drawer
-      const drawer = document.querySelector("wl-drawer");
-      if (drawer) {
-        drawer.addEventListener("drawerOpenStateChange", (e) => {
-          if (e.detail.isOpen === false) {
-            console.log("drawer was closed");
-          }
-        });
-      }
+    //wl-modal
+    const cancelBtn = document.getElementById("cancelBtn");
+    const daleBtn = document.getElementById("daleBtn");
+    const openButton = document.getElementById("openBtn");
+    const modal = document.querySelector("wl-modal");
+    openButton.addEventListener("click", () => {
+      modal.open();
+    });
 
-      //wl-modal
-      const cancelBtn = document.getElementById("cancelBtn");
-      const daleBtn = document.getElementById("daleBtn");
-      const openButton = document.getElementById("openBtn");
-      const modal = document.querySelector("wl-modal");
-      openButton.addEventListener("click", () => {
-        modal.open();
-      });
+    cancelBtn.addEventListener("click", () => {
+      modal.close();
+    });
+    daleBtn.addEventListener("click", () => {
+      modal.close();
+    });
 
-      cancelBtn.addEventListener("click", () => {
-        modal.close();
-      });
-      daleBtn.addEventListener("click", () => {
-        modal.close();
-      });
-    </script>
-    <!-- <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script> -->
-  </body>
+  </script>
+  <!-- <script src="https://unpkg.com/@wilfredlopez/wl-components@0.0.1/dist/wl-components.js"></script> -->
+</body>
+
 </html>

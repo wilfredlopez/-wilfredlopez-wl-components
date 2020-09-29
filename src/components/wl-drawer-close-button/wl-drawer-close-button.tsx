@@ -10,6 +10,7 @@ import {
 import { Color } from "../../interfaces/Color.model";
 import { hostContext } from "../../utils/helpers";
 import { Variants } from "../../interfaces/Variants.model";
+import { ComponentProps } from "../..";
 
 @Component({
   tag: "wl-drawer-close-button",
@@ -25,6 +26,13 @@ export class WlDrawerCloseButton implements ComponentInterface {
     attribute: "variant",
   })
   variant?: Variants = "outline";
+
+  @Prop()
+  circular?: boolean;
+
+  @Prop()
+  buttonProps?: ComponentProps<HTMLWlButtonElement>;
+
   @Element() el!: HTMLElement;
 
   @Method() async close() {
@@ -35,6 +43,7 @@ export class WlDrawerCloseButton implements ComponentInterface {
   }
 
   render() {
+    const buttonProps = this.buttonProps;
     return (
       <Host
         color={this.color}
@@ -44,10 +53,12 @@ export class WlDrawerCloseButton implements ComponentInterface {
         }}
       >
         <wl-button
+          {...buttonProps}
           color={this.color}
           variant={this.variant}
           class="close wl-no-padding"
           onClick={() => this.close()}
+          circular={this.circular}
         >
           <svg
             viewBox="0 0 24 24"

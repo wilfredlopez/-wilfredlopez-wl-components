@@ -7,10 +7,12 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type                                                                                                                         | Default     |
-| --------- | --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`   | `color`   |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `"light"`   |
-| `variant` | `variant` |             | `"block" \| "clear" \| "full" \| "outline" \| "solid" \| undefined`                                                          | `"outline"` |
+| Property      | Attribute  | Description | Type                                                                                                                         | Default     |
+| ------------- | ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `buttonProps` | --         |             | `undefined \| { [key: string]: HTMLWlButtonElement; }`                                                                       | `undefined` |
+| `circular`    | `circular` |             | `boolean \| undefined`                                                                                                       | `undefined` |
+| `color`       | `color`    |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `"light"`   |
+| `variant`     | `variant`  |             | `"block" \| "clear" \| "full" \| "outline" \| "solid" \| undefined`                                                          | `"outline"` |
 
 
 ## Methods

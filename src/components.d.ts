@@ -11,9 +11,11 @@ import { TextClassModifier } from "./interfaces/TextClassModifier.model";
 import { Variants } from "./interfaces/Variants.model";
 import { Breakpoints } from "./interfaces/Breakpoints.model";
 import { Placement } from "./components/wl-drawer/wl-drawer";
+import { ComponentProps } from ".";
 import { InputChangeEventDetail, StyleEventDetail, TextFieldTypes } from "./interfaces/Inputs.model";
+import { AnimationBuilder, ComponentProps as ComponentProps1, FrameworkDelegate, PredefinedColors, RouteID, RouterDirection as RouterDirection1, RouteWrite, StyleEventDetail as StyleEventDetail1 } from "./interfaces";
+import { RangeChangeEventDetail, RangeValue } from "./components/wl-range/RangeInterface";
 import { RouterDirection, RouterEventDetail } from "./components/router/utils/interface";
-import { AnimationBuilder, ComponentProps, FrameworkDelegate, RouteID, RouterDirection as RouterDirection1, RouteWrite } from "./interfaces";
 import { RouterOutletOptions, SwipeGestureHandler } from "./interfaces/Nav";
 import { SpinerVariant } from "./interfaces/SpinerVariant.mode";
 import { StarChangeEventDetail } from "./components/wl-star/wl-star";
@@ -166,6 +168,8 @@ export namespace Components {
     interface WlDrawerBody {
     }
     interface WlDrawerCloseButton {
+        "buttonProps"?: ComponentProps<HTMLWlButtonElement>;
+        "circular"?: boolean;
         "close": () => Promise<void>;
         "color"?: Color;
         "variant"?: Variants;
@@ -492,6 +496,57 @@ export namespace Components {
         "open": () => Promise<void>;
         "show": boolean;
     }
+    interface WlRange {
+        "color"?: PredefinedColors;
+        /**
+          * How long, in milliseconds, to wait to trigger the `wlChange` event after each change in the range value.
+         */
+        "debounce": number;
+        /**
+          * If `true`, the user cannot interact with the range.
+         */
+        "disabled": boolean;
+        /**
+          * Show two knobs.
+         */
+        "dualKnobs": boolean;
+        /**
+          * Maximum integer value of the range.
+         */
+        "max": number;
+        /**
+          * Minimum integer value of the range.
+         */
+        "min": number;
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name": string;
+        /**
+          * If `true`, a pin with integer value is shown when the knob is pressed.
+         */
+        "pin": boolean;
+        /**
+          * If `true`, the knob snaps to tick marks evenly spaced based on the step property value.
+         */
+        "snaps": boolean;
+        /**
+          * Specifies the value granularity.
+         */
+        "step": number;
+        /**
+          * If `true`, tick marks are displayed based on the step value. Only applies when `snaps` is `true`.
+         */
+        "ticks": boolean;
+        /**
+          * the value of the range.
+         */
+        "value": RangeValue;
+    }
     interface WlRoute {
         /**
           * Name of the component to load/select in the navigation outlet (`wl-tabs`, `wl-nav`) when the route matches.  The value of this property is not always the tagname of the component to load, in `wl-tabs` it actually refers to the name of the `wl-tab` to select.
@@ -722,6 +777,12 @@ declare global {
         prototype: HTMLWlModalElement;
         new (): HTMLWlModalElement;
     };
+    interface HTMLWlRangeElement extends Components.WlRange, HTMLStencilElement {
+    }
+    var HTMLWlRangeElement: {
+        prototype: HTMLWlRangeElement;
+        new (): HTMLWlRangeElement;
+    };
     interface HTMLWlRouteElement extends Components.WlRoute, HTMLStencilElement {
     }
     var HTMLWlRouteElement: {
@@ -803,6 +864,7 @@ declare global {
         "wl-label": HTMLWlLabelElement;
         "wl-list": HTMLWlListElement;
         "wl-modal": HTMLWlModalElement;
+        "wl-range": HTMLWlRangeElement;
         "wl-route": HTMLWlRouteElement;
         "wl-route-redirect": HTMLWlRouteRedirectElement;
         "wl-router": HTMLWlRouterElement;
@@ -963,6 +1025,8 @@ declare namespace LocalJSX {
     interface WlDrawerBody {
     }
     interface WlDrawerCloseButton {
+        "buttonProps"?: ComponentProps<HTMLWlButtonElement>;
+        "circular"?: boolean;
         "color"?: Color;
         "variant"?: Variants;
     }
@@ -1302,6 +1366,73 @@ declare namespace LocalJSX {
     interface WlModal {
         "show"?: boolean;
     }
+    interface WlRange {
+        "color"?: PredefinedColors;
+        /**
+          * How long, in milliseconds, to wait to trigger the `wlChange` event after each change in the range value.
+         */
+        "debounce"?: number;
+        /**
+          * If `true`, the user cannot interact with the range.
+         */
+        "disabled"?: boolean;
+        /**
+          * Show two knobs.
+         */
+        "dualKnobs"?: boolean;
+        /**
+          * Maximum integer value of the range.
+         */
+        "max"?: number;
+        /**
+          * Minimum integer value of the range.
+         */
+        "min"?: number;
+        /**
+          * The mode determines which platform styles to use.
+         */
+        "mode"?: "ios" | "md";
+        /**
+          * The name of the control, which is submitted with the form data.
+         */
+        "name"?: string;
+        /**
+          * Emitted when the range loses focus.
+         */
+        "onWlBlur"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the value property has changed.
+         */
+        "onWlChange"?: (event: CustomEvent<RangeChangeEventDetail>) => void;
+        /**
+          * Emitted when the range has focus.
+         */
+        "onWlFocus"?: (event: CustomEvent<void>) => void;
+        /**
+          * Emitted when the styles change.
+         */
+        "onWlStyle"?: (event: CustomEvent<StyleEventDetail>) => void;
+        /**
+          * If `true`, a pin with integer value is shown when the knob is pressed.
+         */
+        "pin"?: boolean;
+        /**
+          * If `true`, the knob snaps to tick marks evenly spaced based on the step property value.
+         */
+        "snaps"?: boolean;
+        /**
+          * Specifies the value granularity.
+         */
+        "step"?: number;
+        /**
+          * If `true`, tick marks are displayed based on the step value. Only applies when `snaps` is `true`.
+         */
+        "ticks"?: boolean;
+        /**
+          * the value of the range.
+         */
+        "value"?: RangeValue;
+    }
     interface WlRoute {
         /**
           * Name of the component to load/select in the navigation outlet (`wl-tabs`, `wl-nav`) when the route matches.  The value of this property is not always the tagname of the component to load, in `wl-tabs` it actually refers to the name of the `wl-tab` to select.
@@ -1438,6 +1569,7 @@ declare namespace LocalJSX {
         "wl-label": WlLabel;
         "wl-list": WlList;
         "wl-modal": WlModal;
+        "wl-range": WlRange;
         "wl-route": WlRoute;
         "wl-route-redirect": WlRouteRedirect;
         "wl-router": WlRouter;
@@ -1474,6 +1606,7 @@ declare module "@stencil/core" {
             "wl-label": LocalJSX.WlLabel & JSXBase.HTMLAttributes<HTMLWlLabelElement>;
             "wl-list": LocalJSX.WlList & JSXBase.HTMLAttributes<HTMLWlListElement>;
             "wl-modal": LocalJSX.WlModal & JSXBase.HTMLAttributes<HTMLWlModalElement>;
+            "wl-range": LocalJSX.WlRange & JSXBase.HTMLAttributes<HTMLWlRangeElement>;
             "wl-route": LocalJSX.WlRoute & JSXBase.HTMLAttributes<HTMLWlRouteElement>;
             "wl-route-redirect": LocalJSX.WlRouteRedirect & JSXBase.HTMLAttributes<HTMLWlRouteRedirectElement>;
             "wl-router": LocalJSX.WlRouter & JSXBase.HTMLAttributes<HTMLWlRouterElement>;

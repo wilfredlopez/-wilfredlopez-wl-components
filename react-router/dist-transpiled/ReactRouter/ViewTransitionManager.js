@@ -1,6 +1,6 @@
-import { DefaultWlLifeCycleContext, WlLifeCycleContext, } from "@wilfredlopez/react";
-import React from "react";
-import { RouteManagerContext } from "./RouteManagerContext";
+import { DefaultWlLifeCycleContext, WlLifeCycleContext, } from '@wilfredlopez/react';
+import React from 'react';
+import { RouteManagerContext } from './RouteManagerContext';
 /**
  * Manages the View's DOM lifetime by keeping it around long enough to complete page transitions before removing it.
  */

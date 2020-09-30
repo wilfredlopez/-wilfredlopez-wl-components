@@ -1,8 +1,8 @@
-import { Location as HistoryLocation } from "history";
-import { matchPath } from "react-router-dom";
+import { Location as HistoryLocation } from 'history';
+import { matchPath } from 'react-router-dom';
 
-import { WlRouteData } from "./WlRouteData";
-import { ViewItem } from "./ViewItem";
+import { ViewItem } from './ViewItem';
+import { WlRouteData } from './WlRouteData';
 
 export interface ViewStack {
   id: string;
@@ -33,7 +33,7 @@ export class ViewStacks {
 
   findViewInfoByLocation(location: HistoryLocation, viewKey: string) {
     let view: ViewItem<WlRouteData> | undefined;
-    let match: WlRouteData["match"] | null | undefined;
+    let match: WlRouteData['match'] | null | undefined;
     let viewStack: ViewStack | undefined;
 
     viewStack = this.viewStacks[viewKey];
@@ -41,7 +41,7 @@ export class ViewStacks {
       viewStack.views.some(matchView);
 
       if (!view) {
-        viewStack.views.some((r) => {
+        viewStack.views.some(r => {
           // try to find a route that doesn't have a path or from prop, that will be our not found route
           if (!r.routeData.childProps.path && !r.routeData.childProps.from) {
             match = {
@@ -66,7 +66,7 @@ export class ViewStacks {
         path: v.routeData.childProps.path || v.routeData.childProps.from,
         component: v.routeData.childProps.component,
       };
-      const myMatch: WlRouteData["match"] | null | undefined = matchPath(
+      const myMatch: WlRouteData['match'] | null | undefined = matchPath(
         location.pathname,
         matchProps
       );
@@ -79,13 +79,13 @@ export class ViewStacks {
     }
   }
 
-  findViewInfoById(id = "") {
+  findViewInfoById(id = '') {
     let view: ViewItem<WlRouteData> | undefined;
     let viewStack: ViewStack | undefined;
     const keys = this.getKeys();
-    keys.some((key) => {
+    keys.some(key => {
       const vs = this.viewStacks[key];
-      view = vs!.views.find((x) => x.id === id);
+      view = vs!.views.find(x => x.id === id);
       if (view) {
         viewStack = vs;
         return true;

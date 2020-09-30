@@ -1,7 +1,7 @@
 import { __rest } from "tslib";
-import React from "react";
-import { MemoryRouter, matchPath } from "react-router";
-import { RouteManager } from "./Router";
+import React from 'react';
+import { MemoryRouter, matchPath } from 'react-router';
+import { RouteManager } from './Router';
 export class WlReactMemoryRouter extends React.Component {
     render() {
         const _a = this.props, { children, history } = _a, props = __rest(_a, ["children", "history"]);

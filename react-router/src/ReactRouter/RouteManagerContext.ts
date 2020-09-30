@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-import { ViewStacks } from "./ViewStacks";
+import { ViewStacks } from './ViewStacks';
 
 export interface RouteManagerContextState {
   syncView: (page: HTMLElement, viewId: string) => void;
@@ -39,5 +39,5 @@ export const RouteManagerContext = /*@__PURE__*/ React.createContext<
 });
 
 function navContextNotFoundError() {
-  console.error("WlReactRouter not found, did you add it to the app?");
+  console.error('WlReactRouter not found, did you add it to the app?');
 }

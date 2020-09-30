@@ -1,4 +1,4 @@
-import { RouteProps, match } from "react-router-dom";
+import { RouteProps, match } from 'react-router-dom';
 
 export interface WlRouteData {
   match: match | null;

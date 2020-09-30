@@ -1,7 +1,7 @@
-import React from "react";
-import { BrowserRouter, BrowserRouterProps } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter, BrowserRouterProps } from 'react-router-dom';
 
-import { RouteManagerWithRouter } from "./Router";
+import { RouteManagerWithRouter } from './Router';
 
 export class WlReactRouter extends React.Component<BrowserRouterProps> {
   render() {

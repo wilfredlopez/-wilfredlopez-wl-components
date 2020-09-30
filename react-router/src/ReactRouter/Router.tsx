@@ -1,26 +1,28 @@
 // import { NavDirection } from "@wilfredlopez/react";
-import { RouterDirection } from "@wilfredlopez/wl-components/dist/types/interfaces/RouterDirection";
-export type NavDirection = "back" | "forward";
+import { RouterDirection } from '@wilfredlopez/wl-components/dist/types/interfaces/RouterDirection';
 import {
   Action as HistoryAction,
   Location as HistoryLocation,
   UnregisterCallback,
-} from "history";
-import React from "react";
-import { RouteComponentProps, matchPath, withRouter } from "react-router-dom";
+} from 'history';
+import React from 'react';
+import { RouteComponentProps, matchPath, withRouter } from 'react-router-dom';
 
-import { generateId, isDevMode } from "../utils";
-import { LocationHistory } from "../utils/LocationHistory";
+import { generateId, isDevMode } from '../utils';
+import { LocationHistory } from '../utils/LocationHistory';
 
-import { WlRouteAction } from "./wlRouteAction";
-import { WlRouteData } from "./WlRouteData";
-import { NavManager } from "./NavManager";
+import { NavManager } from './NavManager';
 import {
   RouteManagerContext,
   RouteManagerContextState,
-} from "./RouteManagerContext";
-import { ViewItem } from "./ViewItem";
-import { ViewStack, ViewStacks } from "./ViewStacks";
+} from './RouteManagerContext';
+import { ViewItem } from './ViewItem';
+import { ViewStack, ViewStacks } from './ViewStacks';
+import { WlRouteData } from './WlRouteData';
+import { WlRouteAction } from './wlRouteAction';
+
+export type NavDirection = 'back' | 'forward';
+
 // import { getConfig } from "@wilfredlopez/react";
 
 export interface LocationState {
@@ -121,22 +123,22 @@ export class RouteManager extends React.Component<
     action: HistoryAction
   ) {
     const wlRouteAction =
-      this.currentWlRouteAction === "pop"
-        ? "pop"
+      this.currentWlRouteAction === 'pop'
+        ? 'pop'
         : (action.toLowerCase() as WlRouteAction);
     let direction = this.currentRouteDirection;
 
-    if (wlRouteAction === "push") {
+    if (wlRouteAction === 'push') {
       this.locationHistory.add(location);
-    } else if (wlRouteAction === "pop") {
+    } else if (wlRouteAction === 'pop') {
       this.locationHistory.pop();
-      direction = direction || "back";
-    } else if (wlRouteAction === "replace") {
+      direction = direction || 'back';
+    } else if (wlRouteAction === 'replace') {
       this.locationHistory.replace(location);
-      direction = "none";
+      direction = 'none';
     }
 
-    if (direction === "root") {
+    if (direction === 'root') {
       this.locationHistory.clear();
       this.locationHistory.add(location);
     }
@@ -156,13 +158,13 @@ export class RouteManager extends React.Component<
     viewStacks: ViewStacks
   ) {
     let direction: RouterDirection | undefined =
-      (location.state && location.state.direction) || "forward";
+      (location.state && location.state.direction) || 'forward';
     let leavingView: ViewItem | undefined;
     const viewStackKeys = viewStacks.getKeys();
     let shouldTransitionPage = false;
     let leavingViewHtml: string | undefined;
 
-    viewStackKeys.forEach((key) => {
+    viewStackKeys.forEach(key => {
       const {
         view: enteringView,
         viewStack: enteringViewStack,
@@ -183,13 +185,13 @@ export class RouteManager extends React.Component<
         this.activeWlPageId = enteringView.id;
 
         if (leavingView) {
-          if (action === "push" && direction === "forward") {
+          if (action === 'push' && direction === 'forward') {
             /**
              * If the page is being pushed into the stack by another view,
              * record the view that originally directed to the new view for back button purposes.
              */
             enteringView.prevId = leavingView.id;
-          } else if (direction !== "none") {
+          } else if (direction !== 'none') {
             leavingView.mount = false;
             this.removeOrphanedViews(enteringView, enteringViewStack);
           }
@@ -232,10 +234,10 @@ export class RouteManager extends React.Component<
               leavingView && this.wlPageElements[leavingView.id];
             if (enteringEl) {
               let navDirection: NavDirection | undefined;
-              if (leavingEl && leavingEl.innerHTML === "") {
+              if (leavingEl && leavingEl.innerHTML === '') {
                 // Don't animate from an empty view
                 navDirection = undefined;
-              } else if (direction === "none" || direction === "root") {
+              } else if (direction === 'none' || direction === 'root') {
                 navDirection = undefined;
               } else {
                 navDirection = direction;
@@ -251,8 +253,8 @@ export class RouteManager extends React.Component<
                 leavingViewHtml
               );
             } else if (leavingEl) {
-              leavingEl.classList.add("wl-page-hidden");
-              leavingEl.setAttribute("aria-hidden", "true");
+              leavingEl.classList.add('wl-page-hidden');
+              leavingEl.setAttribute('aria-hidden', 'true');
             }
           }
 
@@ -268,7 +270,7 @@ export class RouteManager extends React.Component<
                 );
                 if (view!.routeData.match!.url !== location.pathname) {
                   console.warn(
-                    "No WlPage was found to render. Make sure you wrap your page with an WlPage component."
+                    'No WlPage was found to render. Make sure you wrap your page with an WlPage component.'
                   );
                 }
               }, 100);
@@ -282,15 +284,15 @@ export class RouteManager extends React.Component<
   removeOrphanedViews(view: ViewItem, viewStack: ViewStack) {
     // Note: This technique is a bit wonky for views that reference each other and get into a circular loop.
     // It can still remove a view that probably shouldn't be.
-    const viewsToRemove = viewStack.views.filter((v) => v.prevId === view.id);
-    viewsToRemove.forEach((v) => {
+    const viewsToRemove = viewStack.views.filter(v => v.prevId === view.id);
+    viewsToRemove.forEach(v => {
       // Don't remove if view is currently active
       if (v.id !== this.activeWlPageId) {
         this.removeOrphanedViews(v, viewStack);
 
         // If view is not currently visible, go ahead and remove it from DOM
         const page = this.wlPageElements[v.id];
-        if (page.classList.contains("wl-page-hidden")) {
+        if (page.classList.contains('wl-page-hidden')) {
           v.show = false;
           v.isWlRoute = false;
           v.prevId = undefined;
@@ -321,7 +323,7 @@ export class RouteManager extends React.Component<
     );
 
     if (!foundMatch) {
-      const notFoundRoute = views.find((r) => {
+      const notFoundRoute = views.find(r => {
         // try to find a route that doesn't have a path or from prop, that will be our not found route
         return !r.routeData.childProps.path && !r.routeData.childProps.from;
       });
@@ -352,7 +354,7 @@ export class RouteManager extends React.Component<
         path: child.props.path || child.props.from,
         component: child.props.component,
       };
-      const match: WlRouteData["match"] = matchPath(
+      const match: WlRouteData['match'] = matchPath(
         location.pathname,
         matchProps
       );
@@ -386,7 +388,7 @@ export class RouteManager extends React.Component<
     _location: HistoryLocation
   ) {
     this.setState(
-      (prevState) => {
+      prevState => {
         const prevViewStacks = Object.assign(
           new ViewStacks(),
           prevState.viewStacks
@@ -429,7 +431,7 @@ export class RouteManager extends React.Component<
     routerOutlet.swipeHandler = {
       canStart,
       onStart,
-      onEnd: (_shouldContinue) => true,
+      onEnd: _shouldContinue => true,
     };
   }
 
@@ -487,7 +489,7 @@ export class RouteManager extends React.Component<
     leavingViewHtml?: string
   ) {
     if (!this.firstRender) {
-      if (!("componentOnReady" in wlRouterOutlet)) {
+      if (!('componentOnReady' in wlRouterOutlet)) {
         await waitUntilRouterOutletReady(wlRouterOutlet);
       }
 
@@ -516,14 +518,14 @@ export class RouteManager extends React.Component<
 
       if (leavingEl && enteringEl !== leavingEl) {
         /** add hidden attributes */
-        leavingEl.classList.add("wl-page-hidden");
-        leavingEl.setAttribute("aria-hidden", "true");
+        leavingEl.classList.add('wl-page-hidden');
+        leavingEl.setAttribute('aria-hidden', 'true');
       }
     } else {
-      enteringEl.classList.remove("wl-page-invisible");
-      enteringEl.style.zIndex = "101";
-      enteringEl.dispatchEvent(new Event("wlViewWillEnter"));
-      enteringEl.dispatchEvent(new Event("wlViewDidEnter"));
+      enteringEl.classList.remove('wl-page-invisible');
+      enteringEl.style.zIndex = '101';
+      enteringEl.dispatchEvent(new Event('wlViewWillEnter'));
+      enteringEl.dispatchEvent(new Event('wlViewDidEnter'));
       this.firstRender = false;
     }
   }
@@ -535,16 +537,16 @@ export class RouteManager extends React.Component<
   ) {
     this.currentWlRouteAction = wlRouteAction;
     switch (wlRouteAction) {
-      case "push":
+      case 'push':
         this.currentRouteDirection = direction;
         this.props.history.push(path);
         break;
-      case "pop":
-        this.currentRouteDirection = direction || "back";
+      case 'pop':
+        this.currentRouteDirection = direction || 'back';
         this.props.history.replace(path);
         break;
-      case "replace":
-        this.currentRouteDirection = "none";
+      case 'replace':
+        this.currentRouteDirection = 'none';
         this.props.history.replace(path);
         break;
     }
@@ -559,11 +561,11 @@ export class RouteManager extends React.Component<
         const previousLocation = this.locationHistory.previous();
         if (previousLocation) {
           this.handleNavigate(
-            "pop",
+            'pop',
             previousLocation.pathname + previousLocation.search
           );
         } else {
-          defaultHref && this.handleNavigate("pop", defaultHref);
+          defaultHref && this.handleNavigate('pop', defaultHref);
         }
       } else {
         const { view: enteringView } = this.state.viewStacks.findViewInfoById(
@@ -575,29 +577,29 @@ export class RouteManager extends React.Component<
           );
           if (lastLocation) {
             this.handleNavigate(
-              "pop",
+              'pop',
               lastLocation.pathname + lastLocation.search
             );
           } else {
-            this.handleNavigate("pop", enteringView.routeData.match!.url);
+            this.handleNavigate('pop', enteringView.routeData.match!.url);
           }
         } else {
           const currentLocation = this.locationHistory.previous();
           if (currentLocation) {
             this.handleNavigate(
-              "pop",
+              'pop',
               currentLocation.pathname + currentLocation.search
             );
           } else {
             if (defaultHref) {
-              this.handleNavigate("pop", defaultHref);
+              this.handleNavigate('pop', defaultHref);
             }
           }
         }
       }
     } else {
       if (defaultHref) {
-        this.handleNavigate("replace", defaultHref, "back");
+        this.handleNavigate('replace', defaultHref, 'back');
       }
     }
   }
@@ -618,14 +620,14 @@ export class RouteManager extends React.Component<
 }
 
 function clonePageElement(leavingViewHtml: string) {
-  const newEl = document.createElement("div");
+  const newEl = document.createElement('div');
   newEl.innerHTML = leavingViewHtml;
-  newEl.classList.add("wl-page-hidden");
-  newEl.style.zIndex = "";
+  newEl.classList.add('wl-page-hidden');
+  newEl.style.zIndex = '';
   // Remove an existing back button so the new element doesn't get two of them
-  const wlBackButton = newEl.getElementsByTagName("wl-back-button");
+  const wlBackButton = newEl.getElementsByTagName('wl-back-button');
   if (wlBackButton[0]) {
-    wlBackButton[0].innerHTML = "";
+    wlBackButton[0].innerHTML = '';
   }
   return newEl.firstChild as HTMLElement;
 }
@@ -633,7 +635,7 @@ function clonePageElement(leavingViewHtml: string) {
 async function waitUntilRouterOutletReady(
   wlRouterOutlet: HTMLWlRouterOutletElement
 ) {
-  if ("componentOnReady" in wlRouterOutlet) {
+  if ('componentOnReady' in wlRouterOutlet) {
     return;
   } else {
     setTimeout(() => {
@@ -643,4 +645,4 @@ async function waitUntilRouterOutletReady(
 }
 
 export const RouteManagerWithRouter = withRouter(RouteManager);
-RouteManagerWithRouter.displayName = "RouteManager";
+RouteManagerWithRouter.displayName = 'RouteManager';

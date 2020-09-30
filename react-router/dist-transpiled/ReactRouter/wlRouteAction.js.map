@@ -1,1 +1,1 @@
-{"version":3,"file":"wlRouteAction.js","sourceRoot":"","sources":["../../src/ReactRouter/wlRouteAction.ts"],"names":[],"mappings":"","sourcesContent":["export type WlRouteAction = \"push\" | \"replace\" | \"pop\";\n"]}
+{"version":3,"file":"wlRouteAction.js","sourceRoot":"","sources":["../../src/ReactRouter/wlRouteAction.ts"],"names":[],"mappings":"","sourcesContent":["export type WlRouteAction = 'push' | 'replace' | 'pop';\n"]}

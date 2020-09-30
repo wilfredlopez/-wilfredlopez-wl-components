@@ -1,1 +1,1 @@
-export type WlRouteAction = "push" | "replace" | "pop";
+export type WlRouteAction = 'push' | 'replace' | 'pop';

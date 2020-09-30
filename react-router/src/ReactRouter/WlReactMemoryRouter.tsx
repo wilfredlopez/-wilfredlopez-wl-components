@@ -1,8 +1,8 @@
-import { MemoryHistory } from "history";
-import React from "react";
-import { MemoryRouter, MemoryRouterProps, matchPath } from "react-router";
+import { MemoryHistory } from 'history';
+import React from 'react';
+import { MemoryRouter, MemoryRouterProps, matchPath } from 'react-router';
 
-import { LocationState, RouteManager } from "./Router";
+import { LocationState, RouteManager } from './Router';
 
 interface WlReactMemoryRouterProps extends MemoryRouterProps {
   history: MemoryHistory<LocationState>;

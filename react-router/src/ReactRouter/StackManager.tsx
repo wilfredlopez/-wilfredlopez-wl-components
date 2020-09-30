@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { generateId, isDevMode } from "../utils";
+import { generateId, isDevMode } from '../utils';
 
 import {
   RouteManagerContext,
   RouteManagerContextState,
-} from "./RouteManagerContext";
-import { View } from "./View";
-import { ViewItem } from "./ViewItem";
-import { ViewTransitionManager } from "./ViewTransitionManager";
+} from './RouteManagerContext';
+import { View } from './View';
+import { ViewItem } from './ViewItem';
+import { ViewTransitionManager } from './ViewTransitionManager';
 
 interface StackManagerProps {
   id?: string;
@@ -73,11 +73,11 @@ class StackManagerInner extends React.Component<
   render() {
     const routeManager = this.props.routeManager;
     const viewStack = routeManager.viewStacks.get(this.id);
-    const views = (viewStack || { views: [] }).views.filter((x) => x.show);
+    const views = (viewStack || { views: [] }).views.filter(x => x.show);
     const wlRouterOutlet = React.Children.only(
       this.props.children
     ) as React.ReactElement;
-    const childElements = views.map((view) => {
+    const childElements = views.map(view => {
       const route = routeManager.getRoute(view.routeId);
       return (
         <ViewTransitionManager id={view.id} key={view.key} mount={view.mount}>
@@ -102,7 +102,7 @@ class StackManagerInner extends React.Component<
     }
 
     if (isDevMode()) {
-      elementProps["data-stack-id"] = this.id;
+      elementProps['data-stack-id'] = this.id;
     }
 
     const routerOutletChild = React.cloneElement(
@@ -118,7 +118,7 @@ class StackManagerInner extends React.Component<
 const withContext = (Component: any) => {
   return (props: any) => (
     <RouteManagerContext.Consumer>
-      {(context) => <Component {...props} routeManager={context} />}
+      {context => <Component {...props} routeManager={context} />}
     </RouteManagerContext.Consumer>
   );
 };

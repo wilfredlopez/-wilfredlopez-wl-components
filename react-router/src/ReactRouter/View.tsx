@@ -1,10 +1,10 @@
-import { WlLifeCycleContext, NavContext } from "@wilfredlopez/react";
-import React from "react";
-import { Redirect } from "react-router";
+import { NavContext, WlLifeCycleContext } from '@wilfredlopez/react';
+import React from 'react';
+import { Redirect } from 'react-router';
 
-import { isDevMode } from "../utils";
+import { isDevMode } from '../utils';
 
-import { ViewItem } from "./ViewItem";
+import { ViewItem } from './ViewItem';
 
 interface ViewProps extends React.HTMLAttributes<HTMLElement> {
   onViewSync: (page: HTMLElement, viewId: string) => void;
@@ -38,19 +38,19 @@ export class View extends React.Component<ViewProps, {}> {
   componentWillUnmount() {
     if (this.wlPage) {
       this.wlPage.removeEventListener(
-        "wlViewWillEnter",
+        'wlViewWillEnter',
         this.wlViewWillEnterHandler.bind(this)
       );
       this.wlPage.removeEventListener(
-        "wlViewDidEnter",
+        'wlViewDidEnter',
         this.wlViewDidEnterHandler.bind(this)
       );
       this.wlPage.removeEventListener(
-        "wlViewWillLeave",
+        'wlViewWillLeave',
         this.wlViewWillLeaveHandler.bind(this)
       );
       this.wlPage.removeEventListener(
-        "wlViewDidLeave",
+        'wlViewDidLeave',
         this.wlViewDidLeaveHandler.bind(this)
       );
     }
@@ -75,24 +75,24 @@ export class View extends React.Component<ViewProps, {}> {
   registerWlPage(page: HTMLElement) {
     this.wlPage = page;
     this.wlPage.addEventListener(
-      "wlViewWillEnter",
+      'wlViewWillEnter',
       this.wlViewWillEnterHandler.bind(this)
     );
     this.wlPage.addEventListener(
-      "wlViewDidEnter",
+      'wlViewDidEnter',
       this.wlViewDidEnterHandler.bind(this)
     );
     this.wlPage.addEventListener(
-      "wlViewWillLeave",
+      'wlViewWillLeave',
       this.wlViewWillLeaveHandler.bind(this)
     );
     this.wlPage.addEventListener(
-      "wlViewDidLeave",
+      'wlViewDidLeave',
       this.wlViewDidLeaveHandler.bind(this)
     );
-    this.wlPage.classList.add("wl-page-invisible");
+    this.wlPage.classList.add('wl-page-invisible');
     if (isDevMode()) {
-      this.wlPage.setAttribute("data-view-id", this.props.view.id);
+      this.wlPage.setAttribute('data-view-id', this.props.view.id);
     }
     this.props.onViewSync(page, this.props.view.id);
   }
@@ -100,7 +100,7 @@ export class View extends React.Component<ViewProps, {}> {
   render() {
     return (
       <NavContext.Consumer>
-        {(value) => {
+        {value => {
           const newProvider = {
             ...value,
             registerWlPage: this.registerWlPage.bind(this),

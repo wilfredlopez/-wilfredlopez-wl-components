@@ -1,6 +1,6 @@
-import { matchPath } from "react-router-dom";
+import { matchPath } from 'react-router-dom';
 /**
- * The holistic view of all the Routes configured for an application inside of an IonRouterOutlet.
+ * The holistic view of all the Routes configured for an application inside of an WLRouterOutlet.
  */
 export class ViewStacks {
     constructor() {
@@ -26,7 +26,7 @@ export class ViewStacks {
         if (viewStack) {
             viewStack.views.some(matchView);
             if (!view) {
-                viewStack.views.some((r) => {
+                viewStack.views.some(r => {
                     // try to find a route that doesn't have a path or from prop, that will be our not found route
                     if (!r.routeData.childProps.path && !r.routeData.childProps.from) {
                         match = {
@@ -58,13 +58,13 @@ export class ViewStacks {
             return false;
         }
     }
-    findViewInfoById(id = "") {
+    findViewInfoById(id = '') {
         let view;
         let viewStack;
         const keys = this.getKeys();
-        keys.some((key) => {
+        keys.some(key => {
             const vs = this.viewStacks[key];
-            view = vs.views.find((x) => x.id === id);
+            view = vs.views.find(x => x.id === id);
             if (view) {
                 viewStack = vs;
                 return true;

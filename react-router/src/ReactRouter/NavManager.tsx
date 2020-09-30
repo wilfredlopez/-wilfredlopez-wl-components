@@ -1,12 +1,11 @@
-import { RouterDirection } from "@wilfredlopez/wl-components/dist/types/interfaces/RouterDirection";
+import { NavContext, NavContextState } from '@wilfredlopez/react';
+import { RouterDirection } from '@wilfredlopez/wl-components';
+import { Location as HistoryLocation, UnregisterCallback } from 'history';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { NavContext, NavContextState } from "@wilfredlopez/react";
-import { Location as HistoryLocation, UnregisterCallback } from "history";
-import React from "react";
-import { RouteComponentProps } from "react-router-dom";
-
-import { WlRouteAction } from "./wlRouteAction";
-import { StackManager } from "./StackManager";
+import { StackManager } from './StackManager';
+import { WlRouteAction } from './wlRouteAction';
 
 interface NavManagerProps extends RouteComponentProps {
   onNavigateBack: (defaultHref?: string) => void;
@@ -42,7 +41,7 @@ export class NavManager extends React.Component<
     );
 
     if (document) {
-      document.addEventListener("wlBackButton", (e: any) => {
+      document.addEventListener('wlBackButton', (e: any) => {
         e.detail.register(0, () => {
           this.props.history.goBack();
         });
@@ -62,8 +61,8 @@ export class NavManager extends React.Component<
 
   navigate(
     path: string,
-    direction?: RouterDirection | "none",
-    wlRouteAction: WlRouteAction = "push"
+    direction?: RouterDirection | 'none',
+    wlRouteAction: WlRouteAction = 'push'
   ) {
     this.props.onNavigate(wlRouteAction, path, direction);
   }

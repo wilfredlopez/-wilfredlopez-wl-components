@@ -1,7 +1,7 @@
-import React from "react";
-import { HashRouter, HashRouterProps } from "react-router-dom";
+import React from 'react';
+import { HashRouter, HashRouterProps } from 'react-router-dom';
 
-import { RouteManagerWithRouter } from "./Router";
+import { RouteManagerWithRouter } from './Router';
 
 export class WlReactHashRouter extends React.Component<HashRouterProps> {
   render() {

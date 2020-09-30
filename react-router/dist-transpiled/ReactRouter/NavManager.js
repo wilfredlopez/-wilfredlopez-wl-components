@@ -1,6 +1,6 @@
-import { NavContext } from "@wilfredlopez/react";
-import React from "react";
-import { StackManager } from "./StackManager";
+import { NavContext } from '@wilfredlopez/react';
+import React from 'react';
+import { StackManager } from './StackManager';
 export class NavManager extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,7 @@ export class NavManager extends React.Component {
             });
         });
         if (document) {
-            document.addEventListener("wlBackButton", (e) => {
+            document.addEventListener('wlBackButton', (e) => {
                 e.detail.register(0, () => {
                     this.props.history.goBack();
                 });
@@ -36,7 +36,7 @@ export class NavManager extends React.Component {
     goBack(defaultHref) {
         this.props.onNavigateBack(defaultHref);
     }
-    navigate(path, direction, wlRouteAction = "push") {
+    navigate(path, direction, wlRouteAction = 'push') {
         this.props.onNavigate(wlRouteAction, path, direction);
     }
     getPageManager() {

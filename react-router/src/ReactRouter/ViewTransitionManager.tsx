@@ -1,10 +1,10 @@
 import {
   DefaultWlLifeCycleContext,
   WlLifeCycleContext,
-} from "@wilfredlopez/react";
-import React from "react";
+} from '@wilfredlopez/react';
+import React from 'react';
 
-import { RouteManagerContext } from "./RouteManagerContext";
+import { RouteManagerContext } from './RouteManagerContext';
 
 interface ViewTransitionManagerProps {
   id: string;

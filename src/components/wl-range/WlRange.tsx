@@ -64,7 +64,7 @@ export class Range implements ComponentInterface {
   @State() private ratioB = 0;
   @State() private pressedKnob: KnobName;
 
-  @Prop() color?: PredefinedColors = "primary";
+  @Prop() color?: PredefinedColors;
 
   /**
    * How long, in milliseconds, to wait to trigger the

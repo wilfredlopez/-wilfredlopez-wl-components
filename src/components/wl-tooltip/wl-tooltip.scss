@@ -5,60 +5,64 @@
 @import "../../themes/wl.globals.md";
 
 :host {
+  display: inline-flex;
+  position: relative;
+
+  .tooltip-content {
+    position: absolute;
+    bottom: 125%;
+    font-size: .8em;
+    border-radius: .5em;
+    padding: 1em;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: transform .5s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+    z-index: 9;
+    width: var(--contentWidth, 300px);
+    // background-color: white;
+    background-color: current-color(base);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    color: current-color(contrast);
+  }
+
+  .tooltip-container {
     display: inline-flex;
-    position: relative;
-    .tooltip-content{
-        position: absolute;
-        bottom: 125%;
-        font-size: .8em;
-        border-radius: .5em;
-        padding: 1em;
-        transform: scale(0);
-        transform-origin: bottom left;
-        transition: transform .5s cubic-bezier(0.860,0.000,0.070,1.000);
-        z-index: 9;
-        width: var(--contentWidth, 300px);
-        // background-color: white;
-        background-color: currentColor(base);
-        box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-        color:currentColor(contrast);
-    }
-    .tooltip-container{
-        display: inline-flex;
-    }
+  }
 
-    #cancel{
-        display: none;
-        visibility: hidden;
-    }
+  #cancel {
+    display: none;
+    visibility: hidden;
+  }
 
-    #alert{
-        display: block;
-        visibility: visible;
-    }
+  #alert {
+    display: block;
+    visibility: visible;
+  }
 
-    #cancel, #alert{
-        cursor: pointer;
-        width: var(--iconWidth, 1em);
-        height: var(--iconWidth, 1em);
-    }
+  #cancel,
+  #alert {
+    cursor: pointer;
+    width: var(--iconWidth, 1em);
+    height: var(--iconWidth, 1em);
+  }
 
 }
 
 
 
 
-:host(:hover){
-    .tooltip-content{
-        transform: scale(1);
-    }
-    #cancel{
-        display: block;
-        visibility: visible;
-    }
-    #alert{
-        display: none;
-        visibility: hidden;
-    }
-}
+:host(:hover) {
+  .tooltip-content {
+    transform: scale(1);
+  }
 
+  #cancel {
+    display: block;
+    visibility: visible;
+  }
+
+  #alert {
+    display: none;
+    visibility: hidden;
+  }
+}

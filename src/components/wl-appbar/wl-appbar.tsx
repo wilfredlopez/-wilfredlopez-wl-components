@@ -17,7 +17,7 @@ export class WlAppbar implements ComponentInterface {
     attribute: "color",
     reflect: true,
   })
-  color?: Color = "primary";
+  color?: Color;
 
   @Prop() justify?: JustificationModifier = "start";
   @Prop() align?: AlignmentModifier = "stretch";

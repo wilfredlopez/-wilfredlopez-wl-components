@@ -1,8 +1,9 @@
 @import "../../css/wl.bundle";
 
 :host {
-  color: currentColor(base);
+  color: current-color(base);
 }
+
 ::slotted(*) {
-  color: currentColor(base);
+  color: current-color(base);
 }

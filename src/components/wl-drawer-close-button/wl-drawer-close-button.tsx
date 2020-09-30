@@ -11,6 +11,7 @@ import { Color } from "../../interfaces/Color.model";
 import { hostContext } from "../../utils/helpers";
 import { Variants } from "../../interfaces/Variants.model";
 import { ComponentProps } from "../..";
+import { createColorClasses } from "../../utils/utils";
 
 @Component({
   tag: "wl-drawer-close-button",
@@ -21,11 +22,11 @@ export class WlDrawerCloseButton implements ComponentInterface {
   @Prop({
     attribute: "color",
   })
-  color?: Color = "light";
+  color?: Color;
   @Prop({
     attribute: "variant",
   })
-  variant?: Variants = "outline";
+  variant?: Variants;
 
   @Prop()
   circular?: boolean;
@@ -49,6 +50,7 @@ export class WlDrawerCloseButton implements ComponentInterface {
         color={this.color}
         variant={this.variant}
         class={{
+          ...createColorClasses(this.color),
           "in-drawer": hostContext("wl-drawer", this.el),
         }}
       >

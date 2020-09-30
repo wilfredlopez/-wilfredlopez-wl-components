@@ -52,7 +52,7 @@ export class WlDrawer implements ComponentInterface {
     mutable: true,
   })
   disabled?: boolean;
-  color?: Color = "light";
+  color?: Color;
   buttonRef: any;
 
   OverlayContainer?: HTMLElement;

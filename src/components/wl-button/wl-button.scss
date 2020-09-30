@@ -61,7 +61,7 @@ $button-round-border-radius: 64px !default;
 
 :host {
   --overflow: hidden;
-  --ripple-color: currentColor;
+  --ripple-color: current-color;
   --border-width: initial;
   --border-color: initial;
   --border-style: initial;
@@ -172,8 +172,8 @@ $VARIANTS: (outline, solid, clear);
 // --------------------------------------------------
 // Solid Button with Color
 :host(.button-native) {
-  background: currentColor(base);
-  // color: currentColor(contrast);
+  background: current-color(base);
+  // color: current-color(contrast);
 }
 
 // Outline Button
@@ -181,13 +181,13 @@ $VARIANTS: (outline, solid, clear);
 // Default Outline Color
 [variant="outline"] {
   --border-width: 20px !important;
-  outline: 1px solid currentColor(base) !important;
+  outline: 1px solid current-color(base) !important;
 }
 
 // Clear Button with Color
 [variant="clear"] .button-native {
   background: transparent;
-  color: currentColor(base);
+  color: current-color(base);
 }
 
 // Default Clear Color

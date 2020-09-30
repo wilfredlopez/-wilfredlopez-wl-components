@@ -54,8 +54,8 @@
 }
 
 :host(.wl-color) {
-  color: currentColor(base);
-  border-bottom: 1px solid currentColor(base);
+  color: current-color(base);
+  border-bottom: 1px solid current-color(base);
 }
 
 // Native Text Input

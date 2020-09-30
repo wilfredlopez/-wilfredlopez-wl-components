@@ -6,6 +6,88 @@
 
 // Range
 // --------------------------------------------------
+:host(.wl-color-primary) {
+  --wl-color-base: var(--wl-color-primary, #1f69e9) !important;
+  --wl-color-base-rgb: var(--wl-color-primary-rgb, 31, 105, 233) !important;
+  --wl-color-contrast: var(--wl-color-primary-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-primary-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-primary-shade, #1b5ccd) !important;
+  --wl-color-tint: var(--wl-color-primary-tint, #3578eb) !important;
+}
+
+:host(.wl-color-secondary) {
+  --wl-color-base: var(--wl-color-secondary, #924bee) !important;
+  --wl-color-base-rgb: var(--wl-color-secondary-rgb, 146, 75, 238) !important;
+  --wl-color-contrast: var(--wl-color-secondary-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-secondary-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-secondary-shade, #8042d1) !important;
+  --wl-color-tint: var(--wl-color-secondary-tint, #9d5df0) !important;
+}
+
+:host(.wl-color-tertiary) {
+  --wl-color-base: var(--wl-color-tertiary, #3a89be) !important;
+  --wl-color-base-rgb: var(--wl-color-tertiary-rgb, 58, 137, 190) !important;
+  --wl-color-contrast: var(--wl-color-tertiary-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-tertiary-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-tertiary-shade, #3379a7) !important;
+  --wl-color-tint: var(--wl-color-tertiary-tint, #4e95c5) !important;
+}
+
+:host(.wl-color-success) {
+  --wl-color-base: var(--wl-color-success, #21b36e) !important;
+  --wl-color-base-rgb: var(--wl-color-success-rgb, 33, 179, 110) !important;
+  --wl-color-contrast: var(--wl-color-success-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-success-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-success-shade, #1d9e61) !important;
+  --wl-color-tint: var(--wl-color-success-tint, #37bb7d) !important;
+}
+
+:host(.wl-color-warning) {
+  --wl-color-base: var(--wl-color-warning, #ffed86) !important;
+  --wl-color-base-rgb: var(--wl-color-warning-rgb, 255, 237, 134) !important;
+  --wl-color-contrast: var(--wl-color-warning-contrast, #000) !important;
+  --wl-color-contrast-rgb: var(--wl-color-warning-contrast-rgb, 0, 0, 0) !important;
+  --wl-color-shade: var(--wl-color-warning-shade, #e0d176) !important;
+  --wl-color-tint: var(--wl-color-warning-tint, #ffef92) !important;
+
+}
+
+:host(.wl-color-light) {
+  --wl-color-base: var(--wl-color-light, #fcfcfd) !important;
+  --wl-color-base-rgb: var(--wl-color-light-rgb, 252, 252, 253) !important;
+  --wl-color-contrast: var(--wl-color-light-contrast, #000) !important;
+  --wl-color-contrast-rgb: var(--wl-color-light-contrast-rgb, 0, 0, 0) !important;
+  --wl-color-shade: var(--wl-color-light-shade, #dededf) !important;
+  --wl-color-tint: var(--wl-color-light-tint, #fcfcfd) !important;
+}
+
+:host(.wl-color-medium) {
+  --wl-color-base: var(--wl-color-medium, #a0a1a7) !important;
+  --wl-color-base-rgb: var(--wl-color-medium-rgb, 160, 161, 167) !important;
+  --wl-color-contrast: var(--wl-color-medium-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-medium-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-medium-shade, #8d8e93) !important;
+  --wl-color-tint: var(--wl-color-medium-tint, #aaaab0) !important;
+}
+
+:host(.wl-color-dark) {
+  --wl-color-base: var(--wl-color-dark, #191a1d) !important;
+  --wl-color-base-rgb: var(--wl-color-dark-rgb, 25, 26, 29) !important;
+  --wl-color-contrast: var(--wl-color-dark-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-dark-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-dark-shade, #16171a) !important;
+  --wl-color-tint: var(--wl-color-dark-tint, #303134) !important;
+}
+
+:host(.wl-color-danger) {
+  --wl-color-base: var(--wl-color-danger, #d14b4b) !important;
+  --wl-color-base-rgb: var(--wl-color-danger-rgb, 209, 75, 75) !important;
+  --wl-color-contrast: var(--wl-color-danger-contrast, #fff) !important;
+  --wl-color-contrast-rgb: var(--wl-color-danger-contrast-rgb, 255, 255, 255) !important;
+  --wl-color-shade: var(--wl-color-danger-shade, #b84242) !important;
+  --wl-color-tint: var(--wl-color-danger-tint, #d65d5d) !important;
+
+}
 
 :host {
   /**
@@ -68,8 +150,8 @@
 .range-pin {
   position: absolute;
 
-  background: currentColor(base);
-  color: currentColor(contrast);
+  background: current-color(base);
+  color: current-color(contrast);
 
   text-align: center;
   box-sizing: border-box;

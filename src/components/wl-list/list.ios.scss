@@ -5,12 +5,10 @@
 // --------------------------------------------------
 
 .list-ios {
-  @include margin(
-    $list-ios-margin-top,
+  @include margin($list-ios-margin-top,
     $list-ios-margin-end,
     $list-ios-margin-bottom,
-    $list-ios-margin-start
-  );
+    $list-ios-margin-start);
 
   // background: $item-ios-background;
   background: inherit;
@@ -20,12 +18,10 @@
 // --------------------------------------------------
 
 .list-ios.list-inset {
-  @include margin(
-    $list-inset-ios-margin-top,
+  @include margin($list-inset-ios-margin-top,
     $list-inset-ios-margin-end,
     $list-inset-ios-margin-bottom,
-    $list-inset-ios-margin-start
-  );
+    $list-inset-ios-margin-start);
   @include border-radius($list-inset-ios-border-radius);
 }
 
@@ -39,7 +35,7 @@
   --inner-border-width: 0;
 }
 
-.list-ios.list-inset + wl-list.list-inset {
+.list-ios.list-inset+wl-list.list-inset {
   @include margin(0, null, null, null);
 }
 

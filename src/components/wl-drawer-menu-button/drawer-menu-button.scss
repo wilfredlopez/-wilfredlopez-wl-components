@@ -1,6 +1,7 @@
 :host {
   padding: 0 1rem;
 }
+
 .label {
   width: 100%;
   display: flex;
@@ -9,7 +10,7 @@
 }
 
 svg {
-  fill: currentColor;
+  fill: current-color;
   width: 1em;
   height: 1em;
   display: inline-block;

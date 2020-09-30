@@ -71,7 +71,7 @@
   --color-activated: var(--color);
   --color-focused: var(--color);
   --color-hover: var(--color);
-  --ripple-color: currentColor;
+  --ripple-color: current-color;
 
   @include font-smoothing();
 
@@ -96,13 +96,13 @@
 // --------------------------------------------------
 
 :host(.wl-color) .item-native {
-  background: currentColor(base);
-  color: currentColor(contrast);
+  background: current-color(base);
+  color: current-color(contrast);
 }
 
 :host(.wl-color) .item-native,
 :host(.wl-color) .item-inner {
-  border-color: currentColor(shade);
+  border-color: current-color(shade);
 }
 
 // Item: Activated
@@ -119,7 +119,7 @@
 }
 
 :host(.wl-color.wl-activated) .item-native {
-  color: currentColor(contrast);
+  color: current-color(contrast);
 }
 
 // Item: Focused
@@ -136,10 +136,10 @@
 }
 
 :host(.wl-color.wl-focused) .item-native {
-  color: currentColor(contrast);
+  color: current-color(contrast);
 
   &::after {
-    background: currentColor(contrast);
+    background: current-color(contrast);
   }
 }
 
@@ -158,10 +158,10 @@
   }
 
   :host(.wl-color.wl-activatable:hover) .item-native {
-    color: #{currentColor(contrast)};
+    color: #{current-color(contrast)};
 
     &::after {
-      background: #{currentColor(contrast)};
+      background: #{current-color(contrast)};
     }
   }
 }
@@ -186,12 +186,10 @@
 .item-native {
   @include border-radius(var(--border-radius));
   @include margin(0);
-  @include padding(
-    var(--padding-top),
+  @include padding(var(--padding-top),
     var(--padding-end),
     var(--padding-bottom),
-    calc(var(--padding-start) + var(--wl-safe-area-left, 0px))
-  );
+    calc(var(--padding-start) + var(--wl-safe-area-left, 0px)));
   @include text-inherit();
 
   display: flex;
@@ -244,12 +242,10 @@ a {
 
 .item-inner {
   @include margin(0);
-  @include padding(
-    var(--inner-padding-top),
+  @include padding(var(--inner-padding-top),
     calc(var(--wl-safe-area-right, 0px) + var(--inner-padding-end)),
     var(--inner-padding-bottom),
-    var(--inner-padding-start)
-  );
+    var(--inner-padding-start));
 
   display: flex;
 
@@ -365,13 +361,17 @@ a {
 :host(.item-interactive.wl-touched.wl-invalid) {
   // If the item has a full border and highlight is enabled, show the full item highlight
   --full-highlight-height: #{calc(
-      var(--highlight-height) * var(--show-full-highlight)
-    )};
+ var(--highlight-height) * var(--show-full-highlight))
+}
 
-  // If the item has an inset border and highlight is enabled, show the inset item highlight
-  --inset-highlight-height: #{calc(
-      var(--highlight-height) * var(--show-inset-highlight)
-    )};
+;
+
+// If the item has an inset border and highlight is enabled, show the inset item highlight
+--inset-highlight-height: #{calc(
+ var(--highlight-height) * var(--show-inset-highlight))
+}
+
+;
 }
 
 // Item Input Focus

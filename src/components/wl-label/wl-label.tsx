@@ -18,7 +18,11 @@ import { getWlMode } from "../../global/wl-global";
 
 @Component({
   tag: "wl-label",
-  styleUrl: "wl-label.scss",
+  // styleUrl: "wl-label.scss",
+  styleUrls: {
+    md: "label.md.scss",
+    ios: "label.ios.scss",
+  },
 
   scoped: true,
 })

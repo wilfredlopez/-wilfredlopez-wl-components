@@ -12,7 +12,7 @@ export class WlDrawerMenuButton {
   @Prop({
     reflect: true,
   })
-  color?: Color = "dark";
+  color?: Color;
 
   @Prop({
     attribute: "size",
@@ -37,6 +37,7 @@ export class WlDrawerMenuButton {
 
   render() {
     const { size, color, variant } = this;
+
     return (
       <Host size={size} color={color} variant={variant}>
         <wl-button
@@ -49,6 +50,7 @@ export class WlDrawerMenuButton {
             <svg
               class="svg-icon"
               focusable="false"
+              fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
             >

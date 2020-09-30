@@ -20,7 +20,7 @@ export class WlContainer implements ComponentInterface {
   @Prop({ reflect: true }) fluid = false;
   @Prop({ reflect: true }) class = "";
 
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLWlContainerElement;
 
   render() {
     const { maxWidth, fluid, size } = this;

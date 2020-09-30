@@ -13,7 +13,7 @@
   --background: #{$item-ios-background};
   --background-activated: #000;
   --background-focused: #000;
-  --background-hover: currentColor;
+  --background-hover: current-color;
   --background-activated-opacity: 0.12;
   --background-focused-opacity: 0.15;
   --background-hover-opacity: 0.04;
@@ -90,21 +90,17 @@
 // --------------------------------------------------
 
 ::slotted([slot="start"]) {
-  @include margin(
-    $item-ios-slot-start-margin-top,
+  @include margin($item-ios-slot-start-margin-top,
     $item-ios-slot-start-margin-end,
     $item-ios-slot-start-margin-bottom,
-    $item-ios-slot-start-margin-start
-  );
+    $item-ios-slot-start-margin-start);
 }
 
 ::slotted([slot="end"]) {
-  @include margin(
-    $item-ios-slot-end-margin-top,
+  @include margin($item-ios-slot-end-margin-top,
     $item-ios-slot-end-margin-end,
     $item-ios-slot-end-margin-bottom,
-    $item-ios-slot-end-margin-start
-  );
+    $item-ios-slot-end-margin-start);
 }
 
 // iOS Slotted Icon
@@ -112,12 +108,10 @@
 
 ::slotted(wl-icon[slot="start"]),
 ::slotted(wl-icon[slot="end"]) {
-  @include margin(
-    $item-ios-icon-slot-margin-top,
+  @include margin($item-ios-icon-slot-margin-top,
     $item-ios-icon-slot-margin-end,
     $item-ios-icon-slot-margin-bottom,
-    $item-ios-icon-slot-margin-start
-  );
+    $item-ios-icon-slot-margin-start);
 }
 
 // iOS Slotted Toggle
@@ -133,12 +127,10 @@
 
 :host(.item-label-stacked) ::slotted([slot="end"]),
 :host(.item-label-floating) ::slotted([slot="end"]) {
-  @include margin(
-    $item-ios-label-slot-end-margin-top,
+  @include margin($item-ios-label-slot-end-margin-top,
     $item-ios-label-slot-end-margin-end,
     $item-ios-label-slot-end-margin-bottom,
-    $item-ios-label-slot-end-margin-start
-  );
+    $item-ios-label-slot-end-margin-start);
 }
 
 // iOS Item Button

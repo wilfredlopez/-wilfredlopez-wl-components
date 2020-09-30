@@ -1,13 +1,15 @@
 // Gets the active color's css variable from a variation. Alpha is optional.
 // --------------------------------------------------------------------------------------------
 // Example usage:
-// currentColor(base) => var(--wl-color-base)
-// currentColor(contrast, 0.1) => rgba(var(--wl-color-contrast-rgb), 0.1)
+// current-color(base) => var(--wl-color-base)
+// current-color(contrast, 0.1) => rgba(var(--wl-color-contrast-rgb), 0.1)
 // --------------------------------------------------------------------------------------------
-@function currentColor($variation, $alpha: null) {
-  @if $alpha == null {
+@function current-color($variation, $alpha: null) {
+  @if $alpha==null {
     @return var(--wl-color-#{$variation});
-  } @else {
+  }
+
+  @else {
     @return rgba(var(--wl-color-#{$variation}-rgb), #{$alpha});
   }
 }
@@ -24,7 +26,7 @@
   $value: map-get($values, $variation);
   $variable: --wl-color-#{$name}-#{$variation};
 
-  @if ($variation == base) {
+  @if ($variation==base) {
     $variable: --wl-color-#{$name};
   }
 
@@ -32,6 +34,7 @@
     $value: color-to-rgb-list($value);
     @return rgba(var(#{$variable}-rgb, $value), $alpha);
   }
+
   @if ($rgb) {
     $value: color-to-rgb-list($value);
     $variable: #{$variable}-rgb;
@@ -55,5 +58,7 @@
 // Converts a color to a comma separated rgb.
 // --------------------------------------------------------------------------------------------
 @function color-to-rgb-list($color) {
-  @return #{red($color)}, #{green($color)}, #{blue($color)};
+  @return #{red($color)},
+  #{green($color)},
+  #{blue($color)};
 }

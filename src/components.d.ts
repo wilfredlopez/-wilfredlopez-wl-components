@@ -289,10 +289,12 @@ export namespace Components {
         "wrap"?: WrapType;
     }
     interface WlGrid {
+        "align"?: AlignmentModifier;
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed": boolean;
+        "justify"?: JustificationModifier;
     }
     interface WlInput {
         /**
@@ -609,7 +611,8 @@ export namespace Components {
         "swipeHandler"?: SwipeGestureHandler;
     }
     interface WlRow {
-        "align": "center" | "end" | "start" | "baseline";
+        "align"?: "center" | "end" | "start" | "baseline";
+        "justify"?: JustificationModifier;
     }
     interface WlSpinner {
         "color"?: Color;
@@ -1145,10 +1148,12 @@ declare namespace LocalJSX {
         "wrap"?: WrapType;
     }
     interface WlGrid {
+        "align"?: AlignmentModifier;
         /**
           * If `true`, the grid will have a fixed width based on the screen size.
          */
         "fixed"?: boolean;
+        "justify"?: JustificationModifier;
     }
     interface WlInput {
         /**
@@ -1500,6 +1505,7 @@ declare namespace LocalJSX {
     }
     interface WlRow {
         "align"?: "center" | "end" | "start" | "baseline";
+        "justify"?: JustificationModifier;
     }
     interface WlSpinner {
         "color"?: Color;

@@ -31,9 +31,7 @@ export class WlModal {
       ></div>,
       <div id="modal">
         <header>
-          <slot name="title">
-            <h1>Title</h1>
-          </slot>
+          <slot name="title"></slot>
         </header>
         <div id="content">
           <slot></slot>

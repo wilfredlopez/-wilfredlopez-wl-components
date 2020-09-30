@@ -10,10 +10,6 @@
     }
 
     :root {
-      --wl-item-border-color: #d3d3d3;
-      --wl-item-background: #ffffff;
-      --wl-text-color: #000000;
-      --wl-text-color-rgb: 0, 0, 0;
 
       --wl-color-primary: #ff8742;
       --wl-color-primary-rgb: 255, 135, 66;
@@ -100,17 +96,10 @@
       --wl-color-step-900: #e6e6e6;
       --wl-color-step-950: #f2f2f2;
 
-      --wl-background-color: #ffffff;
-      --wl-background-color-rgb: 255, 255, 255;
-      --wl-toolbar-background: #000;
-      --wl-toolbar-color: #fff;
     }
 
     .md {
-      --wl-background-color: #fafafa;
-      --wl-background-color-rgb: 255, 255, 255;
 
-      --wl-border-color: #222222;
 
       --wl-color-step-50: #1e1e1e;
       --wl-color-step-100: #2a2a2a;
@@ -144,9 +133,9 @@
 <body>
   <wl-appbar color="primary">
     <wl-drawer placement="left" color="primary">
-      <wl-drawer-menu-button variant="outline" slot="button-open"></wl-drawer-menu-button>
+      <wl-drawer-menu-button slot="button-open" color="dark"></wl-drawer-menu-button>
       <wl-drawer-content>
-        <wl-drawer-close-button color="primary" circular="true" variant="full"></wl-drawer-close-button>
+        <wl-drawer-close-button color="primary"></wl-drawer-close-button>
         <wl-drawer-header>
           <wl-text>Wilfred Lopez </wl-text>
         </wl-drawer-header>
@@ -178,21 +167,13 @@
 
   <wl-container size="sm">
     <br />
-
     <wl-flex>
-      <wl-flex>
-        <div>
-          <p>Flex 1 SUPER SUPER</p>
-          <p>SUPER</p>
-        </div>
-      </wl-flex>
-      <wl-flex>
-        <div>Flex 2</div>
-        <div>Flex 3</div>
-        <div>Flex 4</div>
-        <div>Flex 5</div>
-      </wl-flex>
+      <div>Flex 2</div>
+      <div>Flex 3</div>
+      <div>Flex 4</div>
+      <div>Flex 5</div>
     </wl-flex>
+    <br />
 
     <wl-card>
       <div slot="header">
@@ -217,7 +198,7 @@
       </wl-row>
     </wl-grid>
     <wl-modal name="Wilfred">
-      <h1 slot="title">My Custom Title</h1>
+      <wl-title size="sm" slot="title">My Custom Title</wl-title>
       <div>
         <p>My Modal Content</p>
         <p>You know me.</p>
@@ -232,14 +213,16 @@
     </div>
   </wl-container>
 
-  <wl-container>
-    <wl-label position="floating"> Email</wl-label>
-    <wl-input type="email"></wl-input>
+  <wl-container size="sm">
+    <wl-item>
+      <wl-label position="floating"> Email</wl-label>
+      <wl-input type="email"></wl-input>
+    </wl-item>
   </wl-container>
 
   <wl-container>
     <h1 class="wl-text-center">Spinners</h1>
-    <wl-grid>
+    <wl-grid align="center">
       <wl-row>
         <wl-col>
           <p>
@@ -272,7 +255,7 @@
   </wl-container>
   <wl-container>
     <h1 class="wl-text-center">Buttons</h1>
-    <wl-grid>
+    <wl-grid align="center">
       <wl-row>
         <wl-col>
           <wl-button>Primary</wl-button>
@@ -288,37 +271,43 @@
         </wl-col>
       </wl-row>
     </wl-grid>
-    <wl-grid>
-      <wl-row>
+    <hr />
+    <wl-grid fixed="true" justify="center" align="center">
+      <wl-title size="sm">Start Rating</wl-title>
+      <wl-row align="center">
         <wl-col>
           <wl-star total-rating="4">STAR</wl-star>
         </wl-col>
 
-        <wl-col>
-          <button id="change-rating">Change Rating</button>
+        <wl-col align="center" justify="center">
+          <wl-button id="change-rating" variant="full">Change Rating</wl-button>
         </wl-col>
       </wl-row>
+      <hr />
+      <wl-title size="sm">Wl Range</wl-title>
       <wl-row>
         <wl-col>
           <wl-item>
-            <wl-range min="0" max="100" value="20" color="primary" pin="true">
-              <wl-label slot="start">0</wl-label>
-              <wl-label slot="end"> 100</wl-label>
+            <wl-range min="1" max="10" value="5" pin step="1" snaps>
+              <wl-label slot="start">1</wl-label>
+              <wl-label slot="end"> 10</wl-label>
             </wl-range>
           </wl-item>
+          <hr />
+          <wl-title size="sm">Wl Tooltip</wl-title>
           <p>
             I Have to say that the proper
             <wl-tooltip message="My Tool tip content" color="primary">
             </wl-tooltip>
             Is awesome
           </p>
-          <div>
-            <wl-title component="h3">My Title</wl-title>
-          </div>
         </wl-col>
       </wl-row>
     </wl-grid>
   </wl-container>
+  <br />
+  <br />
+  <br />
   <script>
     //wl-star
 

@@ -1,3 +1,4 @@
+@import '../../themes/wl.globals.scss';
 @import "../../css/wl.bundle.scss";
 
 :host {
@@ -6,11 +7,11 @@
   header::after {
     border-width: 0px;
     border-style: solid;
-    border-color: rgb(226, 232, 240);
+    border-color: current-color(base, 0.8);
   }
 
   header {
-    color: currentColor(base);
+    color: current-color(base);
     // color: red;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -19,8 +20,7 @@
     position: relative;
     font-size: 1.25rem;
     font-weight: 600;
-    border-bottom: 1px solid;
-    border-color: currentColor(base, 0.2);
+    border-bottom: 1px solid var(--wl-color-step-900);
 
     h1,
     p {

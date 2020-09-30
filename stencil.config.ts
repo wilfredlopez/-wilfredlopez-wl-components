@@ -1,6 +1,6 @@
 import { Config } from "@stencil/core";
 import { sass } from "@stencil/sass";
-import { OutputTargetWww } from "@stencil/core/internal";
+import { OutputTarget, OutputTargetWww } from "@stencil/core/internal";
 
 const devTarget = {
   type: "www",
@@ -11,6 +11,25 @@ const devTarget = {
     },
   ],
 } as OutputTargetWww;
+
+const DEV_TARGETS: OutputTarget[] = [
+  {
+    type: "dist",
+    copy: [
+      {
+        src: "../css",
+        dest: "./css",
+      },
+    ],
+    esmLoaderPath: "../loader",
+  },
+  {
+    type: "docs-readme",
+  },
+  {
+    type: "dist-hydrate-script",
+  },
+];
 
 export const config: Config = {
   namespace: "wl-components",
@@ -34,33 +53,27 @@ export const config: Config = {
   // devServer: {
   //   reloadStrategy: "hmr",
   // },
-  outputTargets: [
-    // {
-    //   type: "www",
-    //   copy: [
-    //     {
-    //       src: "../css",
-    //       dest: "./css",
-    //     },
-    //   ],
-    // },
-    {
-      type: "dist",
-      copy: [
-        {
-          src: "../css",
-          dest: "./css",
-        },
-      ],
-      esmLoaderPath: "../loader",
-    },
-    {
-      type: "docs-readme",
-    },
-    {
-      type: "dist-hydrate-script",
-    },
-  ],
+  outputTargets:
+    process.env.NODE_ENV === "development"
+      ? DEV_TARGETS
+      : [
+          {
+            type: "dist",
+            copy: [
+              {
+                src: "../css",
+                dest: "./css",
+              },
+            ],
+            esmLoaderPath: "../loader",
+          },
+          {
+            type: "docs-readme",
+          },
+          {
+            type: "dist-hydrate-script",
+          },
+        ],
   plugins: [
     sass({
       injectGlobalPaths: ["src/themes/wl.skip-warns.scss"],
@@ -76,6 +89,8 @@ export const config: Config = {
     shadowDomShim: true,
   },
 };
+
+console.log(process.env.NODE_ENV, "NODE:");
 
 if (process.env.NODE_ENV === "development") {
   config.outputTargets.push(devTarget);

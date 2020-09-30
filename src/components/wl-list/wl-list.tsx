@@ -1,3 +1,4 @@
+import { getWlMode } from "../../global/wl-global";
 import {
   Component,
   ComponentInterface,
@@ -10,10 +11,14 @@ import {
 
 @Component({
   tag: "wl-list",
-  styleUrl: "wl-list-bundle.scss",
+  // styleUrl: "wl-list-bundle.scss",
+  styleUrls: {
+    md: "list.md.scss",
+    ios: "list.ios.scss",
+  },
 })
 export class WlList implements ComponentInterface {
-  @Element() el!: HTMLElement;
+  @Element() el!: HTMLWlListElement;
 
   /**
    * How the bottom border should be displayed on all items.
@@ -27,7 +32,7 @@ export class WlList implements ComponentInterface {
 
   render() {
     const { lines, inset } = this;
-    let mode = "md";
+    let mode = getWlMode();
     return (
       <Host
         class={{

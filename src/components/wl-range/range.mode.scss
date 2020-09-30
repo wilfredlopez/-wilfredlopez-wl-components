@@ -68,20 +68,18 @@
 .range-pin {
   position: absolute;
 
-  background: currentColor(base);
-  color: currentColor(contrast);
+  background: current-color(base);
+  color: current-color(contrast);
 
   text-align: center;
   box-sizing: border-box;
 }
 
 .range-knob-handle {
-  @include position(
-    calc((var(--height) - var(--knob-handle-size)) / 2),
+  @include position(calc((var(--height) - var(--knob-handle-size)) / 2),
     null,
     null,
-    0
-  );
+    0);
   @include margin-horizontal(calc(0px - var(--knob-handle-size) / 2), null);
 
   @include rtl() {
@@ -104,12 +102,10 @@
 
 .range-bar {
   @include border-radius(var(--bar-border-radius));
-  @include position(
-    calc((var(--height) - var(--bar-height)) / 2),
+  @include position(calc((var(--height) - var(--bar-height)) / 2),
     null,
     null,
-    0
-  );
+    0);
 
   @include rtl() {
     /* stylelint-disable-next-line property-blacklist */
@@ -128,12 +124,10 @@
 
 .range-knob {
   @include border-radius(var(--knob-border-radius));
-  @include position(
-    calc(50% - var(--knob-size) / 2),
+  @include position(calc(50% - var(--knob-size) / 2),
     null,
     null,
-    calc(50% - var(--knob-size) / 2)
-  );
+    calc(50% - var(--knob-size) / 2));
 
   @include rtl() {
     /* stylelint-disable-next-line property-blacklist */

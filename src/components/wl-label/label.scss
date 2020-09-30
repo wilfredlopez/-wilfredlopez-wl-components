@@ -25,7 +25,7 @@
 }
 
 :host(.wl-color) {
-  color: currentColor(base);
+  color: current-color(base);
 }
 
 :host(.wl-text-wrap),
@@ -67,6 +67,7 @@
 :host(*) {
   visibility: visible;
 }
+
 :host(.label-stacked),
 :host(.label-floating) {
   @include margin(null, null, 0, null);

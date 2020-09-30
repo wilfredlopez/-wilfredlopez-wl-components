@@ -11,8 +11,8 @@
 | ------------- | ---------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- |
 | `buttonProps` | --         |             | `undefined \| { [key: string]: HTMLWlButtonElement; }`                                                                       | `undefined` |
 | `circular`    | `circular` |             | `boolean \| undefined`                                                                                                       | `undefined` |
-| `color`       | `color`    |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `"light"`   |
-| `variant`     | `variant`  |             | `"block" \| "clear" \| "full" \| "outline" \| "solid" \| undefined`                                                          | `"outline"` |
+| `color`       | `color`    |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `undefined` |
+| `variant`     | `variant`  |             | `"block" \| "clear" \| "full" \| "outline" \| "solid" \| undefined`                                                          | `undefined` |
 
 
 ## Methods

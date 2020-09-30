@@ -9,7 +9,7 @@
 
 | Property  | Attribute | Description | Type                                                                                                                         | Default     |
 | --------- | --------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `color`   | `color`   |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `"dark"`    |
+| `color`   | `color`   |             | `"danger" \| "dark" \| "light" \| "medium" \| "primary" \| "secondary" \| "success" \| "tertiary" \| "warning" \| undefined` | `undefined` |
 | `size`    | `size`    |             | `"lg" \| "sm" \| "xl" \| undefined`                                                                                          | `undefined` |
 | `variant` | `variant` |             | `"block" \| "clear" \| "full" \| "outline" \| "solid" \| undefined`                                                          | `"clear"`   |
 

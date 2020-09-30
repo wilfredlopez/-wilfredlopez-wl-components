@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description                                                           | Type      | Default |
-| -------- | --------- | --------------------------------------------------------------------- | --------- | ------- |
-| `fixed`  | `fixed`   | If `true`, the grid will have a fixed width based on the screen size. | `boolean` | `false` |
+| Property  | Attribute | Description                                                           | Type                                                                             | Default     |
+| --------- | --------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------- |
+| `align`   | `align`   |                                                                       | `"baseline" \| "center" \| "end" \| "start" \| "stretch" \| undefined`           | `"stretch"` |
+| `fixed`   | `fixed`   | If `true`, the grid will have a fixed width based on the screen size. | `boolean`                                                                        | `false`     |
+| `justify` | `justify` |                                                                       | `"around" \| "between" \| "center" \| "end" \| "evenly" \| "start" \| undefined` | `"between"` |
 
 
 ## CSS Custom Properties

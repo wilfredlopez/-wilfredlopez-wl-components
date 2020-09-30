@@ -90,8 +90,6 @@ export const config: Config = {
   },
 };
 
-console.log(process.env.NODE_ENV, "NODE:");
-
 if (process.env.NODE_ENV === "development") {
   config.outputTargets.push(devTarget);
   config.devMode = true;

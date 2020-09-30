@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                         | Default    |
-| -------- | --------- | ----------- | -------------------------------------------- | ---------- |
-| `align`  | `align`   |             | `"baseline" \| "center" \| "end" \| "start"` | `"center"` |
+| Property  | Attribute | Description | Type                                                                             | Default     |
+| --------- | --------- | ----------- | -------------------------------------------------------------------------------- | ----------- |
+| `align`   | `align`   |             | `"baseline" \| "center" \| "end" \| "start" \| undefined`                        | `undefined` |
+| `justify` | `justify` |             | `"around" \| "between" \| "center" \| "end" \| "evenly" \| "start" \| undefined` | `undefined` |
 
 
 ----------------------------------------------

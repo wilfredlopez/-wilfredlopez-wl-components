@@ -20,7 +20,7 @@
 
 :host(.wl-color) .range-bar-active,
 :host(.wl-color) .range-tick-active {
-  background: current-color(base);
+  background: currentColor(base);
 }
 
 ::slotted([slot="start"]) {

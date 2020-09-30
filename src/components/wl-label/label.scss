@@ -25,7 +25,7 @@
 }
 
 :host(.wl-color) {
-  color: current-color(base);
+  color: currentColor(base);
 }
 
 :host(.wl-text-wrap),

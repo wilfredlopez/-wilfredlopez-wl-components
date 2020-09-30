@@ -172,8 +172,8 @@ $VARIANTS: (outline, solid, clear);
 // --------------------------------------------------
 // Solid Button with Color
 :host(.button-native) {
-  background: current-color(base);
-  // color: current-color(contrast);
+  background: currentColor(base);
+  // color: currentColor(contrast);
 }
 
 // Outline Button
@@ -181,13 +181,13 @@ $VARIANTS: (outline, solid, clear);
 // Default Outline Color
 [variant="outline"] {
   --border-width: 20px !important;
-  outline: 1px solid current-color(base) !important;
+  outline: 1px solid currentColor(base) !important;
 }
 
 // Clear Button with Color
 [variant="clear"] .button-native {
   background: transparent;
-  color: current-color(base);
+  color: currentColor(base);
 }
 
 // Default Clear Color

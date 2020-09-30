@@ -89,12 +89,10 @@
 // Multi-line items should align the slotted content at the top
 :host(.item-multi-line) ::slotted([slot="start"]),
 :host(.item-multi-line) ::slotted([slot="end"]) {
-  @include margin(
-    $item-md-multi-line-slot-margin-top,
+  @include margin($item-md-multi-line-slot-margin-top,
     $item-md-multi-line-slot-margin-end,
     $item-md-multi-line-slot-margin-bottom,
-    $item-md-multi-line-slot-margin-start
-  );
+    $item-md-multi-line-slot-margin-start);
 
   align-self: flex-start;
 }
@@ -103,17 +101,13 @@
 // --------------------------------------------------
 
 ::slotted([slot="start"]) {
-  @include margin-horizontal(
-    $item-md-start-slot-margin-start,
-    $item-md-start-slot-margin-end
-  );
+  @include margin-horizontal($item-md-start-slot-margin-start,
+    $item-md-start-slot-margin-end);
 }
 
 ::slotted([slot="end"]) {
-  @include margin-horizontal(
-    $item-md-end-slot-margin-start,
-    $item-md-end-slot-margin-end
-  );
+  @include margin-horizontal($item-md-end-slot-margin-start,
+    $item-md-end-slot-margin-end);
 }
 
 // Material Design Slotted Icon
@@ -126,30 +120,24 @@
 }
 
 :host(.wl-color) ::slotted(wl-icon) {
-  color: current-color(contrast);
+  color: currentColor(contrast);
 }
 
 ::slotted(wl-icon[slot]) {
-  @include margin(
-    $item-md-icon-slot-margin-top,
+  @include margin($item-md-icon-slot-margin-top,
     $item-md-icon-slot-margin-end,
     $item-md-icon-slot-margin-bottom,
-    $item-md-icon-slot-margin-start
-  );
+    $item-md-icon-slot-margin-start);
 }
 
 ::slotted(wl-icon[slot="start"]) {
-  @include margin-horizontal(
-    $item-md-icon-start-slot-margin-start,
-    $item-md-icon-start-slot-margin-end
-  );
+  @include margin-horizontal($item-md-icon-start-slot-margin-start,
+    $item-md-icon-start-slot-margin-end);
 }
 
 ::slotted(wl-icon[slot="end"]) {
-  @include margin-horizontal(
-    $item-md-icon-end-slot-margin-start,
-    $item-md-icon-end-slot-margin-end
-  );
+  @include margin-horizontal($item-md-icon-end-slot-margin-start,
+    $item-md-icon-end-slot-margin-end);
 }
 
 // Material Design Slotted Toggle
@@ -172,26 +160,20 @@
 }
 
 ::slotted(wl-note[slot]) {
-  @include padding(
-    $item-md-note-slot-padding-top,
+  @include padding($item-md-note-slot-padding-top,
     $item-md-note-slot-padding-end,
     $item-md-note-slot-padding-bottom,
-    $item-md-note-slot-padding-start
-  );
+    $item-md-note-slot-padding-start);
 }
 
 ::slotted(wl-note[slot="start"]) {
-  @include padding-horizontal(
-    $item-md-note-start-slot-padding-start,
-    $item-md-note-start-slot-padding-end
-  );
+  @include padding-horizontal($item-md-note-start-slot-padding-start,
+    $item-md-note-start-slot-padding-end);
 }
 
 ::slotted(wl-note[slot="end"]) {
-  @include padding-horizontal(
-    $item-md-note-end-slot-padding-start,
-    $item-md-note-end-slot-padding-end
-  );
+  @include padding-horizontal($item-md-note-end-slot-padding-start,
+    $item-md-note-end-slot-padding-end);
 }
 
 // Material Design Item Avatar
@@ -215,40 +197,32 @@
 
 ::slotted(wl-avatar),
 ::slotted(wl-thumbnail) {
-  @include margin(
-    $item-md-media-slot-margin-top,
+  @include margin($item-md-media-slot-margin-top,
     $item-md-media-slot-margin-end,
     $item-md-media-slot-margin-bottom,
-    $item-md-media-slot-margin-start
-  );
+    $item-md-media-slot-margin-start);
 }
 
 ::slotted(wl-avatar[slot="start"]),
 ::slotted(wl-thumbnail[slot="start"]) {
-  @include margin-horizontal(
-    $item-md-media-start-slot-margin-start,
-    $item-md-media-start-slot-margin-end
-  );
+  @include margin-horizontal($item-md-media-start-slot-margin-start,
+    $item-md-media-start-slot-margin-end);
 }
 
 ::slotted(wl-avatar[slot="end"]),
 ::slotted(wl-thumbnail[slot="end"]) {
-  @include margin-horizontal(
-    $item-md-media-end-slot-margin-start,
-    $item-md-media-end-slot-margin-end
-  );
+  @include margin-horizontal($item-md-media-end-slot-margin-start,
+    $item-md-media-end-slot-margin-end);
 }
 
 // Material Design Slotted Label
 // --------------------------------------------------
 
 ::slotted(wl-label) {
-  @include margin(
-    $item-md-label-margin-top,
+  @include margin($item-md-label-margin-top,
     $item-md-label-margin-end,
     $item-md-label-margin-bottom,
-    $item-md-label-margin-start
-  );
+    $item-md-label-margin-start);
 }
 
 // Material Design Floating/Stacked Label
@@ -256,12 +230,10 @@
 
 :host(.item-label-stacked) ::slotted([slot="end"]),
 :host(.item-label-floating) ::slotted([slot="end"]) {
-  @include margin(
-    $item-md-label-slot-end-margin-top,
+  @include margin($item-md-label-slot-end-margin-top,
     $item-md-label-slot-end-margin-end,
     $item-md-label-slot-end-margin-bottom,
-    $item-md-label-slot-end-margin-start
-  );
+    $item-md-label-slot-end-margin-start);
 }
 
 // Material Design Toggle/Radio Item

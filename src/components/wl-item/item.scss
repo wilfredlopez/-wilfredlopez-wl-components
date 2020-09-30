@@ -96,13 +96,13 @@
 // --------------------------------------------------
 
 :host(.wl-color) .item-native {
-  background: current-color(base);
-  color: current-color(contrast);
+  background: currentColor(base);
+  color: currentColor(contrast);
 }
 
 :host(.wl-color) .item-native,
 :host(.wl-color) .item-inner {
-  border-color: current-color(shade);
+  border-color: currentColor(shade);
 }
 
 // Item: Activated
@@ -119,7 +119,7 @@
 }
 
 :host(.wl-color.wl-activated) .item-native {
-  color: current-color(contrast);
+  color: currentColor(contrast);
 }
 
 // Item: Focused
@@ -136,10 +136,10 @@
 }
 
 :host(.wl-color.wl-focused) .item-native {
-  color: current-color(contrast);
+  color: currentColor(contrast);
 
   &::after {
-    background: current-color(contrast);
+    background: currentColor(contrast);
   }
 }
 
@@ -158,10 +158,10 @@
   }
 
   :host(.wl-color.wl-activatable:hover) .item-native {
-    color: #{current-color(contrast)};
+    color: #{currentColor(contrast)};
 
     &::after {
-      background: #{current-color(contrast)};
+      background: #{currentColor(contrast)};
     }
   }
 }

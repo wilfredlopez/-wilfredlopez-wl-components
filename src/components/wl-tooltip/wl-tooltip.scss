@@ -19,9 +19,9 @@
         z-index: 9;
         width: var(--contentWidth, 300px);
         // background-color: white;
-        background-color: current-color(base);
+        background-color: currentColor(base);
         box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
-        color:current-color(contrast);
+        color:currentColor(contrast);
     }
     .tooltip-container{
         display: inline-flex;

@@ -54,8 +54,8 @@
 }
 
 :host(.wl-color) {
-  color: current-color(base);
-  border-bottom: 1px solid current-color(base);
+  color: currentColor(base);
+  border-bottom: 1px solid currentColor(base);
 }
 
 // Native Text Input
@@ -63,12 +63,10 @@
 
 .native-input {
   @include border-radius(var(--border-radius));
-  @include padding(
-    var(--padding-top),
+  @include padding(var(--padding-top),
     var(--padding-end),
     var(--padding-bottom),
-    var(--padding-start)
-  );
+    var(--padding-start));
   @include text-inherit();
 
   display: inline-block;

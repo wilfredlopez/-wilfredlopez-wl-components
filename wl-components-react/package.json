@@ -1,6 +1,6 @@
 {
   "name": "@wilfredlopez/react",
-  "version": "1.0.9",
+  "version": "2.0.1",
   "description": "React specific wrapper for @wilfredlopez/wl-components",
   "keywords": [
     "pwa",

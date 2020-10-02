@@ -8,6 +8,11 @@ export {
   mdTransitionAnimation,
   iosTransitionAnimation,
   setupConfig,
+  Color,
+  Mode,
+  NavOutlet,
+  BackButtonEventDetail,
+  Platforms,
 } from '@wilfredlopez/wl-components';
 
 export * from './proxies';

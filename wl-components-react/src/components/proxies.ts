@@ -126,3 +126,8 @@ export const WlRange = /*@__PURE__*/ createReactComponent<
   JSX.WlRange,
   HTMLWlRangeElement
 >('wl-range');
+
+export const WlApp = /*@__PURE__*/ createReactComponent<
+  JSX.WlApp,
+  HTMLWlAppElement
+>('wl-app');
